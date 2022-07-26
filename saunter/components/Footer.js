@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
       <footer>
-        Copyright 2021 Ninja List
+        Built and Designed by Saunter in Next.js
       </footer>
     );
   }
