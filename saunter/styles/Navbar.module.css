@@ -5,6 +5,8 @@
   justify-content: flex-end;
   align-items: flex-end;
   border-bottom: 1px solid #ddd;
+  z-index: 1;
+  position: relative;
 }
 .navbar a {
   margin-left: 12px;
