@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand')
-
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Megrim');
 
 
 * {
@@ -103,6 +103,11 @@ a:hover {
 
 }
 
+.logo {
+  margin-right: 50vw;
+  font-family: 'Megrim';
+  font-size: xx-large;
+}
 
 /* styling to be refactored */
 a {
@@ -110,7 +115,7 @@ a {
   text-decoration: none;
 }
 .content {
-  max-width: 960px;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
