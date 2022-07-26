@@ -1,6 +1,8 @@
+import styles from "../styles/Navbar.module.css"
+
 const Footer = () => {
     return (
-      <footer>
+      <footer className={styles.footer}>
         Built and Designed by Saunter in Next.js
       </footer>
     );

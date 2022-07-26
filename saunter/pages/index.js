@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import styles from '../styles/Homepage.module.css'
-import {Picture1} from "../public/assets/Picture1.jpg"
 import "../public/assets/homepageimg.webp"
 
 export default function Home() {
