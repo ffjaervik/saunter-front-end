@@ -2,8 +2,13 @@
     color: var(--color-white);
     z-index: 1;
     position: relative;
-    text-align: center;  
+    text-align: center;
+    padding: center;
+    vertical-align: middle;
+    margin-top: 30vh;
+    font-size: xx-large;
 }
+
 .landingimage {
     z-index: 0;
     position: relative;
