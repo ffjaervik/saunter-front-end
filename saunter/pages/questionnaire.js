@@ -1,30 +1,21 @@
 import {useState, useEffect } from "react";
 
+
 export default function CreateDayPlan() {
-
-const [activities, setActivities] = useState()
-
- useEffect(() => {
-    const getActivities = async function () {
-      const response = await fetch(
-        `http://localhost:3000/all-budgets`
-      );
-      const data = await response.json();
-
-      console.log(data);
-      
-
-      // console.log({ squatsToday, squatsThisWeekTotal, squatsThisWeekAverage })
-
-      setActivities({ data });
-    };
-
-    getActivities();
+  const [activities, setActivities] = useState([]);
+  
+  async function fetchActivities() {
+    const response = await fetch("https://localhost:3001/low-budget");
+    const data = await response.json();
+    console.log(data.rows)
+    return data.rows;
+  }
+  
+  useEffect(() => {
+    async function setOnLoad() {
+      const result = await fetchActivities();
+      setActivities(result);
+    }
+    setOnLoad();
   }, []);
-
-  return (
-    <div>
-    <button onSubmit = {}></button>
-    </div>
-  );
 }
