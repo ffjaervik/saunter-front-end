@@ -86,15 +86,12 @@ a:hover {
     width: max-content;
     display: inline-block;
     background-color: var(--color-btn);
-    padding: 0.75rem 1.2rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 0.4rem;
     cursor: pointer;
     border: 1px solid var(--color-primary);
     transition: var(--transition);
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    padding-top: auto;
-    padding-bottom: auto;
+    margin: 1.5rem 1.5rem;
 
 }
 
