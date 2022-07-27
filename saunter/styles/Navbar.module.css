@@ -1,12 +1,12 @@
 .navbar {
-  margin: 0;
+  top: 0;
   padding: 10px 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 1px solid #ddd;
   z-index: 1;
-  position: relative;
+  position: fixed;
   background-color: #F8F5EF;
   height: 5vh;
   width: 100vw;
@@ -30,5 +30,9 @@
   width: 100vw;
   }
 
-
+  .logo { 
+    margin-right: 50vw;
+    font-family: 'Megrim';
+    font-size: xx-large;
+  }
 
