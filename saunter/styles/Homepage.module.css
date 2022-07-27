@@ -1,0 +1,16 @@
+.homepage {
+    color: var(--color-white);
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: center;
+    vertical-align: middle;
+    margin-top: 30vh;
+    font-size: 2rem;
+}
+
+.landingimage {
+    z-index: 0;
+    position: relative;
+}
+
