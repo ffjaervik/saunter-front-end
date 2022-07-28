@@ -10,6 +10,7 @@
   background-color: #F8F5EF;
   height: 5vh;
   width: 100vw;
+  box-sizing: content-box;
 }
 
 .navbar a {
