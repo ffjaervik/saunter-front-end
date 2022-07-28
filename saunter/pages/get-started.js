@@ -2,7 +2,7 @@ import {useState, useEffect, useCallback} from "react";
 import axios from "axios";
 import { useRouter } from 'next/router';
 
-export default function Questionnaire() {
+export default function GetStarted() {
   const router = useRouter()
   function sendingResults(){
     let location = "London"
