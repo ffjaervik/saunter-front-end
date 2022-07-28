@@ -10,11 +10,11 @@ export default function Results(){
     
     const [data, setData] = useState([]);
     const router = useRouter();
-    const {location, budget} = router.query
+    const {selectedLocation, selectedBudget} = router.query
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`http://localhost:3001/${router.query.budget}`);
+      const response = await axios.get(`http://localhost:3001/${router.query.selectedBudget}-budget`);
       setData(response.data.data);
       console.log(response.data.data)
     
