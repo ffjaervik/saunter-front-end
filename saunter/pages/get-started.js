@@ -10,6 +10,7 @@ import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
   const router = useRouter()
+  
   function sendingResults(){
     let location = "London"
     let budget = "low-budget"

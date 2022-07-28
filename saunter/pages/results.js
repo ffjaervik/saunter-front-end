@@ -13,19 +13,31 @@ export default function Results(){
     const router = useRouter();
     const {location, budget} = router.query
 
-  useEffect(() => {
+    useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`http://localhost:3001/${router.query.budget}`);
       setData(response.data.data);
       console.log(response.data.data)
-    
     };
-
     // query can change, but don't actually trigger
     // request unless submitting is true
       getData();
-
   }, []);
+
+  function sendingResults(){
+    preventDefault();
+    let location = "London"
+    let budget = "high-budget"
+    router.push(
+        {
+            // pathname: `/results`,
+            query: {location, budget}
+        }
+        )
+    console.log(budget)
+    }
+
+
 
     return (
       <div>
@@ -46,7 +58,7 @@ export default function Results(){
         {/* chakra ui imported below */}
         <div className="form">
         <ChakraProvider>
-<Box width="50vw">
+<Box width="15vw">
   <FormControl>
   <FormLabel>Location</FormLabel>
   <Select placeholder='Select Location'>
@@ -60,7 +72,7 @@ export default function Results(){
     <option>Low</option>
   </Select>
   
-  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
+  <button className="btn" onSubmit={sendingResults}>Create Day Plan</button>
   </FormControl>
   </Box>
   </ChakraProvider>
