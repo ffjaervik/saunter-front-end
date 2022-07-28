@@ -1,6 +1,7 @@
 import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react'
 import axios from "axios";
+import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 
 
 // const data = router.query;
@@ -42,6 +43,29 @@ export default function Results(){
             );
           })}
         </div>
+        <div className="form">
+        <ChakraProvider>
+<Box width="50vw">
+  <FormControl>
+  <FormLabel>Location</FormLabel>
+  <Select placeholder='Select Location'>
+    <option>London</option>
+  </Select>
+
+  <FormLabel>Budget</FormLabel>
+  <Select placeholder='Select Budget'>
+    <option>High</option>
+    <option>Medium</option>
+    <option>Low</option>
+  </Select>
+  
+  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
+  </FormControl>
+  </Box>
+  </ChakraProvider>
+
+        </div>
       </div>
+
     );
 }
