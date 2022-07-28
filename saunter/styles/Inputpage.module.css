@@ -1,0 +1,23 @@
+.imgcontainer {
+    height: 100vh;
+    width: 100vh;
+    background-color: yellow;
+    /* margin-right: 15rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+}
+
+.pagetwoimg {
+    width:75px;
+    min-width: 100%;
+    max-width: 300%;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 60px;
+}
