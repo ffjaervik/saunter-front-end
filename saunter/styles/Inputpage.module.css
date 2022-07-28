@@ -1,19 +1,20 @@
 .imgcontainer {
-    height: 100vh;
-    width: 100vh;
-    background-color: yellow;
-    /* margin-right: 15rem; */
+    /* height: 100vh;
+    width: 100vh; */
+    height: 600px;
+    width: 600px;
+    margin-right: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
     padding:0;
 }
 
-/* .pagetwoimg {
-    width:75px;
-    min-width: 100%;
-    max-width: 300%;
-} */
+.pagetwoimg {
+    border-radius: 184px;
+    /* min-width: 100%;
+    max-width: 300%; */
+}
 
 .form {
     display: flex;
