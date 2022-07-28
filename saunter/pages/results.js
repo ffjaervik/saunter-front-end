@@ -43,6 +43,7 @@ export default function Results(){
             );
           })}
         </div>
+        {/* chakra ui imported below */}
         <div className="form">
         <ChakraProvider>
 <Box width="50vw">
