@@ -32,32 +32,27 @@ export default function GetStarted() {
             className={styles.pagetwoimg}
             src="/../public/assets/inputpageimage.avif"
             alt="inputpage image"
-            height = "550%"
-            width= "500%"
-            border-radius= "50%"
-            // layout="fixed"
-            // objectFit="cover"
-            // objectPosition="center"
-            // display= "block"
-            // width="100%"
-            // height="100%"
+            height = "400%"
+            width= "300%"
           />
         </div>
 
         <ChakraProvider>
           <Box
             width="50vw"
-            // backgroundColor="tomato"
-            border="1px"
-            borderColor="gray.200"
+            borderColor="#FF8F7780"
+            borderStyle="solid"
+            borderWidth="4px"
+            padding="6"
+            borderRadius="2rem"
           >
             <FormControl>
-              <FormLabel>Location</FormLabel>
+              <FormLabel>Where do you want to travel to?</FormLabel>
               <Select placeholder="Select Location">
                 <option>London</option>
               </Select>
 
-              <FormLabel>Budget</FormLabel>
+              <FormLabel>What is your budget?</FormLabel>
               <Select placeholder="Select Budget">
                 <option>High</option>
                 <option>Medium</option>

@@ -3,7 +3,6 @@
     width: 100vh; */
     height: 600px;
     width: 600px;
-    margin-right: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +10,8 @@
 }
 
 .pagetwoimg {
-    border-radius: 184px;
+    border-radius: 2rem;
+    /* margin-left: 50vw; */
     /* min-width: 100%;
     max-width: 300%; */
 }
