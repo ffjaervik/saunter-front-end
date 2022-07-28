@@ -2,11 +2,11 @@ import {useState, useEffect, useCallback} from "react";
 import axios from "axios";
 import { useRouter } from 'next/router';
 
-export default function CreateDayPlan() {
+export default function Questionnaire() {
   const router = useRouter()
   function sendingResults(){
     let location = "London"
-    let budget = "All"
+    let budget = "low-budget"
     router.push(
       {
         pathname: `/results`,

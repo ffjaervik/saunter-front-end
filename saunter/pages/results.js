@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from "axios";
 
 
 // const data = router.query;
@@ -7,37 +8,40 @@ import { useState } from 'react'
 
 export default function Results(){
     
-    const [submitting, setSubmitting] = useState(false);
     const [data, setData] = useState([]);
     const router = useRouter();
     const {location, budget} = router.query
 
-//   useEffect(() => {
-//     const getData = async () => {
-//       const response = await axios.get(`http://localhost:3001/all-budgets`);
-//       setData(response.data.data);
-//       console.log(response.data.data)
-//       setSubmitting(false); // call is finished, set to false
-//     };
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`http://localhost:3001/${router.query.budget}`);
+      setData(response.data.data);
+      console.log(response.data.data)
+    
+    };
 
     // query can change, but don't actually trigger
     // request unless submitting is true
+      getData();
 
-//     if (submitting) {
-//       // is true initially, and again when button is clicked
-//       getData();
-//     }
-//   }, [submitting]);
+  }, []);
 
-    return(
+    return (
+      <div>
+        <h1>Create Day Plan</h1>
         <div>
-            <p>{location}</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>{location}</p>
-            <p>{budget}</p>
+          {data.map((activity) => {
+            console.log(activity.name);
+            const name = activity.name;
+            const image = activity.image;
+            return (
+              <div>
+                <h5 key={name}>{name}</h5>
+                <img src={image} />
+              </div>
+            );
+          })}
         </div>
-    )
+      </div>
+    );
 }
