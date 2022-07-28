@@ -13,12 +13,14 @@ const InputPage = () => {
   </Head>
  
   <div className={styles.form}>
-  <div className={styles.pagetwopic}>
+  <div className={styles.imgcontainer}>
   <Image
+  className={styles.pagetwoimg}
   src="/../public/assets/inputpageimage.avif"
   alt="inputpage image"
-  layout="fixed"
+  layout="fill"
   objectFit="cover"
+  objectPosition="center"
   // display= "block"
   width="100%"
   height="100%"
@@ -27,7 +29,7 @@ const InputPage = () => {
 <ChakraProvider>
 <Box width="50vw">
   <FormControl>
-  <FormLabel>Country</FormLabel>
+  <FormLabel>Location</FormLabel>
   <Select placeholder='Select Location'>
     <option>London</option>
   </Select>
