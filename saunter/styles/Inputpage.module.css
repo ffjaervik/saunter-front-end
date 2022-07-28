@@ -1,0 +1,12 @@
+.pagetwopic {
+    /* height: 50vh; */
+    width: 50vh;
+    background-color: yellow;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 60px;
+}
