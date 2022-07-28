@@ -1,6 +1,12 @@
 import {useState, useEffect, useCallback} from "react";
 import axios from "axios";
 import { useRouter } from 'next/router';
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import "../public/assets/inputpageimage.avif";
+import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
+import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
   const router = useRouter()
@@ -16,25 +22,6 @@ export default function GetStarted() {
 
   return (
     <div>
-      <h1>Create Day Plan</h1>
-      <button type="button" onClick={sendingResults}>
-        Click here
-      </button>
-    </div>
-
-  );
-}
-
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import "../public/assets/inputpageimage.avif";
-import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
-import styles from "../styles/Inputpage.module.css"
-
-const InputPage = () => {
-  return (
-  <div>
   <Head>
     <title>Saunter | Get-Started</title>
   </Head>
@@ -53,6 +40,7 @@ const InputPage = () => {
   height="100%"
   />
   </div>
+
 <ChakraProvider>
 <Box width="50vw">
   <FormControl>
@@ -68,13 +56,12 @@ const InputPage = () => {
     <option>Low</option>
   </Select>
   
-  <button className="btn">Create Day Plan</button>
+  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
   </FormControl>
   </Box>
   </ChakraProvider>
   </div>
   </div> 
   );
-};
+}
 
-export default InputPage;
