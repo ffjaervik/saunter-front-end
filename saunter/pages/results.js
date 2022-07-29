@@ -2,6 +2,7 @@ import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react'
 import axios from "axios";
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
+import styles from "../styles/Results.module.css"
 
 
 // const data = router.query;
@@ -38,15 +39,15 @@ export default function Results(){
 
 
     return (
-      <div>
-        <h1>Create Day Plan</h1>
-        <div>
+      <div className= {styles.a}>
+        <h1>Your Recommendations:</h1>
+        <div className = {styles.b}>
           {data.map((activity) => {
             console.log(activity.name);
             const name = activity.name;
             const image = activity.image;
             return (
-              <div>
+              <div className = {styles.c}>
                 <h5 key={name}>{name}</h5>
                 <img src={image} />
               </div>
