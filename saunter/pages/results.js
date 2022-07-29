@@ -22,18 +22,17 @@ export default function Results(){
     // query can change, but don't actually trigger
     // request unless submitting is true
       getData();
-  }, []);
+
+  }, [router.query.budget]);
 
   function sendingResults(){
-    preventDefault();
     let location = "London"
-    let budget = "high-budget"
+    let budget = "medium-budget"
     router.push(
         {
             // pathname: `/results`,
             query: {location, budget}
-        }
-        )
+        })   
     console.log(budget)
     }
 
@@ -72,7 +71,7 @@ export default function Results(){
     <option>Low</option>
   </Select>
   
-  <button className="btn" onSubmit={sendingResults}>Create Day Plan</button>
+  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
   </FormControl>
   </Box>
   </ChakraProvider>
