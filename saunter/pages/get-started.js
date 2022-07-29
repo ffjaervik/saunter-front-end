@@ -12,6 +12,7 @@ export default function GetStarted() {
   const [budget, setBudget] = useState(null)
 
   const router = useRouter()
+  
   function sendingResults(){
     let selectedLocation = "London"
     let selectedBudget = budget
