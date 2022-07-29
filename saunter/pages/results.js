@@ -39,15 +39,15 @@ export default function Results(){
 
 
     return (
-      <div className= {styles.a}>
+      <div className={styles.main}>
         <h1>Your Recommendations:</h1>
-        <div className = {styles.b}>
+        <div className={styles.results}>
           {data.map((activity) => {
             console.log(activity.name);
             const name = activity.name;
             const image = activity.image;
             return (
-              <div className = {styles.c}>
+              <div className={styles.activity}>
                 <h5 key={name}>{name}</h5>
                 <img src={image} />
               </div>
@@ -57,7 +57,12 @@ export default function Results(){
         {/* chakra ui imported below */}
         <div className="form">
           <ChakraProvider>
-            <Box width="15vw">
+            <Box
+              width="15vw"
+              padding="6"
+              borderRadius="2rem"
+              m = "15vh"
+            >
               <FormControl>
                 <FormLabel>Location</FormLabel>
                 <Select placeholder="Select Location">
