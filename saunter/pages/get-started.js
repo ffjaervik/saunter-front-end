@@ -9,14 +9,16 @@ import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/
 import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
+  const [budget, setBudget] = useState(null)
+
   const router = useRouter()
   function sendingResults(){
-    let location = "London"
-    let budget = "low-budget"
+    let selectedLocation = "London"
+    let selectedBudget = budget
     router.push(
       {
         pathname: `/results`,
-        query: {location, budget}
+        query: {selectedLocation, selectedBudget}
       }
       )}
 
@@ -36,6 +38,20 @@ export default function GetStarted() {
             width= "400%"
           />
         </div>
+
+  <FormLabel>Budget</FormLabel>
+  <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </Select>
+  
+  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
+  </FormControl>
+  </Box>
+  </ChakraProvider>
+  </div>
+  </div> 
 
         <ChakraProvider>
           <Box
@@ -67,6 +83,7 @@ export default function GetStarted() {
         </ChakraProvider>
       </div>
     </div>
+
   );
 }
 
