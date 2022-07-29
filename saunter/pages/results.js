@@ -38,6 +38,7 @@ export default function Results(){
               <div>
                 <h5 key={name}>{name}</h5>
                 <img src={image} />
+                <button className="btn">Save</button>
               </div>
             );
           })}
