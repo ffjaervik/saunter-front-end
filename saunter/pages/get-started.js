@@ -38,21 +38,7 @@ export default function GetStarted() {
             width= "400%"
           />
         </div>
-
-  <FormLabel>Budget</FormLabel>
-  <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
-  </Select>
   
-  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
-  </FormControl>
-  </Box>
-  </ChakraProvider>
-  </div>
-  </div> 
-
         <ChakraProvider>
           <Box
             width="30vw"
@@ -69,10 +55,10 @@ export default function GetStarted() {
               </Select>
 
               <FormLabel>What is your budget?</FormLabel>
-              <Select placeholder="Select Budget">
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
+              <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
               </Select>
 
               <button className="btn" onClick={sendingResults}>
