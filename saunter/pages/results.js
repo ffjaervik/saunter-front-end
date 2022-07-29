@@ -10,7 +10,18 @@ export default function Results(){
     
     const [data, setData] = useState([]);
     const router = useRouter();
-    const {selectedLocation, selectedBudget} = router.query
+    const {selectedLocation, selectedBudget} = router.query;
+
+    async function patchSaved(input) {
+      await fetch(`http://localhost:3001/${router.query.selectedBudget}-budget`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Request-Method": "PATCH",
+        },
+        body: JSON.stringify(input),
+      });
+    }
 
   useEffect(() => {
     const getData = async () => {
@@ -32,13 +43,15 @@ export default function Results(){
         <div>
           {data.map((activity) => {
             console.log(activity.name);
+            const id = activity.id;
             const name = activity.name;
             const image = activity.image;
+            const body = {id: id}
             return (
               <div>
                 <h5 key={name}>{name}</h5>
                 <img src={image} />
-                <button className="btn">Save</button>
+                <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
               </div>
             );
           })}
