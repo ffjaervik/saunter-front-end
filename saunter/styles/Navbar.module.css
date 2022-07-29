@@ -1,0 +1,49 @@
+.navbar {
+  top: 0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  z-index: 1;
+  position: fixed;
+  background-color: #F8F5EF;
+  height: 5vh;
+  width: 100vw;
+  box-sizing: content-box;
+  text-shadow: 0.5px 1px grey;
+}
+
+.navbar a {
+  margin-left: 1rem;
+}
+
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: #F8F5EF;
+  height: 1vmin;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  
+  }
+
+  .navbar h2 { 
+    margin-right: auto;
+    font-family: 'Megrim';
+    font-size: xx-large;
+    justify-content: flex-start;
+    margin-left: 1.5vw;
+    
+  }
+
+  .navbar h2:hover {
+      color: var(--color-btn)
+
+  }
+
