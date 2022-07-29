@@ -34,7 +34,7 @@ html {
 }
 body {
   font-family: "Quicksand", sans-serif;
-  background: var(--color-bg);
+  background: var(--color-bg) !important;
   color: var(--color-black);
   line-height: 1.7;
 }

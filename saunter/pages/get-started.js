@@ -32,14 +32,14 @@ export default function GetStarted() {
             className={styles.pagetwoimg}
             src="/../public/assets/inputpageimage.avif"
             alt="inputpage image"
-            height = "400%"
-            width= "300%"
+            height = "530%"
+            width= "400%"
           />
         </div>
 
         <ChakraProvider>
           <Box
-            width="50vw"
+            width="30vw"
             borderColor="#FF8F7780"
             borderStyle="solid"
             borderWidth="4px"
