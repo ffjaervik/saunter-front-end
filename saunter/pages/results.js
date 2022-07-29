@@ -10,6 +10,7 @@ import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/
 export default function Results(){
     
     const [data, setData] = useState([]);
+    const [budget, setBudget] = useState(null);
     const router = useRouter();
     const {selectedLocation, selectedBudget} = router.query
 
@@ -23,18 +24,16 @@ export default function Results(){
     // request unless submitting is true
       getData();
 
-  }, [router.query.budget]);
+  }, [router.query.selectedBudget]);
 
-  function sendingResults(){
-    let location = "London"
-    let budget = "medium-budget"
-    router.push(
-        {
-            // pathname: `/results`,
-            query: {location, budget}
-        })   
-    console.log(budget)
-    }
+  function sendingResults() {
+    let selectedLocation = "London";
+    let selectedBudget = budget;
+    router.push({
+      pathname: `/results`,
+      query: { selectedLocation, selectedBudget },
+    });
+  }
 
 
 
@@ -56,28 +55,32 @@ export default function Results(){
         </div>
         {/* chakra ui imported below */}
         <div className="form">
-        <ChakraProvider>
-<Box width="15vw">
-  <FormControl>
-  <FormLabel>Location</FormLabel>
-  <Select placeholder='Select Location'>
-    <option>London</option>
-  </Select>
+          <ChakraProvider>
+            <Box width="15vw">
+              <FormControl>
+                <FormLabel>Location</FormLabel>
+                <Select placeholder="Select Location">
+                  <option>London</option>
+                </Select>
 
-  <FormLabel>Budget</FormLabel>
-  <Select placeholder='Select Budget'>
-    <option>High</option>
-    <option>Medium</option>
-    <option>Low</option>
-  </Select>
-  
-  <button className="btn" onClick={sendingResults}>Create Day Plan</button>
-  </FormControl>
-  </Box>
-  </ChakraProvider>
+                <FormLabel>What is your budget?</FormLabel>
+                <Select
+                  placeholder="Select Budget"
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                >
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </Select>
 
+                <button className="btn" onClick={sendingResults}>
+                  Create Day Plan
+                </button>
+              </FormControl>
+            </Box>
+          </ChakraProvider>
         </div>
       </div>
-
     );
 }
