@@ -16,7 +16,7 @@ export default function Home() {
         <h1>Welcome!</h1>
       <h4>Take the stress out of solo travelling</h4>
        <Link href="/get-started">
-        <a className="btn">Start Here</a>
+        <button className={styles.homepagebtn} height="10vh" width="10vw">Start Here</button>
       </Link>
     </div>
     </div>
