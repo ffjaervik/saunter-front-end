@@ -5,6 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import page2image from "../public/assets/inputpageimage.avif";
+//new image import
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 import styles from "../styles/Inputpage.module.css"
 
