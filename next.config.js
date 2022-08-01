@@ -14,7 +14,6 @@ const nextConfig = {
 //   },
 // };
 module.exports = {
-  ...otherConfigs,
   images: {
     domains: [
       'timeout.com',
@@ -23,5 +22,6 @@ module.exports = {
     ], // hostname of the img url
   },
 };
+
 
 module.exports = nextConfig
