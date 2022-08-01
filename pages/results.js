@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import axios from "axios";
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 import styles from "../styles/Results.module.css"
+import Image from 'next/image'
+
 
 
 // const data = router.query;
@@ -60,9 +62,9 @@ export default function Results(){
             const image = activity.image;
             const body = {id: id}
             return (
-              <div className={styles.activity}>
-                <h5 key={name}>{name}</h5>
-                <img src={image} />
+              <div className={styles.activity} key={name}>
+                <h5 >{name}</h5>
+                <Image src={image} alt="/"/>
                 <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
               </div>
             );
