@@ -76,7 +76,6 @@ text-light {
 a {
     color: var(--color-primary-navbar);
     transition: var(--transition)
-    
 }
 
 a:hover {
@@ -96,6 +95,7 @@ a:hover {
     box-shadow: 0.5px 1px black;
     font-family: "Quicksand";
     font-weight: bold;
+
 
 }
 

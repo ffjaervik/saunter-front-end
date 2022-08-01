@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import axios from "axios";
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 import styles from "../styles/Results.module.css"
+import Image from 'next/image'
+
+
 
 
 // const data = router.query;
@@ -26,7 +29,9 @@ export default function Results(){
         body: JSON.stringify(input),
       });
     }
+
 // UPDATE FORM DATA FUNCTIONALITY
+
     useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`);
@@ -61,10 +66,11 @@ export default function Results(){
             const image = activity.image;
             const body = {id: id}
             return (
-              <div className={styles.activity}>
-                <h5 key={name}>{name}</h5>
+
+              <div className={styles.activity} key={name}>
+                <h5>{name}</h5>
                 <div className={styles.imagebtn}>
-                <img src={image} />
+                <img src={image} alt="/" />
                 <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
                 </div>
               </div>
@@ -86,7 +92,9 @@ export default function Results(){
                   <option>London</option>
                 </Select>
 
+
                 <FormLabel>Budget</FormLabel>
+
                 <Select
                   placeholder="Select Budget"
                   value={budget}
@@ -96,11 +104,13 @@ export default function Results(){
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
                 </Select>
+
                 <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
                   Create Day Plan
                 </button>
                 </div>
+
               </FormControl>
             </Box>
           </ChakraProvider>

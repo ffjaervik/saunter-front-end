@@ -11,8 +11,8 @@
   height: 5vh;
   width: 100vw;
   box-sizing: content-box;
-  border-color: black;
   /* text-shadow: 0.5px 1px grey; */
+
 }
 
 .navbar a {
@@ -31,7 +31,6 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  border-color: black;
   }
 
   .navbar h2 { 
