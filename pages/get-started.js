@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+
 import page2image from "../public/assets/inputpageimage.avif";
-//new image import
+
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 import styles from "../styles/Inputpage.module.css"
 
@@ -34,8 +35,10 @@ export default function GetStarted() {
         <div className={styles.imgcontainer}>
           <Image
             className={styles.pagetwoimg}
+
             // src="/../public/assets/inputpageimage.avif"
             src={page2image}
+
             alt="inputpage image"
             height = "530%"
             width= "400%"

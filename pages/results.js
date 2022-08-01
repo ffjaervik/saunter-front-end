@@ -7,6 +7,7 @@ import Image from 'next/image'
 
 
 
+
 // const data = router.query;
 // console.log(data);
 
@@ -17,6 +18,7 @@ export default function Results(){
     const router = useRouter();
     const {selectedLocation, selectedBudget} = router.query;
 
+//SAVE BUTTON FUNCTIONALITY
     async function patchSaved(input) {
       await fetch(`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`, {
         method: "PATCH",
@@ -27,6 +29,8 @@ export default function Results(){
         body: JSON.stringify(input),
       });
     }
+
+// UPDATE FORM DATA FUNCTIONALITY
 
     useEffect(() => {
     const getData = async () => {
@@ -62,10 +66,13 @@ export default function Results(){
             const image = activity.image;
             const body = {id: id}
             return (
+
               <div className={styles.activity} key={name}>
-                <h5 >{name}</h5>
-                <img src={image} alt="/"/>
+                <h5>{name}</h5>
+                <div className={styles.imagebtn}>
+                <img src={image} alt="/" />
                 <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
+                </div>
               </div>
             );
           })}
@@ -85,7 +92,9 @@ export default function Results(){
                   <option>London</option>
                 </Select>
 
-                <FormLabel>What is your budget?</FormLabel>
+
+                <FormLabel>Budget</FormLabel>
+
                 <Select
                   placeholder="Select Budget"
                   value={budget}
@@ -96,9 +105,12 @@ export default function Results(){
                   <option value="high">High</option>
                 </Select>
 
+                <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
                   Create Day Plan
                 </button>
+                </div>
+
               </FormControl>
             </Box>
           </ChakraProvider>

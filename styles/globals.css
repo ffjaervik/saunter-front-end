@@ -79,7 +79,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-white)
+    color: var(--color-btn)
 }
 
 .btn {
@@ -93,6 +93,9 @@ a:hover {
     transition: var(--transition);
     margin: 1.5rem 1.5rem;
     box-shadow: 0.5px 1px black;
+    font-family: "Quicksand";
+    font-weight: bold;
+
 
 }
 

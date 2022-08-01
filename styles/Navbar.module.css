@@ -11,7 +11,8 @@
   height: 5vh;
   width: 100vw;
   box-sizing: content-box;
-  text-shadow: 0.5px 1px grey;
+  /* text-shadow: 0.5px 1px grey; */
+
 }
 
 .navbar a {
@@ -30,7 +31,6 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  
   }
 
   .navbar h2 { 
@@ -39,7 +39,7 @@
     font-size: xx-large;
     justify-content: flex-start;
     margin-left: 1.5vw;
-    
+    cursor: pointer;
   }
 
   .navbar h2:hover {
