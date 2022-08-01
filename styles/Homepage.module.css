@@ -30,6 +30,12 @@
 
 }
 
+.homepagebtn:hover {
+    background: var(--color-black);
+    color: var(--color-bg);
+    border-color: transparent;
+}
+
  
 
 
