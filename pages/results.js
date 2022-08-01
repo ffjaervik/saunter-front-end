@@ -64,7 +64,7 @@ export default function Results(){
             return (
               <div className={styles.activity} key={name}>
                 <h5 >{name}</h5>
-                <Image src={image} alt="/"/>
+                <img src={image} alt="/"/>
                 <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
               </div>
             );

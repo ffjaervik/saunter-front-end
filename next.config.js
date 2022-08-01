@@ -20,7 +20,8 @@ module.exports = {
       'media.timeout.com',
       'kew.org',
       'live.staticflickr.com',
-      'jennyshearawn.com'
+      'jennyshearawn.com',
+      'timeout.com',
     ], // hostname of the img url
   },
 };
