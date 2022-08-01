@@ -11,6 +11,7 @@
   height: 5vh;
   width: 100vw;
   box-sizing: content-box;
+  border-color: black;
   /* text-shadow: 0.5px 1px grey; */
 }
 
@@ -30,7 +31,7 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  
+  border-color: black;
   }
 
   .navbar h2 { 
@@ -39,7 +40,7 @@
     font-size: xx-large;
     justify-content: flex-start;
     margin-left: 1.5vw;
-    
+    cursor: pointer;
   }
 
   .navbar h2:hover {

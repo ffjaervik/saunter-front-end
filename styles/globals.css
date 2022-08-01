@@ -76,6 +76,7 @@ text-light {
 a {
     color: var(--color-primary-navbar);
     transition: var(--transition)
+    
 }
 
 a:hover {

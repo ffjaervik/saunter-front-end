@@ -103,6 +103,7 @@ export default function Results(){
                 </div>
               </FormControl>
             </Box>
+            <hr className={styles.vl}/>
           </ChakraProvider>
         </div>
       </div>
