@@ -7,7 +7,7 @@
 
 .results {
     display:flex;
-    flex-direction:column;
+    flex-direction: column;
     /* justify-content:center; */
     align-items:center;
     padding: 2rem;
@@ -17,7 +17,21 @@
     
 }
 
-.activity {
-    padding: 1.5rem;
+.resultsbtn {
+    background-color: black;
+    
+    
+
 
 }
+#save {
+    background-color: black;
+
+}
+
+ .activity {
+     padding: 1.5rem; 
+ }
+
+
+

@@ -64,7 +64,8 @@ export default function Results(){
               <div className={styles.activity}>
                 <h5 key={name}>{name}</h5>
                 <img src={image} />
-                <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
+                <button onClick={function(){return patchSaved(body)}} key={id} className="btn" id="save">Save</button>
+                
               </div>
             );
           })}
@@ -84,7 +85,7 @@ export default function Results(){
                   <option>London</option>
                 </Select>
 
-                <FormLabel>What is your budget?</FormLabel>
+                <FormLabel>Budget</FormLabel>
                 <Select
                   placeholder="Select Budget"
                   value={budget}
