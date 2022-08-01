@@ -16,9 +16,7 @@ const nextConfig = {
 module.exports = {
   images: {
     domains: [
-      'timeout.com',
       'saunter-db.herokuapp.com'
-
     ], // hostname of the img url
   },
 };
