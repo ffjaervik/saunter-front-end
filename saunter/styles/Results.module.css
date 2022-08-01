@@ -20,14 +20,37 @@
 .resultsbtn {
     background-color: black;
     
+
+
+}
+
+.imagebtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+}
+
+.imagebtn button {
+    max-height: 50px;
+
+}
+
+/* .form button {
+    margin: 0;
+    position: relative;
+
     
+} */
+.daybtn button {
+
+    margin: 1.5rem 0!important;
 
 
 }
-#save {
-    background-color: black;
 
-}
+
 
  .activity {
      padding: 1.5rem; 

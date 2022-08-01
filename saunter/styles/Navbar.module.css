@@ -11,7 +11,7 @@
   height: 5vh;
   width: 100vw;
   box-sizing: content-box;
-  text-shadow: 0.5px 1px grey;
+  /* text-shadow: 0.5px 1px grey; */
 }
 
 .navbar a {

@@ -63,9 +63,10 @@ export default function Results(){
             return (
               <div className={styles.activity}>
                 <h5 key={name}>{name}</h5>
+                <div className={styles.imagebtn}>
                 <img src={image} />
-                <button onClick={function(){return patchSaved(body)}} key={id} className="btn" id="save">Save</button>
-                
+                <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
+                </div>
               </div>
             );
           })}
@@ -95,10 +96,11 @@ export default function Results(){
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
                 </Select>
-
+                <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
                   Create Day Plan
                 </button>
+                </div>
               </FormControl>
             </Box>
           </ChakraProvider>
