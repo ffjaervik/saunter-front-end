@@ -18,7 +18,7 @@ export default function Results(){
     const {selectedLocation, selectedBudget} = router.query;
 
     async function patchSaved(input) {
-      await fetch(`http://localhost:3001/${router.query.selectedBudget}-budget`, {
+      await fetch(`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export default function Results(){
 
     useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`http://localhost:3001/${router.query.selectedBudget}-budget`);
+      const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`);
       setData(response.data.data);
       console.log(response.data.data)
     };
