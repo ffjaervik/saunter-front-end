@@ -13,5 +13,11 @@ const nextConfig = {
 //     ignoreDuringBuilds: true,
 //   },
 // };
+module.exports = {
+  ...otherConfigs,
+  images: {
+    domains: ['https://media.timeout.com/images/105162351/image.jpg'], // hostname of the img url
+  },
+};
 
 module.exports = nextConfig
