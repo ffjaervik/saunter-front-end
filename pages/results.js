@@ -13,7 +13,7 @@ import Image from "next/image";
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import { GiPadlockOpen } from 'react-icons/fa';
+import { AiOutlineHeart } from 'react-icons/fa';
 
 // const data = router.query;
 // console.log(data);
@@ -85,6 +85,7 @@ export default function Results() {
                 <h5>{name}</h5>
                 <div className={styles.imagebtn}>
                   <img src={image} alt="/" />
+                  <AiOutlineHeart/>
                   <button
                     onClick={function () {
                       return patchSaved(body);

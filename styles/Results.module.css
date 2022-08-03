@@ -54,13 +54,14 @@
  }
 
 .carousel {
-    width: 25vw;
+    width: 30vw;
     position: static;
 }
 
 .carouselbutton {
     z-index: 10;
     position: relative;
-    top: 25px;
-    left: 200px;
+    right: 8vw;
+    top: 14vh;
+
 }
