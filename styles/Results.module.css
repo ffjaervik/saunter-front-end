@@ -1,6 +1,18 @@
 .main {
     display:flex;
     flex-direction: row-reverse;
+   
+
+
+}
+.resultspagefont {
+    padding: 2rem;
+    text-align: center;
+    width: 40rem;
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-black);
+    line-height: 1.7;
+
 
 
 }

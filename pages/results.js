@@ -10,11 +10,11 @@ import {
 } from "@chakra-ui/react";
 import styles from "../styles/Results.module.css";
 import Image from "next/image";
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { HiOutlineLockOpen, HiLockClosed } from 'react-icons/hi'
+import { Carousel } from "react-responsive-carousel";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
 
 // const data = router.query;
 // console.log(data);
@@ -66,15 +66,18 @@ export default function Results() {
     });
   }
 
-
   return (
     <div className={styles.main}>
-      <h1>Your Recommendations:</h1>
       <div className={styles.results}>
-        <Carousel className={styles.carousel}
-        infiniteLoop
-        centerMode
-        centerSlidePercentage="70"
+      <p className={styles.resultspagefont}>
+        Use the Lock icon that is displayed on the activity to save it to your
+        day plan. Feel free to add as many activities as you like.{" "}
+      </p>
+        <Carousel
+          className={styles.carousel}
+          infiniteLoop
+          centerMode
+          centerSlidePercentage="70"
         >
           {data.map((activity) => {
             console.log(activity.name);
@@ -87,19 +90,39 @@ export default function Results() {
                 <h5 className={styles.resultsfont}>{name}</h5>
                 <div className={styles.imagebtn}>
                   <img src={image} alt="/" />
-                  <button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
-                  {toggleViewModeFav ? <AiOutlineHeart size={35}
-                    onClick={function () {
-                      return (
-                        patchSaved(body)
-                        );
-                    }}
-                    key={id}
-                    className={styles.favouritesbutton}
-                  /> : <AiFillHeart className={styles.favouritesbuttonred} size={35}/>}
+                  <button
+                    onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+                  >
+                    {toggleViewModeFav ? (
+                      <AiOutlineHeart
+                        size={35}
+                        onClick={function () {
+                          return patchSaved(body);
+                        }}
+                        key={id}
+                        className={styles.favouritesbutton}
+                      />
+                    ) : (
+                      <AiFillHeart
+                        className={styles.favouritesbuttonred}
+                        size={35}
+                      />
+                    )}
                   </button>
-                  <button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
-                  {toggleViewModeSave ? <HiOutlineLockOpen size={35} className={styles.savebutton}/> : <HiLockClosed className={styles.savebuttonclose} size={35}/>}
+                  <button
+                    onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+                  >
+                    {toggleViewModeSave ? (
+                      <HiOutlineLockOpen
+                        size={35}
+                        className={styles.savebutton}
+                      />
+                    ) : (
+                      <HiLockClosed
+                        className={styles.savebuttonclose}
+                        size={35}
+                      />
+                    )}
                   </button>
                 </div>
               </div>
