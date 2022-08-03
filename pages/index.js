@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Homepage.module.css'
 import homepageimg from "../public/assets/homepageimg.webp"
 import Link from "next/link"
+import rectangle from '../public/assets/rectangle.svg'
+import background from '../public/assets/background.png'
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
         <title>Saunter | Home</title>
     </Head>
     <div>
-    <Image className= {styles.landingimage} src={homepageimg} alt="homepage image" layout="fill" objectFit="cover" objectPosition="center"/> 
+    <Image className= {styles.landingimage} src={background} alt="homepage image" layout="fill" objectFit="cover" objectPosition="center"/> 
       <div className={styles.homepage}>
       <div className={styles.welcomecard}>
           <h1 className={styles.text}>Welcome!</h1>
@@ -20,7 +22,6 @@ export default function Home() {
           <button className={styles.homepagebtn} height="10vh" width="10vw">Start Here</button>
         </Link>
       </div>
-     
     </div>
     </div>
     </div>
