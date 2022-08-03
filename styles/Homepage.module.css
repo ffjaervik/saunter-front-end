@@ -21,7 +21,7 @@
     border: 1px solid var(--color-primary);
     transition: var(--transition);
     margin: 1.5rem 1.5rem;
-    box-shadow: 0.5px 1px black;
+    box-shadow: 0.2rem 0.2rem black;
     font-size: 1.5rem;
     font-family: "Quicksand";
     font-weight: bold;
@@ -40,5 +40,27 @@
     z-index: 0;
     position: relative;
     opacity: 0.75;
+}
+
+.welcomecard{
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0.5px 1px black;
+    font-size: 1.5rem;
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin: 1.5rem 1.5rem;
+    width: 500px;
+    height: 400px;
+    float:right;
+    margin-right: 100px;
+
+}
+
+.text{
+    text-align: center;
+    color: black;
 }
 
