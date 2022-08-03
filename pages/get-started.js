@@ -57,22 +57,22 @@ export default function GetStarted() {
           >
             <FormControl>
               <FormLabel>Where do you want to travel to?</FormLabel>
-              <Select placeholder="Select Location">
+              <Select placeholder="Select location">
                 <option>London</option>
               </Select>
 
               <FormLabel>What is your budget?</FormLabel>
-              <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
+              <Select placeholder='Select budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
               </Select>
 
               <FormLabel>What is your energy level?</FormLabel>
               <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
               </Select>
 
               <button className="btn" onClick={sendingResults}>

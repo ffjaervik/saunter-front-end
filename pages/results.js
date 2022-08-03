@@ -16,6 +16,7 @@ export default function Results(){
     const [data, setData] = useState([]);
     const [budget, setBudget] = useState(null);
     const [energy, setEnergy] = useState(null);
+    const [update, setUpdate] = useState(0)
     const router = useRouter();
     const {selectedLocation, selectedBudget, selectedEnergy} = router.query;
 
@@ -35,36 +36,50 @@ export default function Results(){
 
     useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`);
-      setData(response.data.data);
-      console.log(response.data.data)
+      const response = await axios.get(`https://saunter-db.herokuapp.com/all-budgets`);
+      let allActivities = response.data.data;
+      let filteredActivities = [];
+
+      for(let i = 0; i < allActivities.length; i++){
+        if(allActivities[i].budget == router.query.selectedBudget && allActivities[i].energy_level == router.query.selectedEnergy){
+          filteredActivities.push(allActivities[i])
+        }
+      }
+      setData(filteredActivities)
+
+      // setData(response.data.data);
+      // console.log(response.data.data)
+      console.log(data)
     };
     // query can change, but don't actually trigger
     // request unless submitting is true
       getData();
 
-  }, [router.query.selectedBudget]);
+  }, [update]);
 
-  useEffect(() => {
-    const getEnergy = async () => {
-      const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedEnergy}-energy`);
-      setData(response.data.data);
-      console.log(response.data.data)
-    };
-    // query can change, but don't actually trigger
-    // request unless submitting is true
-      getEnergy();
+  // useEffect(() => {
+  //   const getEnergy = async () => {
+  //     const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedEnergy}-energy`);
+  //     setData(response.data.data);
+  //     console.log(response.data.data)
+  //   };
+  //   // query can change, but don't actually trigger
+  //   // request unless submitting is true
+  //     getEnergy();
 
-  }, [router.query.selectedEnergy]);
+  // }, [router.query.selectedEnergy]);
 
   function sendingResults() {
-    let selectedLocation = "London";
-    let selectedBudget = budget;
-    let selectedEnergy = energy;
-    router.push({
-      pathname: `/results`,
-      query: { selectedLocation, selectedBudget, selectedEnergy },
-    });
+    // let selectedLocation = "London";
+    // let selectedBudget = budget;
+    // let selectedEnergy = energy;
+    // router.push({
+    //   pathname: `/results`,
+    //   query: { selectedLocation, selectedBudget, selectedEnergy },
+    // });
+    router.query.selectedBudget = budget;
+    router.query.selectedEnergy = energy;
+    setUpdate(update + 1)
   }
 
 
@@ -74,7 +89,7 @@ export default function Results(){
         <h1>Your Recommendations:</h1>
         <div className={styles.results}>
           {data.map((activity) => {
-            console.log(activity.name);
+            {/* console.log(activity.name); */}
             const id = activity.id;
             const name = activity.name;
             const image = activity.image;
@@ -102,21 +117,31 @@ export default function Results(){
             >
               <FormControl>
                 <FormLabel>Location</FormLabel>
-                <Select placeholder="Select Location">
+                <Select placeholder="Select location">
                   <option>London</option>
                 </Select>
 
 
                 <FormLabel>Budget</FormLabel>
-
                 <Select
-                  placeholder="Select Budget"
+                  placeholder="Select budget"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
                 >
                   <option value="low">Low</option>
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
+                </Select>
+
+                <FormLabel>Energy level</FormLabel>
+                <Select 
+                  placeholder='Select energy level' 
+                  value={energy} 
+                  onChange={(e) => setEnergy(e.target.value)}
+                >
+                  <option value="1">Low</option>
+                  <option value="2">Medium</option>
+                  <option value="3">High</option>
                 </Select>
 
                 <div className={styles.daybtn}>
