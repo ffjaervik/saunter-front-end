@@ -86,7 +86,9 @@ export default function Results() {
             const image = activity.image;
             const body = { id: id };
             return (
-              <div className={styles.activity} key={name}>
+             
+              <div className={styles.activity} key={name}> 
+              <div className = {styles.activity_card}>
                 <h5 className={styles.resultsfont}>{name}</h5>
                 <div className={styles.imagebtn}>
                   <img src={image} alt="/" />
@@ -125,6 +127,7 @@ export default function Results() {
                     )}
                   </button>
                 </div>
+              </div>
               </div>
             );
           })}
