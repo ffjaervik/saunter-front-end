@@ -90,7 +90,7 @@ export default function Results() {
                       return patchSaved(body);
                     }}
                     key={id}
-                    className="btn"
+                    className={`btn ${styles.carouselbutton}`}
                   >
                     Save
                   </button>
