@@ -13,7 +13,8 @@ import Image from "next/image";
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import { AiOutlineHeart } from 'react-icons/fa';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { HiOutlineLockOpen, HiLockClosed } from 'react-icons/hi'
 
 // const data = router.query;
 // console.log(data);
@@ -23,6 +24,8 @@ export default function Results() {
   const [budget, setBudget] = useState(null);
   const router = useRouter();
   const { selectedLocation, selectedBudget } = router.query;
+  const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
+  const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
 
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
@@ -72,7 +75,6 @@ export default function Results() {
         infiniteLoop
         centerMode
         centerSlidePercentage="70"
-        
         >
           {data.map((activity) => {
             console.log(activity.name);
@@ -82,24 +84,29 @@ export default function Results() {
             const body = { id: id };
             return (
               <div className={styles.activity} key={name}>
-                <h5>{name}</h5>
+                <h5 className={styles.resultsfont}>{name}</h5>
                 <div className={styles.imagebtn}>
                   <img src={image} alt="/" />
-                  <AiOutlineHeart/>
-                  <button
+                  <button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
+                  {toggleViewModeFav ? <AiOutlineHeart size={35}
                     onClick={function () {
-                      return patchSaved(body);
+                      return (
+                        patchSaved(body)
+                        );
                     }}
                     key={id}
-                    className={`btn ${styles.carouselbutton}`}
-                  >
-                    Save
+                    className={styles.favouritesbutton}
+                  /> : <AiFillHeart className={styles.favouritesbuttonred} size={35}/>}
+                  </button>
+                  <button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
+                  {toggleViewModeSave ? <HiOutlineLockOpen size={35} className={styles.savebutton}/> : <HiLockClosed className={styles.savebuttonclose} size={35}/>}
                   </button>
                 </div>
               </div>
             );
           })}
         </Carousel>
+        <button className="btn">Add Another Activity</button>
       </div>
       {/* chakra ui imported below */}
       <div className="form">
@@ -132,7 +139,6 @@ export default function Results() {
             </FormControl>
           </Box>
         </ChakraProvider>
-        
       </div>
     </div>
   );

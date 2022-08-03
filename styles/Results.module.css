@@ -33,7 +33,7 @@
 
 .imagebtn button {
     max-height: 50px;
-
+    
 }
 
 /* .form button {
@@ -42,6 +42,13 @@
 
     
 } */
+
+.resultsfont {
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-black);
+    line-height: 1.7;
+}
+
 .daybtn button {
 
     margin: 1.5rem 0!important;
@@ -58,10 +65,31 @@
     position: static;
 }
 
-.carouselbutton {
+.favouritesbutton {
     z-index: 10;
     position: relative;
-    right: 8vw;
-    top: 14vh;
+    right: 6vw;
+    top: 15vh;
+}
 
+.favouritesbuttonred {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    color: red;
+}
+
+.savebutton {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+}
+
+.savebuttonclose {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
 }
