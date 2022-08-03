@@ -15,8 +15,9 @@ export default function Results(){
     
     const [data, setData] = useState([]);
     const [budget, setBudget] = useState(null);
+    const [energy, setEnergy] = useState(null);
     const router = useRouter();
-    const {selectedLocation, selectedBudget} = router.query;
+    const {selectedLocation, selectedBudget, selectedEnergy} = router.query;
 
 //SAVE BUTTON FUNCTIONALITY
     async function patchSaved(input) {
@@ -44,12 +45,25 @@ export default function Results(){
 
   }, [router.query.selectedBudget]);
 
+  useEffect(() => {
+    const getEnergy = async () => {
+      const response = await axios.get(`https://saunter-db.herokuapp.com/${router.query.selectedEnergy}-energy`);
+      setData(response.data.data);
+      console.log(response.data.data)
+    };
+    // query can change, but don't actually trigger
+    // request unless submitting is true
+      getEnergy();
+
+  }, [router.query.selectedEnergy]);
+
   function sendingResults() {
     let selectedLocation = "London";
     let selectedBudget = budget;
+    let selectedEnergy = energy;
     router.push({
       pathname: `/results`,
-      query: { selectedLocation, selectedBudget },
+      query: { selectedLocation, selectedBudget, selectedEnergy },
     });
   }
 

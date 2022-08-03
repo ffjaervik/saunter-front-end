@@ -12,16 +12,17 @@ import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
   const [budget, setBudget] = useState(null)
-
+  const [energy, setEnergy] = useState(null)
   const router = useRouter()
   
   function sendingResults(){
     let selectedLocation = "London"
     let selectedBudget = budget
+    let selectedEnergy = energy
     router.push(
       {
         pathname: `/results`,
-        query: {selectedLocation, selectedBudget}
+        query: {selectedLocation, selectedBudget, selectedEnergy}
       }
       )}
 
@@ -62,6 +63,13 @@ export default function GetStarted() {
 
               <FormLabel>What is your budget?</FormLabel>
               <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </Select>
+
+              <FormLabel>What is your energy level?</FormLabel>
+              <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
