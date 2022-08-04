@@ -26,20 +26,18 @@ export default function GetStarted() {
       )}
 
   return (
-    <div>
+    <div className={styles.get_started__container}>
       <Head>
         <title>Saunter | Get-Started</title>
       </Head>
-        <div className={styles.imgcontainer}>
           <Image
             className={styles.pagetwoimg}
             src={page2image}
             alt="inputpage image"
-            height = "530%"
-            width= "400%"
+            height = "430%"
+            width= "320%"
           />
           {/* MORE IMAGES GO HERE */}
-        </div>
   
       <div className={styles.form}>
         <ChakraProvider>

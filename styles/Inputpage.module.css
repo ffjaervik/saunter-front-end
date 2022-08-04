@@ -1,7 +1,13 @@
-.imgcontainer {
-    position:fixed;
-    height: 600px;
-    width: 600px;
+.get_started__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* .imgcontainer { */
+
+  /* position:fixed;
+    height: auto;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,37 +15,44 @@
     border: 1px solid black;
     left: 10%;
     top: 20%;
-    z-index: 99;
-}
+    z-index: 99; */
+/* } */
 
 .pagetwoimg {
-    border: 4px solid black !important;
-    position: absolute;
-    height: 10% !important;
-    width: 10%;
+  border: 4px solid black !important;
+  /* position: absolute; */
+  /* height: 10% !important;
+    width: 10%; */
+  transform: rotate(-13.23deg) !important;
+  place-items: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* -webkit-transform: rotate(180deg);     
+  -moz-transform: rotate(180deg);        
+  -o-transform: rotate(180deg);          
+  -ms-transform: rotate(180deg);  */
 
-
-    border-radius: 2rem;
-    /* margin-left: 50vw; */
-    /* min-width: 100%;
+  border-radius: 2rem;
+  /* margin-left: 50vw; */
+  /* min-width: 100%;
     max-width: 300%; */
 }
 
 .form {
-    /* display: flex;
+  /* display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 60px; */
-    position: fixed;
-    top: 10%;
-    right: 10%;
+  /* position: fixed; */
+  /* top: 10%; */
+  /* right: 10%; */
 }
 
-.bottomdiv{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    height: 20vh;
-    background-color: var(--color-btn);
-    border: 4px solid black
+.bottomdiv {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20vh;
+  background-color: var(--color-btn);
+  border: 4px solid black;
 }
