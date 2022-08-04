@@ -32,6 +32,7 @@ export default function Results() {
   const { selectedLocation, selectedBudget } = router.query;
   const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
   const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
+  const [carousel, setCarousel] = useState(false);
 
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
@@ -72,7 +73,67 @@ export default function Results() {
     });
   }
 
-
+function NewCarousel () {
+  return (<Carousel
+  className={styles.carousel}
+  infiniteLoop
+  centerMode
+  centerSlidePercentage="70"
+>
+  {data.map((activity) => {
+    console.log(activity.name);
+    const id = activity.id;
+    const name = activity.name;
+    const image = activity.image;
+    const body = { id: id };
+    return (
+      <div className={styles.activity} key={name}>
+        <div className={styles.activity_card}>
+        <h5 className={styles.resultsfont}>{name}</h5>
+          <div className={styles.imagebtn}>
+            <img src={image} alt="/" />
+            
+            <button
+              onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+            >
+              {toggleViewModeFav ? (
+                <AiOutlineHeart
+                  size={35}
+                  onClick={function () {
+                    return patchSaved(body);
+                  }}
+                  key={id}
+                  className={styles.favouritesbutton}
+                />
+              ) : (
+                <AiFillHeart
+                  className={styles.favouritesbuttonred}
+                  size={35}
+                />
+              )}
+            </button>
+            <button
+              onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+            >
+              {toggleViewModeSave ? (
+                <HiOutlineLockOpen
+                  size={35}
+                  className={styles.savebutton}
+                />
+              ) : (
+                <HiLockClosed
+                  className={styles.savebuttonclose}
+                  size={35}
+                />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</Carousel>
+)}
 
   return (
     <div className={styles.main}>
@@ -83,68 +144,12 @@ export default function Results() {
           look for another activity. Feel free to add as many activities as you
           like.
         </p>
-        <Carousel
-          className={styles.carousel}
-          infiniteLoop
-          centerMode
-          centerSlidePercentage="70"
-        >
-          {data.map((activity) => {
-            console.log(activity.name);
-            const id = activity.id;
-            const name = activity.name;
-            const image = activity.image;
-            const body = { id: id };
-            return (
-              <div className={styles.activity} key={name}>
-                <div className={styles.activity_card}>
-                  <h5 className={styles.resultsfont}>{name}</h5>
-                  <div className={styles.imagebtn}>
-                    <img src={image} alt="/" />
-                    <button
-                      onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-                    >
-                      {toggleViewModeFav ? (
-                        <AiOutlineHeart
-                          size={35}
-                          onClick={function () {
-                            return patchSaved(body);
-                          }}
-                          key={id}
-                          className={styles.favouritesbutton}
-                        />
-                      ) : (
-                        <AiFillHeart
-                          className={styles.favouritesbuttonred}
-                          size={35}
-                        />
-                      )}
-                    </button>
-                    <button
-                      onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
-                    >
-                      {toggleViewModeSave ? (
-                        <HiOutlineLockOpen
-                          size={35}
-                          className={styles.savebutton}
-                        />
-                      ) : (
-                        <HiLockClosed
-                          className={styles.savebuttonclose}
-                          size={35}
-                        />
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </Carousel>
+        <NewCarousel/>
         <button>
           <AiOutlinePlusCircle
             size={35}
             className={styles.addbutton}
+            onClick={NewCarousel}
           />
         </button>
       </div>

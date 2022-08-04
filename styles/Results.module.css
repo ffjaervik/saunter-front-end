@@ -25,7 +25,7 @@
     padding: 2rem;
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width: var(--container-width-lg);
+    width: 50cm;
     
 }
 
@@ -45,7 +45,7 @@
 
 .imagebtn button {
     max-height: 50px;
-    
+    width: 50cm;
 }
 
 /* .form button {
@@ -69,15 +69,14 @@
 }
 
  .activity {
-     padding: 1.5rem; 
-      border: 1px solid;
-
+    padding: 1.5rem; 
+    border: 3px solid;
 
  }
 
 .carousel {
-    width: 30vw;
-    position: static;
+    width: 40vw;
+    position: responsive;
 }
 
 .favouritesbutton {
@@ -85,6 +84,9 @@
     position: relative;
     right: 6vw;
     top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
 }
 
 .favouritesbuttonred {
@@ -93,6 +95,9 @@
     right: 6vw;
     top: 15vh;
     color: red;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
 }
 
 .savebutton {
@@ -100,6 +105,9 @@
     position: relative;
     right: 6vw;
     top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
 }
 
 .savebuttonclose {
@@ -107,6 +115,9 @@
     position: relative;
     right: 6vw;
     top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
 }
 
 .addbutton:hover {
