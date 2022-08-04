@@ -8,7 +8,7 @@ import background from '../public/assets/background.png'
 
 export default function Home() {
   return (
-    <div>
+    <div className = {styles.homepage__container}>
     <Head>
         <title>Saunter | Home</title>
     </Head>
