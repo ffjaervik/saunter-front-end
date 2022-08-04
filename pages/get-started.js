@@ -30,29 +30,27 @@ export default function GetStarted() {
       <Head>
         <title>Saunter | Get-Started</title>
       </Head>
-
-      <div className={styles.form}>
         <div className={styles.imgcontainer}>
           <Image
             className={styles.pagetwoimg}
-
-            // src="/../public/assets/inputpageimage.avif"
             src={page2image}
-
             alt="inputpage image"
             height = "530%"
             width= "400%"
           />
+          {/* MORE IMAGES GO HERE */}
         </div>
   
+      <div className={styles.form}>
         <ChakraProvider>
           <Box
             width="30vw"
-            borderColor="#FF8F7780"
+            borderColor="black"
             borderStyle="solid"
             borderWidth="4px"
             padding="6"
             borderRadius="2rem"
+            boxShadow="10px 10px black"
           >
             <FormControl>
               <FormLabel>Where do you want to travel to?</FormLabel>
@@ -61,7 +59,7 @@ export default function GetStarted() {
               </Select>
 
               <FormLabel>What is your budget?</FormLabel>
-              <Select placeholder='Select Budget' value={budget} onChange={(e) => setBudget(e.target.value)}>
+              <Select placeholder='Select Budget' value={budget} fill="white" onChange={(e) => setBudget(e.target.value)}>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
@@ -74,6 +72,7 @@ export default function GetStarted() {
           </Box>
         </ChakraProvider>
       </div>
+      <div className={styles.bottomdiv} ></div>
     </div>
 
   );

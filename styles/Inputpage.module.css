@@ -1,15 +1,24 @@
 .imgcontainer {
-    /* height: 100vh;
-    width: 100vh; */
+    position:fixed;
     height: 600px;
     width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding:0;
+    border: 1px solid black;
+    left: 10%;
+    top: 20%;
+    z-index: 99;
 }
 
 .pagetwoimg {
+    border: 4px solid black !important;
+    position: absolute;
+    height: 10% !important;
+    width: 10%;
+
+
     border-radius: 2rem;
     /* margin-left: 50vw; */
     /* min-width: 100%;
@@ -17,9 +26,20 @@
 }
 
 .form {
-    display: flex;
-    /* justify-content: flex-end; */
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 60px; */
+    position: fixed;
+    top: 10%;
+    right: 10%;
+}
+
+.bottomdiv{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--color-btn);
+    border: 4px solid black
 }
