@@ -15,6 +15,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
+import {
+  AiOutlinePlusCircle,
+  AiFillPlusCircle,
+  AiOutlineMinusCircle,
+  AiFillMinusCircle,
+} from "react-icons/ai";
 
 // const data = router.query;
 // console.log(data);
@@ -66,13 +72,17 @@ export default function Results() {
     });
   }
 
+
+
   return (
     <div className={styles.main}>
       <div className={styles.results}>
-      <p className={styles.resultspagefont}>
-        Use the Lock icon that is displayed on the activity to save it to your
-        day plan. Feel free to add as many activities as you like.{" "}
-      </p>
+        <p className={styles.resultspagefont}>
+          Use the Lock icon that is displayed on the activity to save it to your
+          day plan. Once you have saved an activity, click the plus button to
+          look for another activity. Feel free to add as many activities as you
+          like.
+        </p>
         <Carousel
           className={styles.carousel}
           infiniteLoop
@@ -86,53 +96,57 @@ export default function Results() {
             const image = activity.image;
             const body = { id: id };
             return (
-             
-              <div className={styles.activity} key={name}> 
-              <div className = {styles.activity_card}>
-                <h5 className={styles.resultsfont}>{name}</h5>
-                <div className={styles.imagebtn}>
-                  <img src={image} alt="/" />
-                  <button
-                    onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-                  >
-                    {toggleViewModeFav ? (
-                      <AiOutlineHeart
-                        size={35}
-                        onClick={function () {
-                          return patchSaved(body);
-                        }}
-                        key={id}
-                        className={styles.favouritesbutton}
-                      />
-                    ) : (
-                      <AiFillHeart
-                        className={styles.favouritesbuttonred}
-                        size={35}
-                      />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
-                  >
-                    {toggleViewModeSave ? (
-                      <HiOutlineLockOpen
-                        size={35}
-                        className={styles.savebutton}
-                      />
-                    ) : (
-                      <HiLockClosed
-                        className={styles.savebuttonclose}
-                        size={35}
-                      />
-                    )}
-                  </button>
+              <div className={styles.activity} key={name}>
+                <div className={styles.activity_card}>
+                  <h5 className={styles.resultsfont}>{name}</h5>
+                  <div className={styles.imagebtn}>
+                    <img src={image} alt="/" />
+                    <button
+                      onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+                    >
+                      {toggleViewModeFav ? (
+                        <AiOutlineHeart
+                          size={35}
+                          onClick={function () {
+                            return patchSaved(body);
+                          }}
+                          key={id}
+                          className={styles.favouritesbutton}
+                        />
+                      ) : (
+                        <AiFillHeart
+                          className={styles.favouritesbuttonred}
+                          size={35}
+                        />
+                      )}
+                    </button>
+                    <button
+                      onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+                    >
+                      {toggleViewModeSave ? (
+                        <HiOutlineLockOpen
+                          size={35}
+                          className={styles.savebutton}
+                        />
+                      ) : (
+                        <HiLockClosed
+                          className={styles.savebuttonclose}
+                          size={35}
+                        />
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
               </div>
             );
           })}
         </Carousel>
-        <button className="btn">Add Another Activity</button>
+        <button>
+          <AiOutlinePlusCircle
+            size={35}
+            className={styles.addbutton}
+          />
+        </button>
       </div>
       {/* chakra ui imported below */}
       <div className="form">
@@ -161,7 +175,6 @@ export default function Results() {
                   Create Day Plan
                 </button>
               </div>
-              {/* <GiPadlockOpen/> */}
             </FormControl>
           </Box>
         </ChakraProvider>

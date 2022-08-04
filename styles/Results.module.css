@@ -108,3 +108,9 @@
     right: 6vw;
     top: 15vh;
 }
+
+.addbutton:hover {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+}
