@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 6%;
 }
 /* .imgcontainer { */
 
@@ -23,10 +24,10 @@
   /* position: absolute; */
   /* height: 10% !important;
     width: 10%; */
-  transform: rotate(-13.23deg) !important;
-  place-items: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  /* transform: rotate(-13.23deg) !important; */
+  height: auto; 
+  width: 20%;
+  /* width: 70%;
   /* -webkit-transform: rotate(180deg);     
   -moz-transform: rotate(180deg);        
   -o-transform: rotate(180deg);          
@@ -55,4 +56,13 @@
   height: 20vh;
   background-color: var(--color-btn);
   border: 4px solid black;
+}
+
+/* MEDIA QUERIES (SMALL DEVICES)  */
+
+@media screen and (max-width: 600px) {
+  .get_started__container {
+    display: flex;
+    flex-direction: column;
+  }
 }
