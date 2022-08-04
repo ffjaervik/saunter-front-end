@@ -26,7 +26,7 @@ export default function GetStarted() {
         pathname: `/results`,
         query: {selectedLocation, selectedBudget, selectedEnergy, selectedDog}
       }
-      )}
+      )};
 
   return (
     <div>
@@ -79,10 +79,9 @@ export default function GetStarted() {
 
               <FormLabel>Would you prefer a dog friendly activity?</FormLabel>
               <Select placeholder='Select preference' value={dog} onChange={(e) => setDog(e.target.value)}>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option value='true'>Yes</option>
+                <option value='false'>No</option>
               </Select>
-
 
               <button className="btn" onClick={sendingResults}>
                 Create Day Plan

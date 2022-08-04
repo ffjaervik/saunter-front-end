@@ -35,21 +35,28 @@ export default function Results(){
       let allActivities = response.data.data;
       let filteredActivities = [];
 
+      if(router.query.selectedDog === 'true'){
+        router.query.selectedDog = true
+      } else if(router.query.selectedDog === 'false'){
+        router.query.selectedDog = false
+      }
+      console.log(`Router: ${router.query.selectedDog}`)
+      console.log(`RouterTO: ${typeof router.query.selectedDog}`)
+      
       for(let i = 0; i < allActivities.length; i++){
         if(allActivities[i].budget == router.query.selectedBudget && allActivities[i].energy_level == router.query.selectedEnergy && allActivities[i].dog_friendly == router.query.selectedDog){
+          console.log(`Activity: ${allActivities[i].dog_friendly}`)
+          console.log(`ActivityTO: ${typeof allActivities[i].dog_friendly}`)
           filteredActivities.push(allActivities[i])
         }
       }
       setData(filteredActivities)
       console.log(filteredActivities)
-
-      // setData(response.data.data);
-      // console.log(response.data.data)
     };
     // query can change, but don't actually trigger
     // request unless submitting is true
     getData();
-    console.log(update)
+    console.log(`Update: ${update}`)
 
   }, [update]);
 
@@ -59,6 +66,7 @@ export default function Results(){
     router.query.selectedDog = dog;
     console.log(`Budget: ${budget}`);
     console.log(`Energy: ${energy}`);
+    console.log(`Dog: ${dog}`)
     setUpdate(update + 1)
   }
 
