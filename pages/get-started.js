@@ -13,16 +13,18 @@ import styles from "../styles/Inputpage.module.css"
 export default function GetStarted() {
   const [budget, setBudget] = useState(null)
   const [energy, setEnergy] = useState(null)
+  const [dog, setDog] = useState(null)
   const router = useRouter()
   
   function sendingResults(){
-    let selectedLocation = "London"
-    let selectedBudget = budget
-    let selectedEnergy = energy
+    let selectedLocation = "London";
+    let selectedBudget = budget;
+    let selectedEnergy = energy;
+    let selectedDog = dog;
     router.push(
       {
         pathname: `/results`,
-        query: {selectedLocation, selectedBudget, selectedEnergy}
+        query: {selectedLocation, selectedBudget, selectedEnergy, selectedDog}
       }
       )}
 
@@ -74,6 +76,13 @@ export default function GetStarted() {
                 <option value="2">Medium</option>
                 <option value="3">High</option>
               </Select>
+
+              <FormLabel>Would you prefer a dog friendly activity?</FormLabel>
+              <Select placeholder='Select preference' value={dog} onChange={(e) => setDog(e.target.value)}>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </Select>
+
 
               <button className="btn" onClick={sendingResults}>
                 Create Day Plan
