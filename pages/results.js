@@ -8,8 +8,8 @@ import {
   FormLabel,
   Select,
 } from "@chakra-ui/react";
-import styles from "../styles/Results.module.css";
-import Image from "next/image";
+import styles from "../styles/Results.module.css"
+import Image from 'next/image'
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -25,14 +25,20 @@ import {
 // const data = router.query;
 // console.log(data);
 
-export default function Results() {
-  const [data, setData] = useState([]);
-  const [budget, setBudget] = useState(null);
-  const router = useRouter();
-  const { selectedLocation, selectedBudget } = router.query;
-  const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
-  const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
-  const [carousel, setCarousel] = useState(false);
+
+
+export default function Results(){
+    
+    const [data, setData] = useState([]);
+    const [budget, setBudget] = useState(null);
+    const [energy, setEnergy] = useState(null);
+    const [dog, setDog] = useState(null)
+    const [update, setUpdate] = useState(0)
+    const router = useRouter();
+    const {selectedLocation, selectedBudget, selectedEnergy, selectedDog} = router.query;
+    const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
+    const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
+    const [carousel, setCarousel] = useState(false);
 
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
@@ -53,24 +59,43 @@ export default function Results() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(
-        `https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`
-      );
-      setData(response.data.data);
-      console.log(response.data.data);
+      const response = await axios.get(`https://saunter-db.herokuapp.com/all-budgets`);
+      let allActivities = response.data.data;
+      let filteredActivities = [];
+
+      if(router.query.selectedDog === 'true'){
+        router.query.selectedDog = true
+      } else if(router.query.selectedDog === 'false'){
+        router.query.selectedDog = false
+      }
+      console.log(`Router: ${router.query.selectedDog}`)
+      console.log(`RouterTO: ${typeof router.query.selectedDog}`)
+      
+      for(let i = 0; i < allActivities.length; i++){
+        if(allActivities[i].budget == router.query.selectedBudget && allActivities[i].energy_level == router.query.selectedEnergy && allActivities[i].dog_friendly == router.query.selectedDog){
+          console.log(`Activity: ${allActivities[i].dog_friendly}`)
+          console.log(`ActivityTO: ${typeof allActivities[i].dog_friendly}`)
+          filteredActivities.push(allActivities[i])
+        }
+      }
+      setData(filteredActivities)
+      console.log(filteredActivities)
     };
     // query can change, but don't actually trigger
     // request unless submitting is true
     getData();
-  }, [router.query.selectedBudget]);
+    console.log(`Update: ${update}`)
+
+  }, [update]);
 
   function sendingResults() {
-    let selectedLocation = "London";
-    let selectedBudget = budget;
-    router.push({
-      pathname: `/results`,
-      query: { selectedLocation, selectedBudget },
-    });
+    router.query.selectedBudget = budget;
+    router.query.selectedEnergy = energy;
+    router.query.selectedDog = dog;
+    console.log(`Budget: ${budget}`);
+    console.log(`Energy: ${energy}`);
+    console.log(`Dog: ${dog}`)
+    setUpdate(update + 1)
   }
 
 function NewCarousel () {
@@ -174,6 +199,20 @@ function NewCarousel () {
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
               </Select>
+
+              <FormLabel>Energy level</FormLabel>
+              <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
+
+              <FormLabel>Dog friendly</FormLabel>
+              <Select placeholder='Select preference' value={dog} onChange={(e) => setDog(e.target.value)}>
+                <option value='true'>Yes</option>
+                <option value='false'>No</option>
+              </Select>
+
 
               <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
