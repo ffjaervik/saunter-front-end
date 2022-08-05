@@ -119,8 +119,15 @@ CAROUSEL STYLING
       opacity: var(--active);
   }
   
+
+  .card_image {
+    border-radius: 1rem;;
+    border: 3px solid black;
+
+  }
+
   .navleft {
-      color: black;
+      color: white;
       font-size: 5rem;
       position: absolute;
       display: flex;
@@ -133,10 +140,12 @@ CAROUSEL STYLING
       background: unset;
       border: unset;
       transform: translateX(-100%) translatey(-50%);
+      width: 15%;
+      height: auto;
   }
       
   .navright {
-      color: black;
+      color: white;
       font-size: 5rem;
       position: absolute;
       display: flex;
@@ -147,14 +156,22 @@ CAROUSEL STYLING
       cursor: pointer;
       user-select: none;
       background: unset;
-      border: unset;
+     stroke: 6px solid black;
       right: 0;
       transform: translateX(100%) translatey(-50%);
+      width: 15%;
+      height: auto;
   }
 
-  .addCarousel {
-    padding: 6px;
+  .addCarousel:hover {
+    background-color: none;
+    color: black;
+
+    /* padding: 6px;
     background-color: white;
     border: 2px solid black;
-    border-radius: 6px;
+    border-radius: 6px; */
+}
+.left_button {
+     border: 6px solid black;
 }
