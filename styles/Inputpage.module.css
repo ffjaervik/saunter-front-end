@@ -66,5 +66,30 @@
   .get_started__container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+  }
+ 
+  .pagetwoimg {
+    visibility: hidden;
+  }
+
+  .pagetwoimg2 {
+    visibility: hidden;
+  }
+
+  .pagetwoimg3 {
+    visibility: hidden;
+  }
+
+  .form {
+    margin-top: 10vh !important;
+    position: relative;
+    
+  } 
+
+  .bottomdiv {
+    height: 35vh;
   }
 }
+
+
