@@ -16,7 +16,7 @@ export default function Home() {
     <Image className= {styles.landingimage} src={background} alt="homepage image" layout="fill" objectFit="cover" objectPosition="center"/> 
       <div className={styles.homepage}>
       <div className={styles.welcomecard}>
-          <h1 className={styles.text}>Welcome!</h1>
+          <h1 className={styles.text && styles.h1}>Welcome!</h1>
         <h4 className={styles.text}>Take the stress out of solo travelling. Find the best spots to saunter & focus on the now.</h4>
         <Link href="/get-started">
           <button className={styles.homepagebtn} height="10vh" width="10vw">Start Here</button>

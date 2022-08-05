@@ -53,6 +53,28 @@
 
 @media screen and (max-width: 600px) {
 .navbar {
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
+  .navbar {
+    width: 100%;
+  }
+  
+  
+  .navbar h2 {
+    font-size: 1.4rem;
+  }
+  
+  .navbar a {
+    font-size: 2vh;
+    margin-left: 0.5rem;
+    display: none;
+  }
+
+.footer {
+  font-size: 0.75rem;
+  width: 100%;
 }
+ 
+}
+
+
