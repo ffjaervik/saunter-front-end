@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 600px) {
 .navbar {
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
   .navbar {
     width: 100%;
