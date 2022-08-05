@@ -15,63 +15,6 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
-//CAROUSEL START
-const MAX_VISIBILITY = 3;
-
-const Card = ({ title, content, image }) => (
-  <div className={styles.card}>
-    <h2>{title}</h2>
-    <p>{content}</p>
-    <img src={image} alt="Activity Card Image" className={styles.card_image} />
-  </div>
-);
-
-const Carousel = ({ children }) => {
-  const [active, setActive] = useState(0);
-  const count = 10;
-
-  return (
-    <div className={styles.carousel}>
-      {active > 0 && (
-        <button
-          className={styles.navleft}
-          onClick={function () {
-            setActive(active - 1);
-          }}
-        >
-          <FaChevronCircleLeft />
-        </button>
-      )}
-      {Children.map(children, (child, i) => (
-        <div
-          className={styles.cardcontainer}
-          style={{
-            "--active": i === active ? 1 : 0,
-            "--offset": (active - i) / 3,
-            "--direction": Math.sign(active - i),
-            "--abs-offset": Math.abs(active - i) / 3,
-            "pointer-events": active === i ? "auto" : "none",
-            opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
-            display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
-          }}
-        >
-          {child}
-        </div>
-      ))}
-      {active < count - 1 && (
-        <button
-          className={styles.navright}
-          onClick={function () {
-            setActive(active + 1);
-          }}
-        >
-          <FaChevronCircleRight />
-        </button>
-      )}
-    </div>
-  );
-};
-
 export default function Results() {
   const [data, setData] = useState([]);
   const [budget, setBudget] = useState(null);
@@ -79,6 +22,7 @@ export default function Results() {
   const [dog, setDog] = useState(null);
   const [update, setUpdate] = useState(0);
   const [list, setList] = useState([]);
+  const [count, setCount] = useState(0)
   const router = useRouter();
   const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
     router.query;
@@ -129,14 +73,19 @@ export default function Results() {
         }
       }
       setData(filteredActivities);
+      setCount(filteredActivities.length)
       console.log("filtered", filteredActivities);
-
+      
       if (update === 0) {
         console.log("Setting list");
         setList([filteredActivities]);
+      } else {
+        let last = list.length - 1;
+        setList([...list.slice(0, last), filteredActivities])
       }
+      //Using slice to immutably copy array and edit last carousel in list to display updated results.
     };
-    [{}];
+
     // query can change, but don't actually trigger
     // request unless submitting is true
     getData();
@@ -156,47 +105,67 @@ export default function Results() {
 
   function addCarousel() {
     setList([...list, data]);
+    console.log('setList:', list)
     // setUpdate(update + 1)
   }
 
+
   //CAROUSEL START
-  // const MAX_VISIBILITY = 3;
+const MAX_VISIBILITY = 3;
 
-  // const Card = ({title, content}) => (
-  //   <div className={styles.card}>
-  //     <h2>{title}</h2>
-  //     <p>{content}</p>
-  //   </div>
-  // );
+const Card = ({ title, content, image }) => (
+  <div className={styles.card}>
+    <h2>{title}</h2>
+    <p>{content}</p>
+    <img src={image} alt="Activity Card Image" className={styles.card_image} />
+  </div>
+);
 
-  // const Carousel = ({children}) => {
-  //     const [active, setActive] = useState(0);
-  //     const count = data.length;
+const Carousel = ({ children }) => {
+  const [active, setActive] = useState(0);
+  // const count = 10;
 
-  //     return (
-  //       <div className={styles.carousel}>
-  //         {active > 0 && <button className={styles.navleft} onClick={function(){setActive(active - 1)}}>
-  //                          ==
-  //                        </button>}
-  //         {Children.map(children, (child, i) => (
-  //           <div className={styles.cardcontainer} style={{
-  //               '--active': i === active ? 1 : 0,
-  //               '--offset': (active - i) / 3,
-  //               '--direction': Math.sign(active - i),
-  //               '--abs-offset': Math.abs(active - i) / 3,
-  //               'pointer-events': active === i ? 'auto' : 'none',
-  //               'opacity': Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
-  //               'display': Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
-  //             }}>
-  //             {child}
-  //           </div>
-  //         ))}
-  //         {active < count - 1 && <button className={styles.navright} onClick={function(){setActive(active + 1)}}>
-  //         ==
-  //         </button>}
-  //       </div>
-  //     )};
-
+  return (
+    <div className={styles.carousel}>
+      {active > 0 && (
+        <button
+          className={styles.navleft}
+          onClick={function () {
+            setActive(active - 1);
+          }}
+        >
+          <FaChevronCircleLeft />
+        </button>
+      )}
+      {Children.map(children, (child, i) => (
+        <div
+          className={styles.cardcontainer}
+          style={{
+            "--active": i === active ? 1 : 0,
+            "--offset": (active - i) / 3,
+            "--direction": Math.sign(active - i),
+            "--abs-offset": Math.abs(active - i) / 3,
+            "pointer-events": active === i ? "auto" : "none",
+            opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
+            display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
+          }}
+        >
+          {child}
+        </div>
+      ))}
+      {active < count - 1 && (
+        <button
+          className={styles.navright}
+          onClick={function () {
+            setActive(active + 1);
+          }}
+        >
+          <FaChevronCircleRight />
+        </button>
+      )}
+    </div>
+  );
+};
   //CAROUSEL END
 
   //div className={styles.results}
