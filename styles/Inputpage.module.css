@@ -4,6 +4,7 @@
   justify-content: space-around;
   margin-top: 6%;
 
+
 }
 
 
@@ -48,6 +49,9 @@
 .form {
     margin-left: 50%;
     z-index: 2;
+  
+   
+  
 }
 
 .bottomdiv {
