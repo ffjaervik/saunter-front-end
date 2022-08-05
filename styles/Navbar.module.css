@@ -1,3 +1,4 @@
+
 .navbar {
   top: 0;
   padding: 10px 0;
@@ -18,7 +19,8 @@
 }
 
 .navbar a {
-  margin-left: 1rem;
+  margin-left: 3rem;
+  font-size: 2vmin;
 }
 
 
@@ -35,6 +37,7 @@
   width: 100vw;
   }
 
+
   .navbar h2 { 
     margin-right: auto;
     font-family: 'Megrim';
@@ -42,33 +45,19 @@
     justify-content: flex-start;
     margin-left: 1.5vw;
     cursor: pointer;
+    font-size: 4vmin;
   }
 
   .navbar h2:hover {
       color: var(--color-btn)
-
   }
 
 /* MEDIA QUERIES (SMALL DEVICES)  */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
 .navbar {
   /* flex-wrap: wrap; */
 }
-  .navbar {
-    width: 100%;
-  }
-  
-  
-  .navbar h2 {
-    font-size: 1.4rem;
-  }
-  
-  .navbar a {
-    font-size: 2vh;
-    margin-left: 0.5rem;
-    display: none;
-  }
 
 .footer {
   font-size: 0.75rem;
@@ -76,5 +65,4 @@
 }
  
 }
-
 

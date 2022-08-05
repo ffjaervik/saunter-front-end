@@ -69,6 +69,7 @@ export default function GetStarted() {
             padding="6"
             borderRadius="2rem"
             boxShadow="10px 10px black"
+            backgroundColor="white"
           >
             <FormControl>
               <FormLabel>Where do you want to travel to?</FormLabel>
