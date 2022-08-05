@@ -70,5 +70,30 @@
   .get_started__container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+  }
+ 
+  .pagetwoimg {
+    display: none;
+  }
+
+  .pagetwoimg2 {
+    display: none;
+  }
+
+  .pagetwoimg3 {
+    display: none;
+  }
+
+  .form {
+    margin-top: 10vh !important;
+    position: relative;
+    height: 2vh;
+  } 
+
+  .bottomdiv {
+    height: 35vh;
   }
 }
+
+
