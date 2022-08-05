@@ -10,7 +10,7 @@ const Navbar = () => {
       <Link href="/about"><a>About</a></Link>
       <Link href="/community/"><a>Community</a></Link>
       <Link href="/contact/"><a>Contact</a></Link>
-      <button className={styles.loginbtn} href="/login/">Login</button>
+      <button className="btn" href="/login/">Login</button>
     </nav>
   );
 }
