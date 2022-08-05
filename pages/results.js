@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Children } from 'react'
 import axios from "axios";
 import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/react'
 import styles from "../styles/Results.module.css"
@@ -71,27 +71,80 @@ export default function Results(){
   }
 
 
+//CAROUSEL START
+const CARDS = 10;
+const MAX_VISIBILITY = 3;
+
+const Card = ({title, content}) => (
+  <div className={styles.card}>
+    <h2>{title}</h2>
+    <p>{content}</p>
+  </div>
+);
+
+
+const Carousel = ({children}) => {
+    const [active, setActive] = useState(0);
+    const count = 10;
+    
+    return (
+      <div className={styles.carousel}>
+        {active > 0 && <button className={styles.navleft} onClick={function(){setActive(active - 1)}}>
+                         ==
+                       </button>}
+        {Children.map(children, (child, i) => (
+          <div className={styles.cardcontainer} style={{
+              '--active': i === active ? 1 : 0,
+              '--offset': (active - i) / 3,
+              '--direction': Math.sign(active - i),
+              '--abs-offset': Math.abs(active - i) / 3,
+              'pointer-events': active === i ? 'auto' : 'none',
+              'opacity': Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
+              'display': Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
+            }}>
+            {child}
+          </div>
+        ))}
+        {active < count - 1 && <button className={styles.navright} onClick={function(){setActive(active + 1)}}>
+        ==
+        </button>}
+      </div>
+    )};
+
+//CAROUSEL END
+
+  //div className={styles.results}
+
+  // {data.map((activity) => {
+  //   const id = activity.id;
+  //   const name = activity.name;
+  //   const image = activity.image;
+  //   const body = {id: id}
+  //   return (
+
+  //     <div className={styles.activity} key={name}>
+  //       <h5>{name}</h5>
+  //       <div className={styles.imagebtn}>
+  //       <img src={image} alt="/" />
+  //       <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
+  //       </div>
+  //     </div>
+  //   );
+  // })}
+
+
 
     return (
       <div className={styles.main}>
         <h1>Your Recommendations:</h1>
         <div className={styles.results}>
-          {data.map((activity) => {
-            const id = activity.id;
-            const name = activity.name;
-            const image = activity.image;
-            const body = {id: id}
-            return (
-
-              <div className={styles.activity} key={name}>
-                <h5>{name}</h5>
-                <div className={styles.imagebtn}>
-                <img src={image} alt="/" />
-                <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
-                </div>
-              </div>
-            );
-          })}
+        </div>
+        <div className={styles.app}>
+           <Carousel>
+             {data.map((activity, index) => (
+               <Card key={index} title={activity.name} content={activity.description}/>
+             ))}
+           </Carousel>
         </div>
         {/* chakra ui imported below */}
         <div className="form">
