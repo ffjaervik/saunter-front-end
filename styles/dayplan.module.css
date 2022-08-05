@@ -16,7 +16,7 @@
     background-color: transparent;
     display: flex;
     /* flex-direction: row-reverse; */
-    border: 1px solid red;
+
   }
 
   .dayplancard {
@@ -30,11 +30,13 @@
     font-family: "Quicksand";
     font-weight: bold;
     margin: 1.5rem 1.5rem;
-    width: 50%;
+    width: 53%;
     height: 10ew;
     float: right;
     margin-right: 100px;
-    border : 1px solid blue;
+    border: 4px solid black;
+    background-color: white;
+
   }
 
 .text {
@@ -42,6 +44,8 @@
     color: black;
     width: 100%;
     font-size: 3vw;
+    font-weight: bold;
+
   }
 
 /* .container {
