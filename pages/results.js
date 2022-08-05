@@ -12,6 +12,7 @@ export default function Results(){
     const [energy, setEnergy] = useState(null);
     const [dog, setDog] = useState(null)
     const [update, setUpdate] = useState(0)
+    const [list, setList] = useState([]);
     const router = useRouter();
     const {selectedLocation, selectedBudget, selectedEnergy, selectedDog} = router.query;
 
@@ -58,6 +59,7 @@ export default function Results(){
     getData();
     console.log(`Update: ${update}`)
 
+
   }, [update]);
 
   function sendingResults() {
@@ -85,7 +87,7 @@ const Card = ({title, content}) => (
 
 const Carousel = ({children}) => {
     const [active, setActive] = useState(0);
-    const count = 10;
+    const count = data.length;
     
     return (
       <div className={styles.carousel}>
@@ -133,6 +135,14 @@ const Carousel = ({children}) => {
   // })}
 
 
+  //Create a state for the list of carousels
+  //Each time 'Add new activity' button is clickes, add new carousel to the list with spread operator
+  // State is [list, setList]
+  //Map twice:
+  //1. Carousels 
+  //2. Data in the 🎠
+  // Save data as state
+
 
     return (
       <div className={styles.main}>
@@ -145,7 +155,11 @@ const Carousel = ({children}) => {
                <Card key={index} title={activity.name} content={activity.description}/>
              ))}
            </Carousel>
+
+           <button>Click here</button>
+
         </div>
+        
         {/* chakra ui imported below */}
         <div className="form">
           <ChakraProvider>
