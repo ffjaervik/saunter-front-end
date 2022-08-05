@@ -27,7 +27,7 @@
   cursor: pointer;
   border: 2px solid var(--color-primary);
   transition: var(--transition);
-  margin: 1.5rem 1.5rem;
+  margin: 3rem 3rem;
   box-shadow: 0.2rem 0.2rem black;
   font-size: 1.5rem;
   font-family: "Quicksand";
@@ -65,7 +65,7 @@
   font-family: "Quicksand";
   font-weight: bold;
   margin: 1.5rem 1.5rem;
-  width: 500px;
+  width: 40vw;
   height: 55vh;
   float: right;
   margin-right: 100px;
@@ -75,6 +75,9 @@
 .text {
   text-align: center;
   color: black;
+  margin: 1.5rem 1.5rem; 
+  
+
 }
 
 
@@ -91,7 +94,9 @@
   }
   .welcomecard {
     width: 100%;
-    height: 100%
+    height: 100%;
     
   }
+
+ 
 }
