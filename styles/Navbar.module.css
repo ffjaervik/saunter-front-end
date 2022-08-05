@@ -11,6 +11,8 @@
   height: 5vh;
   width: 100vw;
   box-sizing: content-box;
+  z-index: 10;
+
   /* text-shadow: 0.5px 1px grey; */
 
 }
@@ -47,3 +49,10 @@
 
   }
 
+/* MEDIA QUERIES (SMALL DEVICES)  */
+
+@media screen and (max-width: 600px) {
+.navbar {
+  flex-wrap: wrap;
+}
+}
