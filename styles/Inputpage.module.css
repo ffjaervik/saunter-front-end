@@ -70,21 +70,21 @@
   }
  
   .pagetwoimg {
-    visibility: hidden;
+    display: none;
   }
 
   .pagetwoimg2 {
-    visibility: hidden;
+    display: none;
   }
 
   .pagetwoimg3 {
-    visibility: hidden;
+    display: none;
   }
 
   .form {
     margin-top: 10vh !important;
     position: relative;
-    
+    height: 2vh;
   } 
 
   .bottomdiv {

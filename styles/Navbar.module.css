@@ -67,6 +67,7 @@
   .navbar a {
     font-size: 2vh;
     margin-left: 0.5rem;
+    display: none;
   }
 
 .footer {
