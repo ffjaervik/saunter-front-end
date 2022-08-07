@@ -222,16 +222,33 @@ export default function Results() {
       {/* chakra ui imported below */}
       <div className="form">
         <ChakraProvider>
-          <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
+          <Box
+            width="28.75rem"
+            height="100%"
+            padding="6"
+            borderRadius="none"
+            border="2px solid"
+            borderColor="black"
+            mt="15vh"
+            bg="#F9983F"
+          >
             <FormControl>
               <FormLabel>Location</FormLabel>
-              <Select placeholder="Select location">
+              <Select
+                placeholder="Select location"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+              >
                 <option>London</option>
               </Select>
 
               <FormLabel>Budget</FormLabel>
               <Select
                 placeholder="Select budget"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
                 value={budget}
                 onChange={(e) => setBudget(e.target.value)}
               >
@@ -243,6 +260,9 @@ export default function Results() {
               <FormLabel>Energy level</FormLabel>
               <Select
                 placeholder="Select energy level"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
                 value={energy}
                 onChange={(e) => setEnergy(e.target.value)}
               >
@@ -254,6 +274,9 @@ export default function Results() {
               <FormLabel>Dog friendly</FormLabel>
               <Select
                 placeholder="Select preference"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
                 value={dog}
                 onChange={(e) => setDog(e.target.value)}
               >
@@ -262,8 +285,8 @@ export default function Results() {
               </Select>
 
               <div className={styles.daybtn}>
-                <button className="btn" onClick={sendingResults}>
-                  Create Day Plan
+                <button className="secondary-btn" onClick={sendingResults}>
+                  Update Plan
                 </button>
               </div>
             </FormControl>

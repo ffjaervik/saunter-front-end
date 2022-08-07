@@ -61,9 +61,14 @@
     line-height: 1.7;
 }
 
+.daybtn {
+ display: flex;
+    justify-content: center;   
+}
+
 .daybtn button {
 
-    margin: 1.5rem 0!important;
+    /* margin: 1.5rem 0!important; */
 
 
 }
@@ -249,3 +254,5 @@ CAROUSEL STYLING
     color: white;
     border-radius: 50%;
 }
+
+
