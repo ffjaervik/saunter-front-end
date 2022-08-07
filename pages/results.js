@@ -8,12 +8,25 @@ import {
   FormLabel,
   Select,
 } from "@chakra-ui/react";
+
 import styles from "../styles/Results.module.css";
 import Image from "next/image";
+import React, { Component } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
+import {
+  AiOutlinePlusCircle,
+  AiFillPlusCircle,
+  AiOutlineMinusCircle,
+  AiFillMinusCircle,
+} from "react-icons/ai";
+
+// const data = router.query;
+// console.log(data);
 
 export default function Results() {
   const [data, setData] = useState([]);
@@ -22,11 +35,15 @@ export default function Results() {
   const [dog, setDog] = useState(null);
   const [update, setUpdate] = useState(0);
   const [list, setList] = useState([]);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);    
+  const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
+  const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
   const router = useRouter();
+  
   const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
     router.query;
   console.log(`List:`, list);
+
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
     await fetch(
@@ -227,7 +244,61 @@ export default function Results() {
           </IconContext.Provider>
         </button>
       </div>
-
+            
+           // <button
+            //  onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+          //  >
+            //  {toggleViewModeFav ? (
+              //  <AiOutlineHeart
+                //  size={35}
+               //   onClick={function () {
+                //    return patchSaved(body);
+               //   }}
+               //   key={id}
+               //   className={styles.favouritesbutton}
+              //  />
+            //  ) : (
+            //    <AiFillHeart
+              //    className={styles.favouritesbuttonred}
+             //     size={35}
+           //     />
+           //   )}
+         //   </button>
+          //  <button
+        //      onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+          //  >
+            //  {toggleViewModeSave ? (
+           //     <HiOutlineLockOpen
+            //      size={35}
+            //      className={styles.savebutton}
+           //     />
+         //     ) : (
+           //     <HiLockClosed
+            //      className={styles.savebuttonclose}
+             //     size={35}
+            //    />
+          //    )}
+        //    </button>
+       //   </div>
+    //    </div>
+  //    </div>
+ //   );
+//  })}
+//<p>
+  //        Use the Lock icon that is displayed on the activity to save it to your
+  //        day plan. Once you have saved an activity, click the plus button to
+   //       look for another activity. Feel free to add as many activities as you
+   //       like.
+     //   </p>
+       
+       // <button>
+      //    <AiOutlinePlusCircle
+       //     size={35}
+       //     className={styles.addbutton}
+       //     onClick={NewCarousel}
+      //    />
+     //   </button>
+     
       {/* chakra ui imported below */}
       <div className="form">
         <ChakraProvider>
@@ -239,6 +310,7 @@ export default function Results() {
               </Select>
 
               <FormLabel>Budget</FormLabel>
+
               <Select
                 placeholder="Select budget"
                 value={budget}
@@ -269,7 +341,6 @@ export default function Results() {
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </Select>
-
               <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
                   Create Day Plan

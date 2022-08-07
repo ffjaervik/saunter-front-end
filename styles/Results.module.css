@@ -1,6 +1,18 @@
 .main {
     display:flex;
     flex-direction: row-reverse;
+   
+
+
+}
+.resultspagefont {
+    padding: 2rem;
+    text-align: center;
+    width: 40rem;
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-black);
+    line-height: 1.7;
+
 
 
 }
@@ -13,7 +25,7 @@
     padding: 2rem;
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width: var(--container-width-lg);
+    width: 50cm;
     
 }
 
@@ -33,7 +45,7 @@
 
 .imagebtn button {
     max-height: 50px;
-
+    width: 50cm;
 }
 
 /* .form button {
@@ -42,6 +54,13 @@
 
     
 } */
+
+.resultsfont {
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-black);
+    line-height: 1.7;
+}
+
 .daybtn button {
 
     margin: 1.5rem 0!important;
@@ -50,7 +69,9 @@
 }
 
  .activity {
-     padding: 1.5rem; 
+    padding: 1.5rem; 
+    border: 3px solid;
+
  }
 
 /*
@@ -180,4 +201,51 @@ CAROUSEL STYLING
 }
 .left_button {
      border: 6px solid black;
+
+
+.favouritesbutton {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.favouritesbuttonred {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    color: red;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.savebutton {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.savebuttonclose {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.addbutton:hover {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
 }
