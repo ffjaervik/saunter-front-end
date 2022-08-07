@@ -191,6 +191,94 @@ export default function Results() {
 
   //div className={styles.results}
 
+
+
+
+
+  return (
+    <div className={styles.main}>
+      <h1>Your Recommendations:</h1>
+      <div className={styles.results}></div>
+      <div className={styles.app}>
+        {list.map((carousel, index) => (
+          <Carousel key={index}>
+            {carousel.map((activity, index) => (
+              <Card key={index} title={activity.name} image={activity.image} />
+            ))}
+          </Carousel>
+        ))}
+        <button className={styles.addCarousel} onClick={addCarousel}>
+          <IconContext.Provider
+            value={{
+              color: "black",
+              className: "global-class-name",
+              size: "3rem",
+            }}
+          >
+            <AiOutlinePlusCircle />
+          </IconContext.Provider>
+        </button>
+      </div>
+
+      {/* chakra ui imported below */}
+      <div className="form">
+        <ChakraProvider>
+          <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
+            <FormControl>
+              <FormLabel>Location</FormLabel>
+              <Select placeholder="Select location">
+                <option>London</option>
+              </Select>
+
+              <FormLabel>Budget</FormLabel>
+              <Select
+                placeholder="Select budget"
+                value={budget}
+                onChange={(e) => setBudget(e.target.value)}
+              >
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
+
+              <FormLabel>Energy level</FormLabel>
+              <Select
+                placeholder="Select energy level"
+                value={energy}
+                onChange={(e) => setEnergy(e.target.value)}
+              >
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
+
+              <FormLabel>Dog friendly</FormLabel>
+              <Select
+                placeholder="Select preference"
+                value={dog}
+                onChange={(e) => setDog(e.target.value)}
+              >
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </Select>
+
+              <div className={styles.daybtn}>
+                <button className="btn" onClick={sendingResults}>
+                  Create Day Plan
+                </button>
+              </div>
+            </FormControl>
+          </Box>
+        </ChakraProvider>
+      </div>
+    </div>
+  );
+}
+
+
+
+// DESCRIPTION AND SOME FUNCTIONALITY FROM ANOTHER BRANCH. SAVE FOR LATER
+
   // {data.map((activity) => {
   //   const id = activity.id;
   //   const name = activity.name;
@@ -281,7 +369,7 @@ export default function Results() {
 //         </div>
 //       </div>
 //     );
-//   })}
+//   
 // <p>
 //           Use the Lock icon that is displayed on the activity to save it to your
 //           day plan. Once you have saved an activity, click the plus button to
@@ -297,57 +385,55 @@ export default function Results() {
 //           />
 //         </button> */}
      
-      {/* chakra ui imported below
-      <div className="form">
-        <ChakraProvider>
-          <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
-            <FormControl>
-              <FormLabel>Location</FormLabel>
-              <Select placeholder="Select location">
-                <option>London</option>
-              </Select>
+    //  chakra ui imported below
+    //   <div className="form">
+    //     <ChakraProvider>
+    //       <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
+    //         <FormControl>
+    //           <FormLabel>Location</FormLabel>
+    //           <Select placeholder="Select location">
+    //             <option>London</option>
+    //           </Select>
 
-              <FormLabel>Budget</FormLabel>
+    //           <FormLabel>Budget</FormLabel>
 
-              <Select
-                placeholder="Select budget"
-                value={budget}
-                onChange={(e) => setBudget(e.target.value)}
-              >
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-              </Select>
+    //           <Select
+    //             placeholder="Select budget"
+    //             value={budget}
+    //             onChange={(e) => setBudget(e.target.value)}
+    //           >
+    //             <option value="1">Low</option>
+    //             <option value="2">Medium</option>
+    //             <option value="3">High</option>
+    //           </Select>
 
-              <FormLabel>Energy level</FormLabel>
-              <Select
-                placeholder="Select energy level"
-                value={energy}
-                onChange={(e) => setEnergy(e.target.value)}
-              >
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-              </Select>
+    //           <FormLabel>Energy level</FormLabel>
+    //           <Select
+    //             placeholder="Select energy level"
+    //             value={energy}
+    //             onChange={(e) => setEnergy(e.target.value)}
+    //           >
+    //             <option value="1">Low</option>
+    //             <option value="2">Medium</option>
+    //             <option value="3">High</option>
+    //           </Select>
 
-              <FormLabel>Dog friendly</FormLabel>
-              <Select
-                placeholder="Select preference"
-                value={dog}
-                onChange={(e) => setDog(e.target.value)}
-              >
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-              </Select>
-              <div className={styles.daybtn}>
-                <button className="btn" onClick={sendingResults}>
-                  Create Day Plan
-                </button>
-              </div>
-            </FormControl>
-          </Box>
-        </ChakraProvider>
-      </div>
-    </div>
-  );
-}
+    //           <FormLabel>Dog friendly</FormLabel>
+    //           <Select
+    //             placeholder="Select preference"
+    //             value={dog}
+    //             onChange={(e) => setDog(e.target.value)}
+    //           >
+    //             <option value="true">Yes</option>
+    //             <option value="false">No</option>
+    //           </Select>
+    //           <div className={styles.daybtn}>
+    //             <button className="btn" onClick={sendingResults}>
+    //               Create Day Plan
+    //             </button>
+    //           </div>
+    //         </FormControl>
+    //       </Box>
+    //     </ChakraProvider>
+    //   </div>
+    // </div>
