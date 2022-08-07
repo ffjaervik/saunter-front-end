@@ -198,7 +198,6 @@ export default function Results() {
   return (
     <div className={styles.main}>
       <h1>Your Recommendations:</h1>
-      <div className={styles.results}></div>
       <div className={styles.app}>
         {list.map((carousel, index) => (
           <Carousel key={index}>
