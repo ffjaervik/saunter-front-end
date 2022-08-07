@@ -13,8 +13,6 @@ import styles from "../styles/Results.module.css";
 import Image from "next/image";
 import React, { Component } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-import { AiFillPlusCircle } from "react-icons/ai";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
@@ -220,86 +218,86 @@ export default function Results() {
   // Ensure list is an array of arrays: [[{}]]
   //for description content={activity.description}
 
-  return (
-    <div className={styles.main}>
-      <h1>Your Recommendations:</h1>
-      <div className={styles.results}></div>
-      <div className={styles.app}>
-        {list.map((carousel, index) => (
-          <Carousel key={index}>
-            {carousel.map((activity, index) => (
-              <Card key={index} title={activity.name} image={activity.image} />
-            ))}
-          </Carousel>
-        ))}
-        <button className={styles.addCarousel} onClick={addCarousel}>
-          <IconContext.Provider
-            value={{
-              color: "black",
-              className: "global-class-name",
-              size: "3rem",
-            }}
-          >
-            <AiOutlinePlusCircle />
-          </IconContext.Provider>
-        </button>
-      </div>
+//   return (
+//     <div className={styles.main}>
+//       <h1>Your Recommendations:</h1>
+//       <div className={styles.results}></div>
+//       <div className={styles.app}>
+//         {list.map((carousel, index) => (
+//           <Carousel key={index}>
+//             {carousel.map((activity, index) => (
+//               <Card key={index} title={activity.name} image={activity.image} />
+//             ))}
+//           </Carousel>
+//         ))}
+//         <button className={styles.addCarousel} onClick={addCarousel}>
+//           <IconContext.Provider
+//             value={{
+//               color: "black",
+//               className: "global-class-name",
+//               size: "3rem",
+//             }}
+//           >
+//             <AiOutlinePlusCircle />
+//           </IconContext.Provider>
+//         </button>
+//       </div>
             
-           // <button
-            //  onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-          //  >
-            //  {toggleViewModeFav ? (
-              //  <AiOutlineHeart
-                //  size={35}
-               //   onClick={function () {
-                //    return patchSaved(body);
-               //   }}
-               //   key={id}
-               //   className={styles.favouritesbutton}
-              //  />
-            //  ) : (
-            //    <AiFillHeart
-              //    className={styles.favouritesbuttonred}
-             //     size={35}
-           //     />
-           //   )}
-         //   </button>
-          //  <button
-        //      onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
-          //  >
-            //  {toggleViewModeSave ? (
-           //     <HiOutlineLockOpen
-            //      size={35}
-            //      className={styles.savebutton}
-           //     />
-         //     ) : (
-           //     <HiLockClosed
-            //      className={styles.savebuttonclose}
-             //     size={35}
-            //    />
-          //    )}
-        //    </button>
-       //   </div>
-    //    </div>
-  //    </div>
- //   );
-//  })}
-//<p>
-  //        Use the Lock icon that is displayed on the activity to save it to your
-  //        day plan. Once you have saved an activity, click the plus button to
-   //       look for another activity. Feel free to add as many activities as you
-   //       like.
-     //   </p>
+//            {/* <button></button> */}
+//               {/* onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+//             >
+//              {toggleViewModeFav ? ( */}
+//                 {/* <AiOutlineHeart */}
+//                 {/*   size={35}
+//                   onClick={function () { */}
+//                    return patchSaved(body);
+//                   }}
+//                   key={id}
+//                   className={styles.favouritesbutton}
+//                 />
+//               ) : (
+//                 <AiFillHeart
+//                   className={styles.favouritesbuttonred}
+//                   size={35}
+//                 />
+//               )}
+//             </button>
+//             <button
+//               onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+//             >
+//               {toggleViewModeSave ? (
+//                 <HiOutlineLockOpen
+//                   size={35}
+//                   className={styles.savebutton}
+//                 />
+//               ) : (
+//                 <HiLockClosed
+//                   className={styles.savebuttonclose}
+//                   size={35}
+//                 />
+//               )}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   })}
+// <p>
+//           Use the Lock icon that is displayed on the activity to save it to your
+//           day plan. Once you have saved an activity, click the plus button to
+//           look for another activity. Feel free to add as many activities as you
+//           like.
+//         </p>
        
-       // <button>
-      //    <AiOutlinePlusCircle
-       //     size={35}
-       //     className={styles.addbutton}
-       //     onClick={NewCarousel}
-      //    />
-     //   </button>
+//         <button>
+//           <AiOutlinePlusCircle
+//             size={35}
+//             className={styles.addbutton}
+//             onClick={NewCarousel}
+//           />
+//         </button> */}
      
-      {/* chakra ui imported below */}
+      {/* chakra ui imported below
       <div className="form">
         <ChakraProvider>
           <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
