@@ -27,17 +27,17 @@ const Navbar = () => {
 			</Link>
 			{error && <div>{error.message}</div>}
 			{user && (
-				<div className='loginwelcome'>
+				<div >
 					<button>
 						{' '}
-						Welcome {user.name}! <a href='/api/auth/logout'>Logout</a>{' '}
+						Welcome {user.name}! <Link href='/api/auth/logout'>Logout</Link>{' '}
 					</button>
 				</div>
 			)}
 			{!user && (
-				<a className='loginbutton' href='/api/auth/login'>
+				<Link href='/api/auth/login'>
 					Login
-				</a>
+				</Link>
 			)}
 		</nav>
 	)
