@@ -7,10 +7,11 @@ import { useState } from "react";
 
 const ExperimentalNavbar = () => {
     const [displayOpen, setDisplayOpen] = useState(false);
-  return ( <div>
+  return ( 
+  <div>
     <nav className={styles.navbar}>
-      <div className={styles.Links}>
       <Link href="/"><h2>Saunter</h2></Link>
+      <div className={styles.Links}>
       <Link href="/"><a>Home</a></Link>
       <Link href="/about"><a>About</a></Link>
       <Link href="/community/"><a>Community</a></Link>
@@ -22,7 +23,8 @@ const ExperimentalNavbar = () => {
           onClick={() => setDisplayOpen(!displayOpen)}
           colorScheme="blue"
           aria-label="Menu"
-          icon={<HamburgerIcon />}
+          icon={<HamburgerIcon  w={35} h={35} />}
+          
         />
       </div>
     </nav>
@@ -41,13 +43,17 @@ const ExperimentalNavbar = () => {
           : styles.MenuLinks
       }
     >
+      
       <Link href="/"><h2>Saunter</h2></Link>
+      <div className={styles.HamburgerLinks}>
       <Link href="/">Home</Link>
       <Link href="/about"><a>About</a></Link>
       <Link href="/community/"><a>Community</a></Link>
       <Link href="/contact/"><a>Contact</a></Link>
+      </div>
     </div>
   </div>
+  
   );
 }
  
