@@ -28,25 +28,26 @@ import {
 // console.log(data);
 
 export default function Results() {
+	const router = useRouter()
+	const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } = router.query;
 	const [data, setData] = useState([])
-	const [budget, setBudget] = useState(null)
-	const [energy, setEnergy] = useState(null)
-	const [dog, setDog] = useState(null)
+	const [budget, setBudget] = useState(router.query.selectedBudget)
+	const [energy, setEnergy] = useState(router.query.selectedEnergy)
+	const [dog, setDog] = useState(router.query.selectedDog)
 	const [update, setUpdate] = useState(0)
 	const [list, setList] = useState([])
 	const [count, setCount] = useState(0)
 	const [toggleViewModeFav, setToggleViewModeFav] = useState(true)
 	const [toggleViewModeSave, setToggleViewModeSave] = useState(true)
-	const router = useRouter()
+  const [active, setActive] = useState(0)
+  const [cart, setCart] = useState([])
 
-	const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
-		router.query
 	console.log(`List:`, list)
 
 	//SAVE BUTTON FUNCTIONALITY
 	async function patchSaved(input) {
 		await fetch(
-			`https://saunter-db.herokuapp.com/${router.query.selectedBudget}-budget`,
+			`https://saunter-db.herokuapp.com/all-budgets`,
 			{
 				method: 'PATCH',
 				headers: {
@@ -79,9 +80,9 @@ export default function Results() {
 
 			for (let i = 0; i < allActivities.length; i++) {
 				if (
-					allActivities[i].budget == router.query.selectedBudget &&
-					allActivities[i].energy_level == router.query.selectedEnergy &&
-					allActivities[i].dog_friendly == router.query.selectedDog
+					(allActivities[i].budget == router.query.selectedBudget || router.query.selectedBudget == "Any") &&
+					(allActivities[i].energy_level == router.query.selectedEnergy || router.query.selectedEnergy == "Any") &&
+					(allActivities[i].dog_friendly == router.query.selectedDog || router.query.selectedDog == "Any")
 				) {
 					console.log(`Activity: ${allActivities[i].dog_friendly}`)
 					console.log(`ActivityTO: ${typeof allActivities[i].dog_friendly}`)
@@ -128,7 +129,7 @@ export default function Results() {
 	//CAROUSEL START
 	const MAX_VISIBILITY = 3
 
-	const Card = ({ title, content, image }) => (
+	const Card = ({ title, content, image, patch, add }) => (
 		<div className={styles.card}>
 			<h2>{title}</h2>
 			<p>{content}</p>
@@ -140,11 +141,13 @@ export default function Results() {
 					className={styles.card_image}
 				/>
 			</div>
+      <button onClick={patch} className={styles.heart}>Heart</button>
+      <button onClick={add} className={styles.lock}>Add</button>
 		</div>
 	)
 
 	const Carousel = ({ children }) => {
-		const [active, setActive] = useState(0)
+		// const [active, setActive] = useState(0)
 		// const count = 10;
 
 		return (
@@ -154,6 +157,7 @@ export default function Results() {
 						className={styles.navleft}
 						onClick={function () {
 							setActive(active - 1)
+              console.log(active)
 						}}
 					>
 						<FaChevronCircleLeft />
@@ -180,6 +184,7 @@ export default function Results() {
 						className={styles.navright}
 						onClick={function () {
 							setActive(active + 1)
+              console.log(active)
 						}}
 					>
 						<FaChevronCircleRight />
@@ -223,7 +228,11 @@ const LockButton = () => (
   </div>
 );
 
-
+function addToCart(activity) {
+  setCart([...cart, activity])
+  console.log(`Activity:`, activity)
+  console.log(`Cart:`, cart)
+}
 	//div className={styles.results}
 
 	// {data.map((activity) => {
@@ -261,10 +270,7 @@ const LockButton = () => (
 				{list.map((carousel, index) => (
 					<Carousel key={index}>
 						{carousel.map((activity, index) => (
-							<Card key={index} title={activity.name} image={activity.image} >
-              <HeartButton key={index}/>
-              <LockButton key={index}/>
-              </Card>
+							<Card key={index} title={activity.name} image={activity.image} patch={function () {return patchSaved(activity.id)}} add={function() {return addToCart(activity)}}/>
 						))}
 					</Carousel>
 				))}
@@ -332,10 +338,10 @@ const LockButton = () => (
 							<FormLabel>Budget</FormLabel>
 
 							<Select
-								placeholder='Select budget'
 								value={budget}
 								onChange={(e) => setBudget(e.target.value)}
 							>
+                <option value="Any">Any</option>
 								<option value='1'>Low</option>
 								<option value='2'>Medium</option>
 								<option value='3'>High</option>
@@ -343,22 +349,22 @@ const LockButton = () => (
 
 							<FormLabel>Energy level</FormLabel>
 							<Select
-								placeholder='Select energy level'
 								value={energy}
 								onChange={(e) => setEnergy(e.target.value)}
 							>
-								<option value='1'>Low</option>
+								<option value="Any">Any</option>
+                <option value='1'>Low</option>
 								<option value='2'>Medium</option>
 								<option value='3'>High</option>
 							</Select>
 
 							<FormLabel>Dog friendly</FormLabel>
 							<Select
-								placeholder='Select preference'
 								value={dog}
 								onChange={(e) => setDog(e.target.value)}
 							>
-								<option value='true'>Yes</option>
+								<option value="Any">Any</option>
+                <option value='true'>Yes</option>
 								<option value='false'>No</option>
 							</Select>
 							<div className={styles.daybtn}>
