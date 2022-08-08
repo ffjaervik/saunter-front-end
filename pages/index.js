@@ -18,13 +18,13 @@ export default function Home() {
 
   if (user) {
     return (
-      <div>
+      <div className="loginwelcome">
         Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
       </div>
     ); 
   }
 
-  return <a href="/api/auth/login">Login</a>;
+  return <a className="loginbutton" href="/api/auth/login">Login</a>;
 }
 
 // 	return (
