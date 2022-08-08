@@ -82,6 +82,7 @@
     .MenuOpen {
         width: 85%;
         transition: 300ms;
+        z-index:5;
         
     }
     

@@ -26,14 +26,14 @@ const ExperimentalNavbar = () => {
         />
       </div>
     </nav>
-    {/* <div
+    <div
       onClick={() => setDisplayOpen(!displayOpen)}
       className={
         displayOpen
           ? `${styles.MenuDim} ${styles.MenuDimOpen}`
           : styles.MenuDim
       }
-    ></div> */}
+    ></div>
     <div
       className={
         displayOpen
