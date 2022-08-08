@@ -13,8 +13,6 @@ import styles from "../styles/Results.module.css";
 import Image from "next/image";
 import React, { Component } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-import { AiFillPlusCircle } from "react-icons/ai";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
@@ -245,60 +243,60 @@ export default function Results() {
         </button>
       </div>
             
-           // <button
-            //  onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-          //  >
-            //  {toggleViewModeFav ? (
-              //  <AiOutlineHeart
-                //  size={35}
-               //   onClick={function () {
-                //    return patchSaved(body);
-               //   }}
-               //   key={id}
-               //   className={styles.favouritesbutton}
-              //  />
-            //  ) : (
-            //    <AiFillHeart
-              //    className={styles.favouritesbuttonred}
-             //     size={35}
-           //     />
-           //   )}
-         //   </button>
-          //  <button
-        //      onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
-          //  >
-            //  {toggleViewModeSave ? (
-           //     <HiOutlineLockOpen
-            //      size={35}
-            //      className={styles.savebutton}
-           //     />
-         //     ) : (
-           //     <HiLockClosed
-            //      className={styles.savebuttonclose}
-             //     size={35}
-            //    />
-          //    )}
-        //    </button>
-       //   </div>
-    //    </div>
-  //    </div>
- //   );
-//  })}
-//<p>
-  //        Use the Lock icon that is displayed on the activity to save it to your
-  //        day plan. Once you have saved an activity, click the plus button to
-   //       look for another activity. Feel free to add as many activities as you
-   //       like.
-     //   </p>
+           {/* // <button
+             onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+           >
+             {toggleViewModeFav ? (
+               <AiOutlineHeart
+                 size={35}
+                 onClick={function () {
+                   return patchSaved(body);
+                 }}
+                 key={id}
+                 className={styles.favouritesbutton}
+               />
+             ) : (
+               <AiFillHeart
+                 className={styles.favouritesbuttonred}
+                 size={35}
+               />
+             )}
+           </button>
+           <button
+             onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+           >
+             {toggleViewModeSave ? (
+               <HiOutlineLockOpen
+                 size={35}
+                 className={styles.savebutton}
+               />
+             ) : (
+               <HiLockClosed
+                 className={styles.savebuttonclose}
+                 size={35}
+               />
+             )}
+           </button>
+         </div>
+       </div>
+     </div>
+   );
+ })}
+<p>
+         Use the Lock icon that is displayed on the activity to save it to your
+         day plan. Once you have saved an activity, click the plus button to
+         look for another activity. Feel free to add as many activities as you
+         like.
+       </p>
        
-       // <button>
-      //    <AiOutlinePlusCircle
-       //     size={35}
-       //     className={styles.addbutton}
-       //     onClick={NewCarousel}
-      //    />
-     //   </button>
-     
+       <button>
+         <AiOutlinePlusCircle
+           size={35}
+           className={styles.addbutton}
+           onClick={NewCarousel}
+         />
+       </button>
+      */}
       {/* chakra ui imported below */}
       <div className="form">
         <ChakraProvider>
