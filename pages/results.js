@@ -9,7 +9,6 @@ import {
 	Select,
 } from '@chakra-ui/react'
 
-
 import styles from '../styles/Results.module.css'
 import Image from 'next/image'
 import React, { Component } from 'react'
@@ -31,7 +30,8 @@ import {
 
 export default function Results() {
 	const router = useRouter()
-	const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } = router.query;
+	const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
+		router.query
 	const [data, setData] = useState([])
 	const [budget, setBudget] = useState(router.query.selectedBudget)
 	const [energy, setEnergy] = useState(router.query.selectedEnergy)
@@ -40,22 +40,19 @@ export default function Results() {
 	const [count, setCount] = useState(0)
 	const [toggleViewModeFav, setToggleViewModeFav] = useState(true)
 	const [toggleViewModeSave, setToggleViewModeSave] = useState(true)
-  const [active, setActive] = useState(0)
-  const [cart, setCart] = useState([])
+	const [active, setActive] = useState(0)
+	const [cart, setCart] = useState([])
 
 	//SAVE BUTTON FUNCTIONALITY
 	async function patchSaved(input) {
-		await fetch(
-			`https://saunter-db.herokuapp.com/all-budgets`,
-			{
-				method: 'PATCH',
-				headers: {
-					'Content-Type': 'application/json',
-					'Access-Control-Request-Method': 'PATCH',
-				},
-				body: JSON.stringify(input),
-			}
-		)
+		await fetch(`https://saunter-db.herokuapp.com/all-budgets`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Request-Method': 'PATCH',
+			},
+			body: JSON.stringify(input),
+		})
 	}
 
 	// UPDATE FORM DATA FUNCTIONALITY
@@ -79,9 +76,12 @@ export default function Results() {
 
 			for (let i = 0; i < allActivities.length; i++) {
 				if (
-					(allActivities[i].budget == router.query.selectedBudget || router.query.selectedBudget == "Any") &&
-					(allActivities[i].energy_level == router.query.selectedEnergy || router.query.selectedEnergy == "Any") &&
-					(allActivities[i].dog_friendly == router.query.selectedDog || router.query.selectedDog == "Any")
+					(allActivities[i].budget == router.query.selectedBudget ||
+						router.query.selectedBudget == 'Any') &&
+					(allActivities[i].energy_level == router.query.selectedEnergy ||
+						router.query.selectedEnergy == 'Any') &&
+					(allActivities[i].dog_friendly == router.query.selectedDog ||
+						router.query.selectedDog == 'Any')
 				) {
 					filteredActivities.push(allActivities[i])
 				}
@@ -122,13 +122,16 @@ export default function Results() {
 					className={styles.card_image}
 				/>
 			</div>
-      <button onClick={patch} className={styles.heart}>Heart</button>
-      <button onClick={add} className={styles.lock}>Add</button>
+			<button onClick={patch} className={styles.heart}>
+				Heart
+			</button>
+			<button onClick={add} className={styles.lock}>
+				Add
+			</button>
 		</div>
 	)
 
 	const Carousel = ({ children }) => {
-
 		return (
 			<div className={styles.carousel}>
 				{active > 0 && (
@@ -136,7 +139,7 @@ export default function Results() {
 						className={styles.navleft}
 						onClick={function () {
 							setActive(active - 1)
-              console.log(active)
+							console.log(active)
 						}}
 					>
 						<FaChevronCircleLeft />
@@ -163,7 +166,7 @@ export default function Results() {
 						className={styles.navright}
 						onClick={function () {
 							setActive(active + 1)
-              console.log(active)
+							console.log(active)
 						}}
 					>
 						<FaChevronCircleRight />
@@ -173,7 +176,6 @@ export default function Results() {
 		)
 	}
 	//CAROUSEL END
-
 
 	// Heart button functionality
 	const HeartButton = () => (
@@ -195,115 +197,135 @@ export default function Results() {
 		</div>
 	)
 
-// Lock Button functionality
-const LockButton = () => (
-  <div className={styles.lock_button}>
-  		<button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
+	// Lock Button functionality
+	const LockButton = () => (
+		<div className={styles.lock_button}>
+			<button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
 				{toggleViewModeSave ? (
 					<HiOutlineLockOpen size={35} className={styles.savebutton} />
 				) : (
 					<HiLockClosed className={styles.savebuttonclose} size={35} />
 				)}
 			</button>
-  </div>
-);
+		</div>
+	)
 
-function addToCart(activity) {
-  setCart([...cart, activity])
-  console.log(`Activity:`, activity)
-  console.log(`Cart:`, cart)
-}
+	// Add Button functionality
+	function addToCart(activity) {
+		setCart([...cart, activity.id])
+		console.log(`Activity:`, activity)
+		console.log(`Cart:`, cart)
+	}
+	// Sending cart funcitonality
+	function sendCart() {
+		router.push({
+			pathname: '/day-plan',
+			query: { cart },
+		})
+	}
 
 	return (
 		<div className={styles.main}>
-			<h1>Your Recommendations:</h1>
-			<div className={styles.results}></div>
 			<div className={styles.app}>
-					<Carousel>
-						{data.map((activity, index) => (
-							<Card key={index} title={activity.name} image={activity.image} patch={function () {return patchSaved(activity.id)}} add={function() {return addToCart(activity)}}/>
-						))}
-					</Carousel>
+				<h1>Your Recommendations:</h1>
+				<Carousel>
+					{data.map((activity, index) => (
+						<Card
+							key={index}
+							title={activity.name}
+							image={activity.image}
+							patch={function () {
+								return patchSaved(activity.id)
+							}}
+							add={function () {
+								return addToCart(activity)
+							}}
+						/>
+					))}
+				</Carousel>
+				<button className='btn' onClick={sendCart}>
+					See Day Plan
+				</button>
 			</div>
 
 			{/* chakra ui imported below */}
-      <div className="form">
-        <ChakraProvider>
-          <Box
-            width="28.75rem"
-            height="100%"
-            padding="6"
-            borderRadius="none"
-            border="2px solid"
-            borderColor="black"
-            mt="15vh"
-            bg="#F9983F"
-          >
-            <FormControl>
-              <FormLabel>Location</FormLabel>
-              <Select
-                placeholder="Select location"
-                border="2px solid"
-                borderColor="black"
-                bg="white"
-              >
-                <option>London</option>
-              </Select>
+			<div className={styles.form}>
+				<ChakraProvider>
+					<Box
+						width='28.75rem'
+						height='100%'
+						padding='6'
+						borderRadius='none'
+						border='2px solid'
+						borderColor='black'
+						mt='7.1vh'
+						pt=''
+						bg='#F9983F'
+					>
+						<FormControl>
+							<FormLabel>Location</FormLabel>
+							<Select
+								placeholder='Select location'
+								border='2px solid'
+								borderColor='black'
+								bg='white'
+							>
+								<option>London</option>
+							</Select>
 
-              <FormLabel>Budget</FormLabel>
-              <Select
-                placeholder="Select budget"
-                border="2px solid"
-                borderColor="black"
-                bg="white"
-                value={budget}
-                onChange={(e) => setBudget(e.target.value)}
-              >
-                <option value="Any">Any</option>
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-              </Select>
+							<FormLabel>Budget</FormLabel>
+							<Select
+								placeholder='Select budget'
+								border='2px solid'
+								borderColor='black'
+								bg='white'
+								value={budget}
+								onChange={(e) => setBudget(e.target.value)}
+							>
+								<option value='Any'>Any</option>
+								<option value='1'>Low</option>
+								<option value='2'>Medium</option>
+								<option value='3'>High</option>
+							</Select>
 
-              <FormLabel>Energy level</FormLabel>
-              <Select
-                placeholder="Select energy level"
-                border="2px solid"
-                borderColor="black"
-                bg="white"
-                value={energy}
-                onChange={(e) => setEnergy(e.target.value)}
-              >
-                <option value="Any">Any</option>
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-              </Select>
+							<FormLabel>Energy level</FormLabel>
+							<Select
+								placeholder='Select energy level'
+								border='2px solid'
+								borderColor='black'
+								bg='white'
+								value={energy}
+								onChange={(e) => setEnergy(e.target.value)}
+							>
+								<option value='Any'>Any</option>
+								<option value='1'>Low</option>
+								<option value='2'>Medium</option>
+								<option value='3'>High</option>
+							</Select>
 
-              <FormLabel>Dog friendly</FormLabel>
-              <Select
-                placeholder="Select preference"
-                border="2px solid"
-                borderColor="black"
-                bg="white"
-                value={dog}
-                onChange={(e) => setDog(e.target.value)}
-              >
-                <option value="Any">Any</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-              </Select>
+							<FormLabel>Dog friendly</FormLabel>
+							<Select
+								placeholder='Select preference'
+								border='2px solid'
+								borderColor='black'
+								bg='white'
+								value={dog}
+								onChange={(e) => setDog(e.target.value)}
+							>
+								<option value='Any'>Any</option>
+								<option value='true'>Yes</option>
+								<option value='false'>No</option>
+							</Select>
 
-              <div className={styles.daybtn}>
-                <button className="secondary-btn" onClick={sendingResults}>
-                  Update Plan
-                </button>
-              </div>
-            </FormControl>
-          </Box>
-        </ChakraProvider>
-      </div>
-    </div>
-  );
+							<div className={styles.daybtn}>
+								<button className='secondary-btn' onClick={sendingResults}>
+									Update Plan
+								</button>
+							</div>
+						</FormControl>
+					</Box>
+				</ChakraProvider>
+			</div>
+		</div>
+	)
 }
-	
