@@ -103,6 +103,21 @@ a:hover {
 
 }
 
+.loginwelcome {
+
+  color: red!important;
+  font-size: 80px;
+  margin-top: 20vh;
+
+}
+.loginbutton {
+  color: red!important;
+  font-size: 80px;
+  margin-top: 20vh;
+ 
+
+}
+
 
 .secondary-btn {
   background-color: var(--color-secondary-btn);
