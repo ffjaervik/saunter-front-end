@@ -15,9 +15,11 @@ import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/
 import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
-  const [budget, setBudget] = useState("")
-  const [energy, setEnergy] = useState("")
-  const [dog, setDog] = useState("")
+
+  const [budget, setBudget] = useState('Any')
+  const [energy, setEnergy] = useState('Any')
+  const [dog, setDog] = useState('Any')
+
   const router = useRouter()
   
   function sendingResults(){
@@ -80,6 +82,7 @@ export default function GetStarted() {
               <FormLabel>What is your budget?</FormLabel>
 
               <Select placeholder='Select budget' value={budget}  fill="white" onChange={(e) => setBudget(e.target.value)}>
+                <option selected value="Any">Any</option>
                 <option value="1">Low</option>
                 <option value="2">Medium</option>
                 <option value="3">High</option>
@@ -87,6 +90,7 @@ export default function GetStarted() {
 
               <FormLabel>What is your energy level?</FormLabel>
               <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
+                <option selected value="Any">Any</option>
                 <option value="1">Low</option>
                 <option value="2">Medium</option>
                 <option value="3">High</option>
@@ -94,6 +98,7 @@ export default function GetStarted() {
 
               <FormLabel>Would you prefer a dog friendly activity?</FormLabel>
               <Select placeholder='Select preference' value={dog} onChange={(e) => setDog(e.target.value)}>
+                <option selected value="Any">Any</option>
                 <option value='true'>Yes</option>
                 <option value='false'>No</option>
               </Select>

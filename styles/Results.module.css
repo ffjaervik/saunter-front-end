@@ -208,6 +208,7 @@ CAROUSEL STYLING
      border: 6px solid black;
 }
 
+
 .favouritesbutton {
     z-index: 10;
     position: relative;
@@ -234,7 +235,7 @@ CAROUSEL STYLING
     position: relative;
     right: 6vw;
     top: 15vh;
-    background-color: white;
+    background-color: green;
     border-radius: 50%;
     padding: 0.25rem;
 }
@@ -255,4 +256,29 @@ CAROUSEL STYLING
     border-radius: 50%;
 }
 
+.heart_button {
+    z-index: 10;
+    position: relative;
+    right: 6vw;
+    top: 15vh;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.lock {
+background-color: red;
+margin-left: 1rem;
+color: black;
+padding: 0.2rem;
+border-radius: 6px;
+}
+
+.heart {
+background-color: green;
+margin-left: 1rem;
+color: black;
+padding: 0.2rem;
+border-radius: 6px;
+}
 
