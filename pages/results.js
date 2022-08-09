@@ -218,18 +218,16 @@ export default function Results() {
 	}
 	// Sending cart funcitonality
 	function sendCart() {
-    
 		router.push({
 			pathname: '/day-plan',
-			query: {cart}
+			query: { cart },
 		})
 	}
 
 	return (
 		<div className={styles.main}>
-			<h1>Your Recommendations:</h1>
-			<div className={styles.results}></div>
 			<div className={styles.app}>
+				<h1>Your Recommendations:</h1>
 				<Carousel>
 					{data.map((activity, index) => (
 						<Card
@@ -251,7 +249,7 @@ export default function Results() {
 			</div>
 
 			{/* chakra ui imported below */}
-			<div className='form'>
+			<div className={styles.form}>
 				<ChakraProvider>
 					<Box
 						width='28.75rem'
@@ -260,7 +258,8 @@ export default function Results() {
 						borderRadius='none'
 						border='2px solid'
 						borderColor='black'
-						mt='15vh'
+						mt='7.1vh'
+						pt=''
 						bg='#F9983F'
 					>
 						<FormControl>
