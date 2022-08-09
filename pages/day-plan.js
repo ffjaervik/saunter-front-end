@@ -33,12 +33,15 @@ export default function DayPlan() {
 	}, [])
 
 	const Card = ({ name, type, description, image  }) => {
+		console.log(`This is the name:`, name)
+		return (
 		<div className={styles.main_card}>
 			<h2>{name}</h2>
 			<h5>{type}</h5>
 			<p>{description}</p>
-			<Image src={image} alt={name} />
+			<img src={image} alt={name} />
 		</div>
+		)
 	}
 
 
