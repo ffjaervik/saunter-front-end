@@ -1,246 +1,249 @@
-import { useRouter } from 'next/router'
-import { useState, useEffect, Children } from 'react'
-import axios from 'axios'
+import { useRouter } from "next/router";
+import { useState, useEffect, Children } from "react";
+import axios from "axios";
 import {
-	Box,
-	ChakraProvider,
-	FormControl,
-	FormLabel,
-	Select,
-} from '@chakra-ui/react'
+  Box,
+  ChakraProvider,
+  FormControl,
+  FormLabel,
+  Select,
+} from "@chakra-ui/react";
 
-import styles from '../styles/Results.module.css'
-import Image from 'next/image'
-import React, { Component } from 'react'
-import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
-import { IconContext } from 'react-icons'
-import { HiOutlineLockOpen, HiLockClosed } from 'react-icons/hi'
+import styles from "../styles/Results.module.css";
+import Image from "next/image";
+import React, { Component } from "react";
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import { HiOutlineLockOpen, HiLockClosed } from "react-icons/hi";
 
 import {
-	AiOutlinePlusCircle,
-	AiFillPlusCircle,
-	AiOutlineMinusCircle,
-	AiOutlineHeart,
-	AiFillHeart,
-	AiFillMinusCircle,
-} from 'react-icons/ai'
+  AiOutlinePlusCircle,
+  AiFillPlusCircle,
+  AiOutlineMinusCircle,
+  AiOutlineHeart,
+  AiFillHeart,
+  AiFillMinusCircle,
+} from "react-icons/ai";
 
 // const data = router.query;
 // console.log(data);
 
 export default function Results() {
-	const router = useRouter()
-	const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
-		router.query
-	const [data, setData] = useState([])
-	const [budget, setBudget] = useState(router.query.selectedBudget)
-	const [energy, setEnergy] = useState(router.query.selectedEnergy)
-	const [dog, setDog] = useState(router.query.selectedDog)
-	const [update, setUpdate] = useState(0)
-	const [count, setCount] = useState(0)
-	const [toggleViewModeFav, setToggleViewModeFav] = useState(true)
-	const [toggleViewModeSave, setToggleViewModeSave] = useState(true)
-	const [active, setActive] = useState(0)
-	const [cart, setCart] = useState([])
+  const router = useRouter();
+  const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
+    router.query;
+  const [data, setData] = useState([]);
+  const [budget, setBudget] = useState(router.query.selectedBudget);
+  const [energy, setEnergy] = useState(router.query.selectedEnergy);
+  const [dog, setDog] = useState(router.query.selectedDog);
+  const [update, setUpdate] = useState(0);
+  const [count, setCount] = useState(0);
+  const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
+  const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
+  const [active, setActive] = useState(0);
+  const [cart, setCart] = useState([]);
 
-	//SAVE BUTTON FUNCTIONALITY
-	async function patchSaved(input) {
-		await fetch(`https://saunter-db.herokuapp.com/all-budgets`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Request-Method': 'PATCH',
-			},
-			body: JSON.stringify(input),
-		})
-	}
+  //SAVE BUTTON FUNCTIONALITY
+  async function patchSaved(input) {
+    await fetch(`https://saunter-db.herokuapp.com/all-budgets`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Request-Method": "PATCH",
+      },
+      body: JSON.stringify(input),
+    });
+  }
 
-	// UPDATE FORM DATA FUNCTIONALITY
+  // UPDATE FORM DATA FUNCTIONALITY
 
-	useEffect(() => {
-		const getData = async () => {
-			const response = await axios.get(
-				`https://saunter-db.herokuapp.com/all-budgets`
-			)
-			let allActivities = response.data.data
-			console.log('allActivities', allActivities)
-			let filteredActivities = []
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        `https://saunter-db.herokuapp.com/all-budgets`
+      );
+      let allActivities = response.data.data;
+      console.log("allActivities", allActivities);
+      let filteredActivities = [];
 
-			if (router.query.selectedDog === 'true') {
-				router.query.selectedDog = true
-			} else if (router.query.selectedDog === 'false') {
-				router.query.selectedDog = false
-			}
-			console.log(`Router: ${router.query.selectedDog}`)
-			console.log(`RouterTO: ${typeof router.query.selectedDog}`)
+      if (router.query.selectedDog === "true") {
+        router.query.selectedDog = true;
+      } else if (router.query.selectedDog === "false") {
+        router.query.selectedDog = false;
+      }
+      console.log(`Router: ${router.query.selectedDog}`);
+      console.log(`RouterTO: ${typeof router.query.selectedDog}`);
 
-			for (let i = 0; i < allActivities.length; i++) {
-				if (
-					(allActivities[i].budget == router.query.selectedBudget ||
-						router.query.selectedBudget == 'Any') &&
-					(allActivities[i].energy_level == router.query.selectedEnergy ||
-						router.query.selectedEnergy == 'Any') &&
-					(allActivities[i].dog_friendly == router.query.selectedDog ||
-						router.query.selectedDog == 'Any')
-				) {
-					filteredActivities.push(allActivities[i])
-				}
-			}
-			setData(filteredActivities)
-			setCount(filteredActivities.length)
-			console.log('filtered', filteredActivities)
-		}
+      for (let i = 0; i < allActivities.length; i++) {
+        if (
+          (allActivities[i].budget == router.query.selectedBudget ||
+            router.query.selectedBudget == "Any") &&
+          (allActivities[i].energy_level == router.query.selectedEnergy ||
+            router.query.selectedEnergy == "Any") &&
+          (allActivities[i].dog_friendly == router.query.selectedDog ||
+            router.query.selectedDog == "Any")
+        ) {
+          filteredActivities.push(allActivities[i]);
+        }
+      }
+      setData(filteredActivities);
+      setCount(filteredActivities.length);
+      console.log("filtered", filteredActivities);
+    };
 
-		// query can change, but don't actually trigger
-		// request unless submitting is true
-		getData()
-		console.log(`Update: ${update}`)
-	}, [update])
+    // query can change, but don't actually trigger
+    // request unless submitting is true
+    getData();
+    console.log(`Update: ${update}`);
+  }, [update]);
 
-	function sendingResults() {
-		router.query.selectedBudget = budget
-		router.query.selectedEnergy = energy
-		router.query.selectedDog = dog
-		console.log(`Updated budget: ${budget}`)
-		console.log(`Updated energy: ${energy}`)
-		console.log(`Updated dog: ${dog}`)
-		setUpdate(update + 1)
-	}
+  function sendingResults() {
+    router.query.selectedBudget = budget;
+    router.query.selectedEnergy = energy;
+    router.query.selectedDog = dog;
+    console.log(`Updated budget: ${budget}`);
+    console.log(`Updated energy: ${energy}`);
+    console.log(`Updated dog: ${dog}`);
+    setUpdate(update + 1);
+  }
 
-	//CAROUSEL START
-	const MAX_VISIBILITY = 3
+  //CAROUSEL START
+  const MAX_VISIBILITY = 3;
 
-	const Card = ({ title, content, image, add, patch, key }) => (
-		<div className={styles.card}>
-			<h2>{title}</h2>
-			<p>{content}</p>
+  const Card = ({ title, content, image, add, patch, key }) => (
+    <div className={styles.card}>
+      <h2>{title}</h2>
+      <p>{content}</p>
 
-			<div className={styles.image_container}>
-				<img
-					src={image}
-					alt='Activity Card Image'
-					className={styles.card_image}
-				/>
-			</div>
-			{/* PATCH REQUEST */}
-			<button key={key} onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
-				{toggleViewModeFav ? (
-					<AiOutlineHeart
-						size={35}
-						onClick={function () {
-							return patchSaved({patch})
-						}} 
-						className={styles.heart} 
-					/>
-			    ) : (
-					<AiFillHeart 
-					    size={35} 
-					    // className={styles.favouritesbuttonred} 
-					/>
-				)}
-			</button>
-			<button onClick={add} className={styles.lock}>
-				Add
-			</button>
-		</div>
-	)
+      <div className={styles.image_container}>
+        <img
+          src={image}
+          alt="Activity Card Image"
+          className={styles.card_image}
+        />
+      </div>
+      {/* PATCH REQUEST */}
+      <button
+        key={key}
+        onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+      >
+        {toggleViewModeFav ? (
+          <AiOutlineHeart
+            size={35}
+            onClick={function () {
+              return patchSaved({ patch });
+            }}
+            className={styles.heart}
+          />
+        ) : (
+          <AiFillHeart
+            size={35}
+            // className={styles.favouritesbuttonred}
+          />
+        )}
+      </button>
+      <button onClick={add} className={styles.lock}>
+        Add
+      </button>
+    </div>
+  );
 
-	const Carousel = ({ children }) => {
-		return (
-			<div className={styles.carousel}>
-				{active > 0 && (
-					<button
-						className={styles.navleft}
-						onClick={function () {
-							setActive(active - 1)
-							console.log(active)
-						}}
-					>
-						<FaChevronCircleLeft />
-					</button>
-				)}
-				{Children.map(children, (child, i) => (
-					<div
-						className={styles.cardcontainer}
-						style={{
-							'--active': i === active ? 1 : 0,
-							'--offset': (active - i) / 3,
-							'--direction': Math.sign(active - i),
-							'--abs-offset': Math.abs(active - i) / 3,
-							'pointer-events': active === i ? 'auto' : 'none',
-							opacity: Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
-							display: Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
-						}}
-					>
-						{child}
-					</div>
-				))}
-				{active < count - 1 && (
-					<button
-						className={styles.navright}
-						onClick={function () {
-							setActive(active + 1)
-							console.log(active)
-						}}
-					>
-						<FaChevronCircleRight />
-					</button>
-				)}
-			</div>
-		)
-	}
-	//CAROUSEL END
+  const Carousel = ({ children }) => {
+    return (
+      <div className={styles.carousel}>
+        {active > 0 && (
+          <button
+            className={styles.navleft}
+            onClick={function () {
+              setActive(active - 1);
+              console.log(active);
+            }}
+          >
+            <FaChevronCircleLeft />
+          </button>
+        )}
+        {Children.map(children, (child, i) => (
+          <div
+            className={styles.cardcontainer}
+            style={{
+              "--active": i === active ? 1 : 0,
+              "--offset": (active - i) / 3,
+              "--direction": Math.sign(active - i),
+              "--abs-offset": Math.abs(active - i) / 3,
+              "pointer-events": active === i ? "auto" : "none",
+              opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
+              display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
+            }}
+          >
+            {child}
+          </div>
+        ))}
+        {active < count - 1 && (
+          <button
+            className={styles.navright}
+            onClick={function () {
+              setActive(active + 1);
+              console.log(active);
+            }}
+          >
+            <FaChevronCircleRight />
+          </button>
+        )}
+      </div>
+    );
+  };
+  //CAROUSEL END
 
-	// Heart button functionality
-	const HeartButton = ({ patch }) => (
-		<div>
-		<button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
-				{toggleViewModeFav ? (
-					<AiOutlineHeart
-						size={35}
-						onClick={function () {
-							return patchSaved({patch})
-						}} 
-						className={styles.heart} 
-					/>
-			    ) : (
-					<AiFillHeart 
-					    size={35} 
-					    // className={styles.favouritesbuttonred} 
-					/>
-				)}
-			</button>
-		</div>
-	)
+  // Heart button functionality
+  const HeartButton = ({ patch }) => (
+    <div>
+      <button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
+        {toggleViewModeFav ? (
+          <AiOutlineHeart
+            size={35}
+            onClick={function () {
+              return patchSaved({ patch });
+            }}
+            className={styles.heart}
+          />
+        ) : (
+          <AiFillHeart
+            size={35}
+            // className={styles.favouritesbuttonred}
+          />
+        )}
+      </button>
+    </div>
+  );
 
-	// Lock Button functionality
-	const LockButton = () => (
-		<div className={styles.lock_button}>
-			<button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
-				{toggleViewModeSave ? (
-					<HiOutlineLockOpen size={35} className={styles.savebutton} />
-				) : (
-					<HiLockClosed className={styles.savebuttonclose} size={35} />
-				)}
-			</button>
-		</div>
-	)
+  // Lock Button functionality
+  const LockButton = () => (
+    <div className={styles.lock_button}>
+      <button onClick={() => setToggleViewModeSave(!toggleViewModeSave)}>
+        {toggleViewModeSave ? (
+          <HiOutlineLockOpen size={35} className={styles.savebutton} />
+        ) : (
+          <HiLockClosed className={styles.savebuttonclose} size={35} />
+        )}
+      </button>
+    </div>
+  );
 
-	// Add Button functionality
-	function addToCart(activity) {
-		setCart([...cart, activity.id])
-		console.log(`Activity:`, activity)
-		console.log(`Cart:`, cart)
-	}
-	// Sending cart funcitonality
-	function sendCart() {
-		router.push({
-			pathname: '/day-plan',
-			query: { cart },
-		})
-	}
+  // Add Button functionality
+  function addToCart(activity) {
+    setCart([...cart, activity.id]);
+    console.log(`Activity:`, activity);
+    console.log(`Cart:`, cart);
+  }
+  // Sending cart funcitonality
+  function sendCart() {
+    router.push({
+      pathname: "/day-plan",
+      query: { cart },
+    });
+  }
 
-	return (
+  return (
     <div className={styles.main}>
       <div className={styles.app}>
         <h3 className={styles.instruction}>
@@ -253,23 +256,28 @@ export default function Results() {
               key={index}
               title={activity.name}
               image={activity.image}
-            //   patch={function (){
-            //     let body = { id: activity.id };
-            //     return patchSaved(body);
-            //   }}
-			//   patch={{ id: activity.id }}
+              //   patch={function (){
+              //     let body = { id: activity.id };
+              //     return patchSaved(body);
+              //   }}
+              //   patch={{ id: activity.id }}
               add={function () {
                 return addToCart(activity);
               }}
-			  id={activity.id}
-			  patch={{ id: activity.id }}
-            >
-			</Card>
+              id={activity.id}
+              patch={{ id: activity.id }}
+            ></Card>
           ))}
         </Carousel>
-        <button className={styles.dayplan_btn} onClick={sendCart}>
-          See Day Plan
-        </button>
+        <div className={styles.cart}>
+          {" "}
+          <button className={styles.dayplan_btn} onClick={sendCart}>
+            See Day Plan
+          </button>
+          <span className={styles.bubble}>
+            <p>{cart.length}</p>
+          </span>
+        </div>
       </div>
 
       {/* chakra ui imported below */}
