@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/future/image";
+import { AiOutlineQuestionCircle } from "react-icons/ai"
 
 
 import page2image from "../public/assets/inputpageimage.avif";
@@ -78,9 +79,10 @@ export default function GetStarted() {
               <Select placeholder="Select location">
                 <option>London</option>
               </Select>
-
-              <FormLabel>What is your budget?</FormLabel>
-
+               
+              
+              <FormLabel className={styles.budgetquestion} data-hover="low is £5-£25, medium is £25-£50, high is £50+">What is your budget? <AiOutlineQuestionCircle/></FormLabel>
+              
               <Select placeholder='Select budget' value={budget}  fill="white" onChange={(e) => setBudget(e.target.value)}>
                 <option selected value="Any">Any</option>
                 <option value="1">Low</option>
@@ -88,7 +90,7 @@ export default function GetStarted() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel>What is your energy level?</FormLabel>
+              <FormLabel className={styles.energyquestion} data-hover="low is relaxing, medium is leisurely saunter, high is active & fast paced">What is your energy level? <AiOutlineQuestionCircle/></FormLabel>
               <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
                 <option selected value="Any">Any</option>
                 <option value="1">Low</option>
