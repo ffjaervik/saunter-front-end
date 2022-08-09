@@ -11,51 +11,51 @@ export default function Home() {
 
 	//Refactor code to fit with homepage and navbar
 
-	const { user, error, isLoading } = useUser();
+// 	const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+//   if (isLoading) return <div>Loading...</div>;
+//   if (error) return <div>{error.message}</div>;
 
-  if (user) {
-    return (
-      <div className="loginwelcome">
-        Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
-      </div>
-    ); 
+//   if (user) {
+//     return (
+//       <div className="loginwelcome">
+//         Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+//       </div>
+//     ); 
+//   }
+
+//   return <a className="loginbutton" href="/api/auth/login">Login</a>;
+// }
+
+	return (
+		<div className={styles.homepage__container}>
+			<Head>
+				<title>Saunter | Home</title>
+			</Head>
+			<div>
+				<Image
+					className={styles.landingimage}
+					src={background}
+					alt='homepage image'
+					layout='fill'
+					objectFit='cover'
+					objectPosition='center'
+				/>
+				<div className={styles.homepage}>
+					<div className={styles.welcomecard}>
+						<h1 className={styles.text}>Welcome!</h1>
+						<h4 className={styles.text}>
+							Take the stress out of solo travelling. Find the best spots to
+							saunter & focus on the now.
+						</h4>
+						<Link href='/get-started'>
+							<button className={styles.homepagebtn} height='10vh' width='10vw'>
+								Start Here
+							</button>
+						</Link>
+					</div>
+				</div>
+			</div>
+		</div>
+  )
   }
-
-  return <a className="loginbutton" href="/api/auth/login">Login</a>;
-}
-
-// 	return (
-// 		<div className={styles.homepage__container}>
-// 			<Head>
-// 				<title>Saunter | Home</title>
-// 			</Head>
-// 			<div>
-// 				<Image
-// 					className={styles.landingimage}
-// 					src={background}
-// 					alt='homepage image'
-// 					layout='fill'
-// 					objectFit='cover'
-// 					objectPosition='center'
-// 				/>
-// 				<div className={styles.homepage}>
-// 					<div className={styles.welcomecard}>
-// 						<h1 className={styles.text}>Welcome!</h1>
-// 						<h4 className={styles.text}>
-// 							Take the stress out of solo travelling. Find the best spots to
-// 							saunter & focus on the now.
-// 						</h4>
-// 						<Link href='/get-started'>
-// 							<button className={styles.homepagebtn} height='10vh' width='10vw'>
-// 								Start Here
-// 							</button>
-// 						</Link>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	
-// 
