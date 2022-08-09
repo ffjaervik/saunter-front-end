@@ -110,7 +110,7 @@ export default function Results() {
 	//CAROUSEL START
 	const MAX_VISIBILITY = 3
 
-	const Card = ({ title, content, image, patch, add }) => (
+	const Card = ({ title, content, image, add, patch, key }) => (
 		<div className={styles.card}>
 			<h2>{title}</h2>
 			<p>{content}</p>
@@ -123,8 +123,21 @@ export default function Results() {
 				/>
 			</div>
 			{/* PATCH REQUEST */}
-			<button onClick={patch} className={styles.heart}>
-			  {/* <AiOutlineHeart size={35}/> */}
+			<button key={key} onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
+				{toggleViewModeFav ? (
+					<AiOutlineHeart
+						size={35}
+						onClick={function () {
+							return patchSaved({patch})
+						}} 
+						className={styles.heart} 
+					/>
+			    ) : (
+					<AiFillHeart 
+					    size={35} 
+					    // className={styles.favouritesbuttonred} 
+					/>
+				)}
 			</button>
 			<button onClick={add} className={styles.lock}>
 				Add
@@ -179,20 +192,22 @@ export default function Results() {
 	//CAROUSEL END
 
 	// Heart button functionality
-	const HeartButton = ({id, body}) => (
-		<div className={styles.heart_button}>
-			<button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
+	const HeartButton = ({ patch }) => (
+		<div>
+		<button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
 				{toggleViewModeFav ? (
 					<AiOutlineHeart
 						size={35}
 						onClick={function () {
-							return patchSaved(body)
-						}}
-						key={id}
-						className={styles.favouritesbutton}
+							return patchSaved({patch})
+						}} 
+						className={styles.heart} 
 					/>
-				) : (
-					<AiFillHeart className={styles.favouritesbuttonred} size={35} />
+			    ) : (
+					<AiFillHeart 
+					    size={35} 
+					    // className={styles.favouritesbuttonred} 
+					/>
 				)}
 			</button>
 		</div>
@@ -238,18 +253,18 @@ export default function Results() {
               key={index}
               title={activity.name}
               image={activity.image}
-              patch={
-				//CONDITIONAL RENDERING IN PROGRESS
-				// () => setToggleViewModeFav (!toggleViewModeFav){
-                // //PATCH REQUEST
-                // console.log(activity.id);
-                let body = { id: activity.id };
-                return patchSaved(body);
-              }}
+            //   patch={function (){
+            //     let body = { id: activity.id };
+            //     return patchSaved(body);
+            //   }}
+			//   patch={{ id: activity.id }}
               add={function () {
                 return addToCart(activity);
               }}
-            />
+			  id={activity.id}
+			  patch={{ id: activity.id }}
+            >
+			</Card>
           ))}
         </Carousel>
         <button className={styles.dayplan_btn} onClick={sendCart}>
