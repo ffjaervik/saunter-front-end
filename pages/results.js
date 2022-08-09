@@ -122,8 +122,9 @@ export default function Results() {
 					className={styles.card_image}
 				/>
 			</div>
+			{/* PATCH REQUEST */}
 			<button onClick={patch} className={styles.heart}>
-			  <AiOutlineHeart size={35}/>
+			  {/* <AiOutlineHeart size={35}/> */}
 			</button>
 			<button onClick={add} className={styles.lock}>
 				Add
@@ -228,9 +229,8 @@ export default function Results() {
     <div className={styles.main}>
       <div className={styles.app}>
         <h3 className={styles.instruction}>
-		Your search returned {data.length} results.
-          Click + button that is displayed on the activity to save it to your
-          day plan.{" "}
+          Your search returned {data.length} results. Click + button that is
+          displayed on the activity to save it to your day plan.{" "}
         </h3>
         <Carousel>
           {data.map((activity, index) => (
@@ -238,8 +238,13 @@ export default function Results() {
               key={index}
               title={activity.name}
               image={activity.image}
-              patch={function () {
-                return patchSaved(activity.id);
+              patch={
+				//CONDITIONAL RENDERING IN PROGRESS
+				// () => setToggleViewModeFav (!toggleViewModeFav){
+                // //PATCH REQUEST
+                // console.log(activity.id);
+                let body = { id: activity.id };
+                return patchSaved(body);
               }}
               add={function () {
                 return addToCart(activity);
