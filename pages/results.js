@@ -123,7 +123,7 @@ export default function Results() {
 				/>
 			</div>
 			<button onClick={patch} className={styles.heart}>
-				Heart
+			  <AiOutlineHeart size={35}/>
 			</button>
 			<button onClick={add} className={styles.lock}>
 				Add
@@ -178,7 +178,7 @@ export default function Results() {
 	//CAROUSEL END
 
 	// Heart button functionality
-	const HeartButton = () => (
+	const HeartButton = ({id, body}) => (
 		<div className={styles.heart_button}>
 			<button onClick={() => setToggleViewModeFav(!toggleViewModeFav)}>
 				{toggleViewModeFav ? (
@@ -229,8 +229,8 @@ export default function Results() {
       <div className={styles.app}>
         <h3 className={styles.instruction}>
 		Your search returned {data.length} results.
-          Click  '+' button that is displayed on the activity to save it to your
-          day plan. Feel free to add as many activities as you like.{" "}
+          Click + button that is displayed on the activity to save it to your
+          day plan.{" "}
         </h3>
         <Carousel>
           {data.map((activity, index) => (
