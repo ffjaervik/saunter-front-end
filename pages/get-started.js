@@ -78,7 +78,7 @@ export default function GetStarted() {
                 <option>London</option>
               </Select>
 
-              <FormLabel>What is your budget? <AiOutlineQuestionCircle/></FormLabel>
+              <FormLabel>What is your budget? <AiOutlineQuestionCircle className={styles.budgetquestion}/></FormLabel>
 
               <Select placeholder='Select budget' value={budget}  fill="white" onChange={(e) => setBudget(e.target.value)}>
                 <option value="1">Low</option>
@@ -86,7 +86,7 @@ export default function GetStarted() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel>What is your energy level? <AiOutlineQuestionCircle/></FormLabel>
+              <FormLabel>What is your energy level? <AiOutlineQuestionCircle className={styles.energyquestion}/></FormLabel>
               <Select placeholder='Select energy level' value={energy} onChange={(e) => setEnergy(e.target.value)}>
                 <option value="1">Low</option>
                 <option value="2">Medium</option>
