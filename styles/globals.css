@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Megrim');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500&display=swap');
 
 
 * {
@@ -126,7 +127,8 @@ a:hover {
   cursor: pointer;
   border: 2px solid var(--color-primary);
   transition: var(--transition);
-  margin: 1.5rem 1.5rem;
+  /* margin: 1.5rem 1.5rem; */
+  margin-top: 1.5rem;
   box-shadow: 4px 4px black;
   font-family: "Quicksand";
   font-weight: bold;

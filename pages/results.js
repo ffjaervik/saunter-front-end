@@ -225,107 +225,111 @@ export default function Results() {
 	}
 
 	return (
-		<div className={styles.main}>
-			<div className={styles.app}>
-				<h1>Your Recommendations:</h1>
-				<Carousel>
-					{data.map((activity, index) => (
-						<Card
-							key={index}
-							title={activity.name}
-							image={activity.image}
-							patch={function () {
-								return patchSaved(activity.id)
-							}}
-							add={function () {
-								return addToCart(activity)
-							}}
-						/>
-					))}
-				</Carousel>
-				<button className='btn' onClick={sendCart}>
-					See Day Plan
-				</button>
-			</div>
+    <div className={styles.main}>
+      <div className={styles.app}>
+        <h3 className={styles.instruction}>
+		Your search returned {data.length} results.
+          Click  '+' button that is displayed on the activity to save it to your
+          day plan. Feel free to add as many activities as you like.{" "}
+        </h3>
+        <Carousel>
+          {data.map((activity, index) => (
+            <Card
+              key={index}
+              title={activity.name}
+              image={activity.image}
+              patch={function () {
+                return patchSaved(activity.id);
+              }}
+              add={function () {
+                return addToCart(activity);
+              }}
+            />
+          ))}
+        </Carousel>
+        <button className={styles.dayplan_btn} onClick={sendCart}>
+          See Day Plan
+        </button>
+      </div>
 
-			{/* chakra ui imported below */}
-			<div className={styles.form}>
-				<ChakraProvider>
-					<Box
-						width='28.75rem'
-						height='100%'
-						padding='6'
-						borderRadius='none'
-						border='2px solid'
-						borderColor='black'
-						mt='7.1vh'
-						pt=''
-						bg='#F9983F'
-					>
-						<FormControl>
-							<FormLabel>Location</FormLabel>
-							<Select
-								placeholder='Select location'
-								border='2px solid'
-								borderColor='black'
-								bg='white'
-							>
-								<option>London</option>
-							</Select>
+      {/* chakra ui imported below */}
+      <div className={styles.form}>
+        <ChakraProvider>
+          <Box
+            width="15vw"
+            height="100%"
+            padding="6"
+            borderRadius="none"
+            border="2px solid"
+            borderColor="black"
+            mt="7.1vh"
+            pt=""
+            bg="#F9983F"
+          >
+            <FormControl>
+              <FormLabel>Location</FormLabel>
+              <Select
+                placeholder="Select location"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+              >
+                <option>London</option>
+              </Select>
 
-							<FormLabel>Budget</FormLabel>
-							<Select
-								placeholder='Select budget'
-								border='2px solid'
-								borderColor='black'
-								bg='white'
-								value={budget}
-								onChange={(e) => setBudget(e.target.value)}
-							>
-								<option value='Any'>Any</option>
-								<option value='1'>Low</option>
-								<option value='2'>Medium</option>
-								<option value='3'>High</option>
-							</Select>
+              <FormLabel>Budget</FormLabel>
+              <Select
+                placeholder="Select budget"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={budget}
+                onChange={(e) => setBudget(e.target.value)}
+              >
+                <option value="Any">Any</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
 
-							<FormLabel>Energy level</FormLabel>
-							<Select
-								placeholder='Select energy level'
-								border='2px solid'
-								borderColor='black'
-								bg='white'
-								value={energy}
-								onChange={(e) => setEnergy(e.target.value)}
-							>
-								<option value='Any'>Any</option>
-								<option value='1'>Low</option>
-								<option value='2'>Medium</option>
-								<option value='3'>High</option>
-							</Select>
+              <FormLabel>Energy level</FormLabel>
+              <Select
+                placeholder="Select energy level"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={energy}
+                onChange={(e) => setEnergy(e.target.value)}
+              >
+                <option value="Any">Any</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
 
-							<FormLabel>Dog friendly</FormLabel>
-							<Select
-								placeholder='Select preference'
-								border='2px solid'
-								borderColor='black'
-								bg='white'
-								value={dog}
-								onChange={(e) => setDog(e.target.value)}
-							>
-								<option value='Any'>Any</option>
-								<option value='true'>Yes</option>
-								<option value='false'>No</option>
-							</Select>
+              <FormLabel>Dog friendly</FormLabel>
+              <Select
+                placeholder="Select preference"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={dog}
+                onChange={(e) => setDog(e.target.value)}
+              >
+                <option value="Any">Any</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </Select>
 
-							<div className={styles.daybtn}>
-								<button className='secondary-btn' onClick={sendingResults}>
-									Update Plan
-								</button>
-							</div>
-						</FormControl>
-					</Box>
-				</ChakraProvider>
-			</div>
-		</div>
-	)
+              <div className={styles.daybtn}>
+                <button className="secondary-btn" onClick={sendingResults}>
+                  Update
+                </button>
+              </div>
+            </FormControl>
+          </Box>
+        </ChakraProvider>
+      </div>
+    </div>
+  );
 }

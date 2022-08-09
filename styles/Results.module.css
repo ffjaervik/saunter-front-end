@@ -62,9 +62,10 @@
 }
 
 .daybtn {
- display: flex;
-    justify-content: center;   
+    display: flex;
+    justify-content: center;
 }
+
 
 .daybtn button {
 
@@ -86,6 +87,7 @@ CAROUSEL STYLING
  .app {
     width: 100vw;
     height: 100vh;
+    margin-top: 4.5vh;
     display: flex;
     flex-direction: column;
     gap: 10%;
@@ -158,6 +160,21 @@ CAROUSEL STYLING
 
   }
 
+  .dayplan_btn {
+    width: max-content;
+    display: inline-block;
+    background-color: var(--color-secondary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 2px solid var(--color-primary);
+    transition: var(--transition);
+    margin: 1.5rem 1.5rem;
+    box-shadow: 4px 4px black;
+    font-family: "Quicksand";
+    font-weight: bold;
+  }
+
   .navleft {
       color: white;
       font-size: 5rem;
@@ -208,6 +225,14 @@ CAROUSEL STYLING
      border: 6px solid black;
 }
 
+.instruction {
+    text-align: left;
+    width: 40rem;
+    letter-spacing: 0.03em;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 500;
+    margin-top: 7vh;
+}
 
 .favouritesbutton {
     z-index: 10;
