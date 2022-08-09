@@ -6,7 +6,7 @@
 
 .homepage {
   color: var(--color-white);
-  z-index: 5;
+  z-index: 1;
   position: relative;
   text-align: center;
   /* padding: center; */

@@ -40,6 +40,7 @@ export default function Home() {
 					layout='fill'
 					objectFit='cover'
 					objectPosition='center'
+					priority
 				/>
 				<div className={styles.homepage}>
 					<div className={styles.welcomecard}>
