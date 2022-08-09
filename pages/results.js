@@ -9,12 +9,15 @@ import {
 	Select,
 } from '@chakra-ui/react'
 
+
 import styles from '../styles/Results.module.css'
 import Image from 'next/image'
 import React, { Component } from 'react'
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { HiOutlineLockOpen, HiLockClosed } from 'react-icons/hi'
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+
 import {
 	AiOutlinePlusCircle,
 	AiFillPlusCircle,
@@ -194,6 +197,7 @@ export default function Results() {
 		)
 	}
 	//CAROUSEL END
+
 
 	// Heart button functionality
 	const HeartButton = () => (
@@ -378,4 +382,273 @@ function addToCart(activity) {
 			</div>
 		</div>
 	)
+
+
+
+
+
+  return (
+    <div className={styles.main}>
+      <h1>Your Recommendations:</h1>
+      <div className={styles.app}>
+        {list.map((carousel, index) => (
+          <Carousel key={index}>
+            {carousel.map((activity, index) => (
+              <Card key={index} title={activity.name} image={activity.image} />
+            ))}
+          </Carousel>
+        ))}
+        <button className={styles.addCarousel} onClick={addCarousel}>
+          <IconContext.Provider
+            value={{
+              color: "black",
+              className: "global-class-name",
+              size: "3rem",
+            }}
+          >
+            <AiOutlinePlusCircle />
+          </IconContext.Provider>
+        </button>
+      </div>
+
+      {/* chakra ui imported below */}
+      <div className="form">
+        <ChakraProvider>
+          <Box
+            width="28.75rem"
+            height="100%"
+            padding="6"
+            borderRadius="none"
+            border="2px solid"
+            borderColor="black"
+            mt="15vh"
+            bg="#F9983F"
+          >
+            <FormControl>
+              <FormLabel>Location</FormLabel>
+              <Select
+                placeholder="Select location"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+              >
+                <option>London</option>
+              </Select>
+
+              <FormLabel>Budget</FormLabel>
+              <Select
+                placeholder="Select budget"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={budget}
+                onChange={(e) => setBudget(e.target.value)}
+              >
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
+
+              <FormLabel>Energy level</FormLabel>
+              <Select
+                placeholder="Select energy level"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={energy}
+                onChange={(e) => setEnergy(e.target.value)}
+              >
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </Select>
+
+              <FormLabel>Dog friendly</FormLabel>
+              <Select
+                placeholder="Select preference"
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+                value={dog}
+                onChange={(e) => setDog(e.target.value)}
+              >
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </Select>
+
+              <div className={styles.daybtn}>
+                <button className="secondary-btn" onClick={sendingResults}>
+                  Update Plan
+                </button>
+              </div>
+            </FormControl>
+          </Box>
+        </ChakraProvider>
+      </div>
+    </div>
+  );
+
 }
+
+
+
+// DESCRIPTION AND SOME FUNCTIONALITY FROM ANOTHER BRANCH. SAVE FOR LATER
+
+  // {data.map((activity) => {
+  //   const id = activity.id;
+  //   const name = activity.name;
+  //   const image = activity.image;
+  //   const body = {id: id}
+  //   return (
+
+  //     <div className={styles.activity} key={name}>
+  //       <h5>{name}</h5>
+  //       <div className={styles.imagebtn}>
+  //       <img src={image} alt="/" />
+  //       <button onClick={function(){return patchSaved(body)}} key={id} className="btn">Save</button>
+  //       </div>
+  //     </div>
+  //   );
+  // })}
+
+  //Create a state for the list of carousels
+  //Each time 'Add new activity' button is clickes, add new carousel to the list with spread operator
+  // State is [list, setList]
+  //Map twice:
+  //1. Carousels
+  //2. Data in the 🎠
+  // Save data as state
+  // Ensure list is an array of arrays: [[{}]]
+  //for description content={activity.description}
+
+//   return (
+//     <div className={styles.main}>
+//       <h1>Your Recommendations:</h1>
+//       <div className={styles.results}></div>
+//       <div className={styles.app}>
+//         {list.map((carousel, index) => (
+//           <Carousel key={index}>
+//             {carousel.map((activity, index) => (
+//               <Card key={index} title={activity.name} image={activity.image} />
+//             ))}
+//           </Carousel>
+//         ))}
+//         <button className={styles.addCarousel} onClick={addCarousel}>
+//           <IconContext.Provider
+//             value={{
+//               color: "black",
+//               className: "global-class-name",
+//               size: "3rem",
+//             }}
+//           >
+//             <AiOutlinePlusCircle />
+//           </IconContext.Provider>
+//         </button>
+//       </div>
+            
+//            {/* <button></button> */}
+//               {/* onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
+//             >
+//              {toggleViewModeFav ? ( */}
+//                 {/* <AiOutlineHeart */}
+//                 {/*   size={35}
+//                   onClick={function () { */}
+//                    return patchSaved(body);
+//                   }}
+//                   key={id}
+//                   className={styles.favouritesbutton}
+//                 />
+//               ) : (
+//                 <AiFillHeart
+//                   className={styles.favouritesbuttonred}
+//                   size={35}
+//                 />
+//               )}
+//             </button>
+//             <button
+//               onClick={() => setToggleViewModeSave(!toggleViewModeSave)}
+//             >
+//               {toggleViewModeSave ? (
+//                 <HiOutlineLockOpen
+//                   size={35}
+//                   className={styles.savebutton}
+//                 />
+//               ) : (
+//                 <HiLockClosed
+//                   className={styles.savebuttonclose}
+//                   size={35}
+//                 />
+//               )}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   
+// <p>
+//           Use the Lock icon that is displayed on the activity to save it to your
+//           day plan. Once you have saved an activity, click the plus button to
+//           look for another activity. Feel free to add as many activities as you
+//           like.
+//         </p>
+       
+//         <button>
+//           <AiOutlinePlusCircle
+//             size={35}
+//             className={styles.addbutton}
+//             onClick={NewCarousel}
+//           />
+//         </button> */}
+     
+    //  chakra ui imported below
+    //   <div className="form">
+    //     <ChakraProvider>
+    //       <Box width="15vw" padding="6" borderRadius="2rem" m="15vh">
+    //         <FormControl>
+    //           <FormLabel>Location</FormLabel>
+    //           <Select placeholder="Select location">
+    //             <option>London</option>
+    //           </Select>
+
+    //           <FormLabel>Budget</FormLabel>
+
+    //           <Select
+    //             placeholder="Select budget"
+    //             value={budget}
+    //             onChange={(e) => setBudget(e.target.value)}
+    //           >
+    //             <option value="1">Low</option>
+    //             <option value="2">Medium</option>
+    //             <option value="3">High</option>
+    //           </Select>
+
+    //           <FormLabel>Energy level</FormLabel>
+    //           <Select
+    //             placeholder="Select energy level"
+    //             value={energy}
+    //             onChange={(e) => setEnergy(e.target.value)}
+    //           >
+    //             <option value="1">Low</option>
+    //             <option value="2">Medium</option>
+    //             <option value="3">High</option>
+    //           </Select>
+
+    //           <FormLabel>Dog friendly</FormLabel>
+    //           <Select
+    //             placeholder="Select preference"
+    //             value={dog}
+    //             onChange={(e) => setDog(e.target.value)}
+    //           >
+    //             <option value="true">Yes</option>
+    //             <option value="false">No</option>
+    //           </Select>
+    //           <div className={styles.daybtn}>
+    //             <button className="btn" onClick={sendingResults}>
+    //               Create Day Plan
+    //             </button>
+    //           </div>
+    //         </FormControl>
+    //       </Box>
+    //     </ChakraProvider>
+    //   </div>
+    // </div>

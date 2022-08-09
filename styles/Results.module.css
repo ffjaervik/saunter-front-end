@@ -61,9 +61,14 @@
     line-height: 1.7;
 }
 
+.daybtn {
+ display: flex;
+    justify-content: center;   
+}
+
 .daybtn button {
 
-    margin: 1.5rem 0!important;
+    /* margin: 1.5rem 0!important; */
 
 
 }
@@ -276,3 +281,4 @@ color: black;
 padding: 0.2rem;
 border-radius: 6px;
 }
+

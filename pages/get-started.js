@@ -15,9 +15,11 @@ import { Box, ChakraProvider, FormControl, FormLabel, Select } from '@chakra-ui/
 import styles from "../styles/Inputpage.module.css"
 
 export default function GetStarted() {
+
   const [budget, setBudget] = useState('Any')
   const [energy, setEnergy] = useState('Any')
   const [dog, setDog] = useState('Any')
+
   const router = useRouter()
   
   function sendingResults(){

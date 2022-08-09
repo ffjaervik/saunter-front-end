@@ -5,8 +5,28 @@ import homepageimg from '../public/assets/homepageimg.webp'
 import Link from 'next/link'
 import rectangle from '../public/assets/rectangle.svg'
 import background from '../public/assets/background.png'
+import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home() {
+
+	//Refactor code to fit with homepage and navbar
+
+// 	const { user, error, isLoading } = useUser();
+
+//   if (isLoading) return <div>Loading...</div>;
+//   if (error) return <div>{error.message}</div>;
+
+//   if (user) {
+//     return (
+//       <div className="loginwelcome">
+//         Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+//       </div>
+//     ); 
+//   }
+
+//   return <a className="loginbutton" href="/api/auth/login">Login</a>;
+// }
+
 	return (
 		<div className={styles.homepage__container}>
 			<Head>
@@ -20,6 +40,7 @@ export default function Home() {
 					layout='fill'
 					objectFit='cover'
 					objectPosition='center'
+					priority
 				/>
 				<div className={styles.homepage}>
 					<div className={styles.welcomecard}>
@@ -37,5 +58,5 @@ export default function Home() {
 				</div>
 			</div>
 		</div>
-	)
-}
+  )
+  }
