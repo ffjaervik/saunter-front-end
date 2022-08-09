@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import Image from 'next/image'
 import { FiMapPin } from 'react-icons/fi'
+import { IconContext } from 'react-icons'
 
 export default function DayPlan() {
 	const [dayPlan, setDayPlan] = useState([])
@@ -41,11 +42,16 @@ export default function DayPlan() {
 						<h5>{type}</h5>
 					</div>
 					<p>{description}</p>
-				<div className={styles.iconbar}>
-					<div className={styles.icon} >
-						<FiMapPin/>
+					<div className={styles.iconbar}>
+						<div className={styles.icon}>
+							<IconContext.Provider
+								value={{ color: 'black',
+									size: '2rem', }}
+							>
+								<FiMapPin />
+							</IconContext.Provider>
+						</div>
 					</div>
-				</div>
 				</div>
 				<div className={styles.img_container}>
 					<img src={image} alt={name} />
