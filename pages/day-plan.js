@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Image from 'next/image'
+import { FiMapPin } from 'react-icons/fi'
 
 export default function DayPlan() {
-	const [dayPlan, setDayPlan] = useState([]);
+	const [dayPlan, setDayPlan] = useState([])
 
 	const router = useRouter()
 	const { cart } = router.query
@@ -32,31 +33,43 @@ export default function DayPlan() {
 		getData()
 	}, [])
 
-	const Card = ({ name, type, description, image  }) => {
-		console.log(`This is the name:`, name)
+	const Card = ({ name, type, description, image }) => {
 		return (
-		<div className={styles.main_card}>
-			<h2>{name}</h2>
-			<h5>{type}</h5>
-			<p>{description}</p>
-			<img src={image} alt={name} />
-		</div>
-		)
-	}
-
-
-	return (
-		
-			<div className={styles.dayplan}>
-				<div className={styles.dayplancard}>
-					<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
+			<div className={styles.main_card}>
+				<div className={styles.text_container}>
+					<div className={styles.type_container}>
+						<h5>{type}</h5>
+					</div>
+					<p>{description}</p>
+				<div className={styles.iconbar}>
+					<div className={styles.icon} >
+						<FiMapPin/>
+					</div>
 				</div>
-				<div className={styles.all_cards}>
-				{dayPlan.map((activity, index) => (
-				<Card  key={index} name={activity.name} type={activity.type} description={activity.description} image={activity.image} />
-					))}
+				</div>
+				<div className={styles.img_container}>
+					<img src={image} alt={name} />
+					<h2>{name}</h2>
 				</div>
 			</div>
 		)
-
+	}
+	return (
+		<div className={styles.dayplan}>
+			<div className={styles.dayplancard}>
+				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
+			</div>
+			<div className={styles.all_cards}>
+				{dayPlan.map((activity, index) => (
+					<Card
+						key={index}
+						name={activity.name}
+						type={activity.type}
+						description={activity.description}
+						image={activity.image}
+					/>
+				))}
+			</div>
+		</div>
+	)
 }
