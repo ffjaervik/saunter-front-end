@@ -271,7 +271,7 @@ export default function Results() {
         </Carousel>
         <div className={styles.cart}>
           {" "}
-          <button className={styles.dayplan_btn} onClick={sendCart}>
+          <button className='btn' onClick={sendCart}>
             See Day Plan
           </button>
           <span className={styles.bubble}>
@@ -352,7 +352,7 @@ export default function Results() {
               </Select>
 
               <div className={styles.daybtn}>
-                <button className="secondary-btn" onClick={sendingResults}>
+                <button className="btn" onClick={sendingResults}>
                   Update
                 </button>
               </div>

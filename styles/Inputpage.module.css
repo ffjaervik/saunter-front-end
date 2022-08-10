@@ -121,9 +121,13 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
-  
-
   }
+
+  .button button {
+    background-color: var(--color-secondary);
+    font-size: var(--font-size-m);
+  }
+
 /* MEDIA QUERIES (SMALL DEVICES)  */
 
 @media screen and (max-width: 600px) {
