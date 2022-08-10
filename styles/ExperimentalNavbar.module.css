@@ -1,0 +1,132 @@
+.navbar {
+  top: 0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  z-index: 1;
+  position: fixed;
+  background-color: #f8f5ef;
+  height: 5vh;
+  width: 100vw;
+  box-sizing: content-box;
+}
+
+.navbar a {
+  margin-left: 3rem;
+  font-size: 2vmin;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: #f8f5ef;
+  height: 1vmin;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.navbar h2 {
+  margin-right: auto;
+  font-family: "Megrim";
+  font-size: xx-large;
+  justify-content: flex-start;
+  margin-left: 1.5vw;
+  cursor: pointer;
+  font-size: 4vmin;
+}
+
+.navbar h2:hover {
+  color: var(--color-btn);
+}
+
+.HamburgerIcon {
+  display: none;
+}
+
+.MenuLinks {
+  background-color: #f9983f;
+  height: 100vh;
+  width: 0%;
+  z-index: 3;
+  position: fixed;
+  right: 0;
+  flex-direction: column;
+  display: none;
+  visibility: hidden;
+  transition: 250ms;
+  opacity: 1;
+  top: 0;
+}
+
+.HamburgerLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* align-items: center; */
+  height: 40vh;
+  justify-content: space-evenly;
+}
+
+.MenuDim {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  visibility: hidden;
+  cursor: pointer;
+  transition: 300ms;
+  opacity: 0;
+}
+
+.MenuOpen {
+  width: 35%;
+  transition: 300ms;
+  z-index: 5;
+  align-items: center;
+  border: 3px solid black;
+}
+
+.MenuLinks :hover {
+  color: #909ad1;
+  font-weight: bold;
+}
+
+.Links :hover {
+  color: #909ad1;
+}
+
+.MenuDimOpen {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 40rem) {
+  .NavBar {
+    width: 100vw;
+    height: 5vh;
+    flex-direction: row;
+    visibility: hidden;
+  }
+
+  .Links {
+    display: none;
+  }
+
+  .HamburgerIcon {
+    display: flex;
+  }
+
+  .MenuLinks {
+    display: flex;
+    visibility: visible;
+  }
+}

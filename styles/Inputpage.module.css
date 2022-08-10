@@ -1,25 +1,146 @@
-.imgcontainer {
-    /* height: 100vh;
-    width: 100vh; */
-    height: 600px;
-    width: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:0;
+.get_started__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 6%;
 }
 
 .pagetwoimg {
-    border-radius: 2rem;
-    /* margin-left: 50vw; */
-    /* min-width: 100%;
-    max-width: 300%; */
+  border: 4px solid black !important;
+  height: auto;
+  width: 20%;
+  border-radius: 5rem;
+  z-index: 1;
+  position: absolute;
+  margin-right: 56%;
+}
+
+.pagetwoimg2 {
+  height: auto;
+  width: 20%;
+  border: 4px solid black !important;
+  border-radius: 5rem;
+  z-index: 3;
+  position: absolute;
+  margin-right: 30%;
+  margin-top: 5%;
+}
+
+.pagetwoimg3 {
+  height: auto;
+  width: 28%;
+  border: 4px solid black !important;
+  border-radius: 5rem;
+  z-index: 2;
+  position: absolute;
+  margin-right: 3%;
+  margin-top: 4%;
 }
 
 .form {
+  margin-left: 50%;
+  z-index: 2;
+}
+
+.bottomdiv {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50vh;
+  background-color: var(--color-btn);
+  border: 4px solid black;
+  z-index: 0;
+}
+
+.energyquestion {
+  position: relative;
+  /* border-bottom: 1px dotted black; */
+}
+
+.energyquestion:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: #F9983F;
+  color: black;
+  border: 4px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.energyquestion:hover:before {
+  opacity: 1;
+  visibility: visible;
+  z-index: 4;
+}
+
+.budgetquestion {
+  position: relative;
+  /* border-bottom: 1px dotted black; */
+}
+
+.budgetquestion:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: #F9983F;
+  color: black;
+  border: 4px solid black;
+  border-radius: 10px;
+  text-align: center;
+
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.budgetquestion:hover:before {
+  opacity: 1;
+  visibility: visible;
+  z-index: 4;
+}
+
+/* MEDIA QUERIES (SMALL DEVICES)  */
+
+@media screen and (max-width: 600px) {
+  .get_started__container {
     display: flex;
-    /* justify-content: flex-end; */
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 60px;
+  }
+
+  .pagetwoimg {
+    display: none;
+  }
+
+  .pagetwoimg2 {
+    display: none;
+  }
+
+  .pagetwoimg3 {
+    display: none;
+  }
+
+  .form {
+    margin-top: 10vh !important;
+    position: relative;
+    height: 2vh;
+  }
+
+  .bottomdiv {
+    height: 35vh;
+  }
 }

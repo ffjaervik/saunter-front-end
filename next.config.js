@@ -2,23 +2,30 @@
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+// const nextConfig = {
+ 
+// }
+
 
 module.exports = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     domains: [
-      'saunter-db.herokuapp.com',
-      'media.timeout.com',
-      'kew.org',
-      'live.staticflickr.com',
-      'jennyshearawn.com',
-      'timeout.com',
+      "saunter-db.herokuapp.com",
+      "media.timeout.com",
+      "kew.org",
+      "live.staticflickr.com",
+      "jennyshearawn.com",
+      "timeout.com",
     ], // hostname of the img url
+  },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
   },
 };
 
-
-module.exports = nextConfig
+//DEployment error fix(?)
+// module.exports = nextConfig
