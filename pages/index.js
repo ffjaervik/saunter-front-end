@@ -29,6 +29,7 @@ export default function Home() {
 
 	return (
 		<div className={styles.homepage__container}>
+		{/* <h1>Welcome</h1> */}
 			<Head>
 				<title>Saunter | Home</title>
 			</Head>
