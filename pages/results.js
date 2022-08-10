@@ -41,7 +41,7 @@ export default function Results() {
   const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
   const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
   const [active, setActive] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([0]);
 
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
@@ -112,8 +112,10 @@ export default function Results() {
 
   const Card = ({ activity, title, content, image, add, patch, key, liked, index }) => (
     <div className={styles.card}>
+	<div className={styles.title}>
       <h2>{title}</h2>
-      <p>{content}</p>
+      {/* <p>{content}</p> */}
+	</div>
 
       <div className={styles.image_container}>
         <img
@@ -135,16 +137,29 @@ export default function Results() {
             }}
       >
         {liked ? (
-            <AiFillHeart size={35}/>
+            <AiFillHeart 
+			size={35}
+			className={styles.heartred}
+			/>
             ) : (
             <AiOutlineHeart
             size={35}
             className={styles.heart}
-            />)
+            />
+			)
         }
       </button> 
       <button onClick={add} className={styles.lock}>
-        Add
+	  {cart.includes(activity.id) ? (
+		<div className={styles.minus}>
+		<AiOutlineMinusCircle size={35}/>
+		</div>
+	  ):(
+		<div className={styles.plus}>
+		<AiOutlinePlusCircle size={35}/>
+		</div>
+	  )
+	  }
       </button>
     </div>
   );
@@ -231,17 +246,26 @@ export default function Results() {
   );
 
   // Add Button functionality
+  
   function addToCart(activity) {
-    setCart([...cart, activity.id]);
-    console.log(`Activity:`, activity);
-    console.log(`Cart:`, cart);
-  }
+	if(cart.includes(activity.id)) {
+		setCart(cart.filter(function(id){return id != activity.id}))
+		console.log('Minus', cart)
+		return
+	} else {
+		setCart([...cart, activity.id]);
+		console.log(`Activity:`, activity);
+		console.log(`Cart:`, cart);
+	}
+	}
   // Sending cart funcitonality
   function sendCart() {
-    router.push({
-      pathname: "/day-plan",
-      query: { cart },
-    });
+	if(cart.length > 1){
+		router.push({
+			pathname: "/day-plan",
+			query: { cart },
+		});
+	} else{alert("You have not added any activities to your day plan.")}
   }
 
   return (
@@ -258,11 +282,6 @@ export default function Results() {
 			  activity = {activity}
               title={activity.name}
               image={activity.image}
-              //   patch={function (){
-              //     let body = { id: activity.id };
-              //     return patchSaved(body);
-              //   }}
-              //   patch={{ id: activity.id }}
               add={function () {
                 return addToCart(activity);
               }}
@@ -278,7 +297,7 @@ export default function Results() {
             See Day Plan
           </button>
           <span className={styles.bubble}>
-            <p>{cart.length}</p>
+            <p>{cart.length - 1}</p>
           </span>
         </div>
       </div>
