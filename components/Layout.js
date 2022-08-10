@@ -5,7 +5,8 @@ import ExperimentalNavbar from "./ExperimentalHamburger";
 const Layout = ({ children }) => {
   return (
     <div className="content">
-      <ExperimentalNavbar />
+      {/* <ExperimentalNavbar /> */}
+      <Navbar/>
       { children }
       <Footer />
     </div>
