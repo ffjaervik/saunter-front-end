@@ -280,6 +280,7 @@ export default function Results() {
         </div>
       </div>
 
+
       {/* chakra ui imported below */}
       <div className={styles.form}>
         <ChakraProvider>
@@ -295,7 +296,7 @@ export default function Results() {
             bg="#F9983F"
           >
             <FormControl>
-              <FormLabel>Location</FormLabel>
+              <FormLabel mt='1rem'>Location</FormLabel>
               <Select
                 placeholder="Select location"
                 border="2px solid"
@@ -305,7 +306,7 @@ export default function Results() {
                 <option>London</option>
               </Select>
 
-              <FormLabel>Budget</FormLabel>
+              <FormLabel mt='1rem'>Budget</FormLabel>
               <Select
                 placeholder="Select budget"
                 border="2px solid"
@@ -320,7 +321,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel>Energy level</FormLabel>
+              <FormLabel mt='1rem'>Energy level</FormLabel>
               <Select
                 placeholder="Select energy level"
                 border="2px solid"
@@ -335,7 +336,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel>Dog friendly</FormLabel>
+              <FormLabel mt='1rem'>Dog friendly</FormLabel>
               <Select
                 placeholder="Select preference"
                 border="2px solid"
