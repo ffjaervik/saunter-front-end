@@ -110,7 +110,7 @@ export default function Results() {
   //CAROUSEL START
   const MAX_VISIBILITY = 3;
 
-  const Card = ({ title, content, image, add, patch, key }) => (
+  const Card = ({ activity, title, content, image, add, patch, key, liked, index }) => (
     <div className={styles.card}>
       <h2>{title}</h2>
       <p>{content}</p>
@@ -123,25 +123,26 @@ export default function Results() {
         />
       </div>
       {/* PATCH REQUEST */}
-      <button
+	  <button
         key={key}
-        onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-      >
-        {toggleViewModeFav ? (
-          <AiOutlineHeart
-            size={35}
-            onClick={function () {
-              return patchSaved({ patch });
+        onClick={function () {
+            console.log('Patched:', { patch })
+            let updatedSaved = {saved: !liked}
+            const updatedActivity = {...activity, ...updatedSaved}
+            console.log('Updated activity:', updatedActivity)
+            setData([...data.slice(0, index), updatedActivity, ...data.slice(index + 1, data.length)])
+              return patchSaved( patch );
             }}
-            className={styles.heart}
-          />
-        ) : (
-          <AiFillHeart
+      >
+        {liked ? (
+            <AiFillHeart size={35}/>
+            ) : (
+            <AiOutlineHeart
             size={35}
-            // className={styles.favouritesbuttonred}
-          />
-        )}
-      </button>
+            className={styles.heart}
+            />)
+        }
+      </button> 
       <button onClick={add} className={styles.lock}>
         Add
       </button>
@@ -159,7 +160,7 @@ export default function Results() {
               console.log(active);
             }}
           >
-            <FaChevronCircleLeft />
+            <FaChevronCircleLeft style={{ stroke: "black", strokeWidth: "30"}} className={styles.icon} />
           </button>
         )}
         {Children.map(children, (child, i) => (
@@ -186,7 +187,7 @@ export default function Results() {
               console.log(active);
             }}
           >
-            <FaChevronCircleRight />
+            <FaChevronCircleRight style={{ stroke: "black", strokeWidth: "30"}} className={styles.icon}/>
           </button>
         )}
       </div>
@@ -254,6 +255,7 @@ export default function Results() {
           {data.map((activity, index) => (
             <Card
               key={index}
+			  activity = {activity}
               title={activity.name}
               image={activity.image}
               //   patch={function (){
@@ -264,8 +266,9 @@ export default function Results() {
               add={function () {
                 return addToCart(activity);
               }}
-              id={activity.id}
               patch={{ id: activity.id }}
+			  liked = {activity.saved}
+			  index={index}
             ></Card>
           ))}
         </Carousel>

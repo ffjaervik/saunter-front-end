@@ -381,4 +381,6 @@ border-radius: 6px;
     display: flex;
 }
 
-
+.icon {
+    color: var(--color-secondary-btn);
+}
