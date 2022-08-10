@@ -77,7 +77,7 @@ export default function GetStarted() {
 						backgroundColor='white'
 					>
 						<FormControl>
-							<FormLabel fontSize='1.3rem' pt='1rem'>
+							<FormLabel fontSize='1.3rem' pt='1rem' fontWeight= 'semibold'>
 								Where do you want to travel to?
 							</FormLabel>
 							<Select placeholder='Select location'>
@@ -89,6 +89,7 @@ export default function GetStarted() {
 								data-hover='low is £5-£25, medium is £25-£50, high is £50+'
 								fontSize='1.3rem'
 								pt='1rem'
+                fontWeight= 'semibold'
 							>
 								What is your budget? <AiOutlineQuestionCircle />
 							</FormLabel>
@@ -112,6 +113,7 @@ export default function GetStarted() {
 								data-hover='low is relaxing, medium is leisurely saunter, high is active & fast paced'
 								fontSize='1.3rem'
 								pt='1rem'
+                fontWeight= 'semibold'
 							>
 								What is your energy level? <AiOutlineQuestionCircle />
 							</FormLabel>
@@ -128,7 +130,7 @@ export default function GetStarted() {
 								<option value='3'>High</option>
 							</Select>
 
-							<FormLabel fontSize='1.3rem' pt='1rem'>
+							<FormLabel fontSize='1.3rem' pt='1rem' fontWeight= 'semibold'>
 								Would you prefer a dog friendly activity?
 							</FormLabel>
 							<Select
