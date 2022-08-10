@@ -77,7 +77,7 @@ export default function GetStarted() {
 						backgroundColor='white'
 					>
 						<FormControl>
-							<FormLabel fontSize='1.3rem'>
+							<FormLabel fontSize='1.3rem' pt='1rem'>
 								Where do you want to travel to?
 							</FormLabel>
 							<Select placeholder='Select location'>
@@ -88,6 +88,7 @@ export default function GetStarted() {
 								className={styles.budgetquestion}
 								data-hover='low is £5-£25, medium is £25-£50, high is £50+'
 								fontSize='1.3rem'
+								pt='1rem'
 							>
 								What is your budget? <AiOutlineQuestionCircle />
 							</FormLabel>
@@ -110,6 +111,7 @@ export default function GetStarted() {
 								className={styles.energyquestion}
 								data-hover='low is relaxing, medium is leisurely saunter, high is active & fast paced'
 								fontSize='1.3rem'
+								pt='1rem'
 							>
 								What is your energy level? <AiOutlineQuestionCircle />
 							</FormLabel>
@@ -126,7 +128,7 @@ export default function GetStarted() {
 								<option value='3'>High</option>
 							</Select>
 
-							<FormLabel fontSize='1.3rem'>
+							<FormLabel fontSize='1.3rem' pt='1rem'>
 								Would you prefer a dog friendly activity?
 							</FormLabel>
 							<Select
@@ -141,9 +143,11 @@ export default function GetStarted() {
 								<option value='false'>No</option>
 							</Select>
 
-							<button className='btn' onClick={sendingResults}>
-								Create Day Plan
-							</button>
+							<div className={styles.button}>
+								<button className='btn' onClick={sendingResults}>
+									Search
+								</button>
+							</div>
 						</FormControl>
 					</Box>
 				</ChakraProvider>

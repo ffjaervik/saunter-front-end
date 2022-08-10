@@ -113,6 +113,17 @@
   z-index: 4;
 }
 
+  .bottomdiv {
+    height: 35vh;
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  
+
+  }
 /* MEDIA QUERIES (SMALL DEVICES)  */
 
 @media screen and (max-width: 600px) {
@@ -138,9 +149,5 @@
     margin-top: 10vh !important;
     position: relative;
     height: 2vh;
-  }
-
-  .bottomdiv {
-    height: 35vh;
   }
 }
