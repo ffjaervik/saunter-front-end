@@ -7,8 +7,9 @@
 //   })
 // })
 
-describe("Open Homepage", () => {
+describe("Open Get-started", () => {
   it("passes", () => {
     cy.visit("http://localhost:3000/get-started");
+    cy.contains('budget')
   });
 });
