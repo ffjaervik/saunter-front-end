@@ -13,3 +13,10 @@ describe("Open Get-started", () => {
     cy.contains('budget')
   });
 });
+
+
+describe("Make sure form button with className btn clicks", () => {
+  it("passes", () => {
+    cy.get('.btn').should('contain', 'Search')
+  });
+});
