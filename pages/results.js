@@ -293,7 +293,7 @@ export default function Results() {
         </Carousel>
         <div className={styles.cart}>
           {" "}
-          <button className={styles.dayplan_btn} onClick={sendCart}>
+          <button className='btn' onClick={sendCart}>
             See Day Plan
           </button>
           <span className={styles.bubble}>
@@ -318,7 +318,8 @@ export default function Results() {
             bg="#F9983F"
           >
             <FormControl>
-              <FormLabel mt='1rem'>Location</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'
+>Location</FormLabel>
               <Select
                 placeholder="Select location"
                 border="2px solid"
@@ -328,7 +329,7 @@ export default function Results() {
                 <option>London</option>
               </Select>
 
-              <FormLabel mt='1rem'>Budget</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Budget</FormLabel>
               <Select
                 placeholder="Select budget"
                 border="2px solid"
@@ -343,7 +344,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel mt='1rem'>Energy level</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Energy level</FormLabel>
               <Select
                 placeholder="Select energy level"
                 border="2px solid"
@@ -358,7 +359,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel mt='1rem'>Dog friendly</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Dog friendly</FormLabel>
               <Select
                 placeholder="Select preference"
                 border="2px solid"
@@ -373,7 +374,7 @@ export default function Results() {
               </Select>
 
               <div className={styles.daybtn}>
-                <button className="secondary-btn" onClick={sendingResults}>
+                <button className="btn" onClick={sendingResults}>
                   Update
                 </button>
               </div>

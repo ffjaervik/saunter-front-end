@@ -50,7 +50,7 @@ export default function Home() {
 							saunter & focus on the now.
 						</h4>
 						<Link href='/get-started'>
-							<button className={styles.homepagebtn} height='10vh' width='10vw'>
+							<button className='btn' height='10vh' width='10vw'>
 								Start Here
 							</button>
 						</Link>

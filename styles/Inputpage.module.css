@@ -62,7 +62,7 @@
   visibility: hidden;
   opacity: 0;
   width: 140px;
-  background-color: #F9983F;
+  background-color: var(--color-secondary);
   color: black;
   border: 4px solid black;
   border-radius: 10px;
@@ -92,7 +92,7 @@
   visibility: hidden;
   opacity: 0;
   width: 140px;
-  background-color: #F9983F;
+  background-color: var(--color-secondary);
   color: black;
   border: 4px solid black;
   border-radius: 10px;
@@ -112,6 +112,21 @@
   visibility: visible;
   z-index: 4;
 }
+
+  .bottomdiv {
+    height: 35vh;
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .button button {
+    background-color: var(--color-secondary);
+    font-size: var(--font-size-m);
+  }
 
 /* MEDIA QUERIES (SMALL DEVICES)  */
 
@@ -138,9 +153,5 @@
     margin-top: 10vh !important;
     position: relative;
     height: 2vh;
-  }
-
-  .bottomdiv {
-    height: 35vh;
   }
 }

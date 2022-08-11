@@ -2,6 +2,10 @@
 	display: flex;
 	flex-direction: row-reverse;
 }
+.form {
+    z-index: 2;
+}
+
 .resultspagefont {
 	padding: 2rem;
 	text-align: center;
@@ -57,7 +61,9 @@
 
 
 .daybtn button {
-    margin-top: 3rem;
+    margin-top: 4vh;
+    font-size: var(--font-size-m);
+    background-color: var(--color-secondary);
 }
 
 .activity {
@@ -220,10 +226,10 @@ CAROUSEL STYLING
 }
 
 
-  .dayplan_btn {
+  .cart button {
     width: max-content;
     display: inline-block;
-    background-color: var(--color-secondary);
+    background-color: var(--color-btn);
     padding: 0.5rem 1.2rem;
     border-radius: 0.4rem;
     cursor: pointer;
@@ -233,6 +239,7 @@ CAROUSEL STYLING
     box-shadow: 4px 4px black;
     font-family: "Quicksand";
     font-weight: bold;
+    font-size: var(--font-size-l)
   }
 
   .navleft {
