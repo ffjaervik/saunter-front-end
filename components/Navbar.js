@@ -9,9 +9,10 @@ const Navbar = () => {
 	console.log(user)
 
   function userName (name){
-    for(let i = 0; i < name.length; i++){
-      if(name.charAt(i) == ' '){
-        return name.slice(0, i)
+    for(let i = 0; i < name.name.length; i++){
+      console.log(name)
+      if(name.name.charAt(i) == ' '){
+        return name.name.slice(0, i)
       }
     }
   }
@@ -38,12 +39,17 @@ const Navbar = () => {
         <div>
           <button className={styles.logindisplay}>
             {" "}
-            Welcome, <strong>{userName(user.name)}</strong>
+            Welcome, <strong>{userName(user)}</strong>
           </button>
+            {/* <div className={styles.ppcontainer}> */}
+            {/* <img className={styles.pp} src={user.picture} alt='profile picture'/> */}
+            {/* </div> */}
           <Link href="/api/auth/logout">Logout</Link>{" "}
         </div>
       )}
-      {!user && <Link href="/api/auth/login">Login</Link>}
+      
+      {!user && <button className={styles.logindisplay}><Link href="/api/auth/login">Login</Link></button>}
+       
     </nav>
   );
 }
