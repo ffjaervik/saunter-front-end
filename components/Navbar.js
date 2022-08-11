@@ -8,6 +8,14 @@ const Navbar = () => {
 	const { user, error, isLoading } = useUser()
 	console.log(user)
 
+  function userName (name){
+    for(let i = 0; i < name.length; i++){
+      if(name.charAt(i) == ' '){
+        return name.slice(0, i)
+      }
+    }
+  }
+
 	return (
     <nav className={styles.navbar}>
       <Link href="/">
@@ -28,9 +36,9 @@ const Navbar = () => {
       {error && <div>{error.message}</div>}
       {user && (
         <div>
-          <button >
+          <button className='btn'>
             {" "}
-            Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>{" "}
+            Welcome, <strong>{userName(user.name)}</strong> <Link href="/api/auth/logout">Logout</Link>{" "}
           </button>
         </div>
       )}

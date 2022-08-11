@@ -63,7 +63,7 @@
 .daybtn button {
     margin-top: 4vh;
     font-size: var(--font-size-m);
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-btn);
 }
 
 .activity {
@@ -82,7 +82,7 @@ CAROUSEL STYLING
 	flex-direction: column;
 	gap: 10%;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	overflow: hidden;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -135,8 +135,8 @@ CAROUSEL STYLING
   
   .carousel {
     position: relative;
-    width: 30rem;
-    height: 30rem;
+    width: 50vh;
+    height: 50vh;
     transform-style: preserve-3d;
     box-sizing: border-box;
   }
@@ -204,7 +204,7 @@ CAROUSEL STYLING
 
 .image_container {
     width: 100%;
-    height: 80%;
+    height: 75%;
 }
 
 .navleft {
@@ -229,7 +229,7 @@ CAROUSEL STYLING
   .cart button {
     width: max-content;
     display: inline-block;
-    background-color: var(--color-btn);
+    background-color: var(--color-secondary);
     padding: 0.5rem 1.2rem;
     border-radius: 0.4rem;
     cursor: pointer;
@@ -300,6 +300,7 @@ CAROUSEL STYLING
     font-family: 'Arimo', sans-serif;
     font-weight: 500;
     margin-top: 10vh;
+    font-size: var(--font-size-s);
 }
 
 
@@ -369,10 +370,11 @@ CAROUSEL STYLING
 }
 
 .heart {
-    /* margin-left: 1rem; */
     color: black;
-    /* padding: 0.2rem;
-    border-radius: 6px; */
+}
+
+.heart:hover {
+    color: red;
 }
 
 .heartred {
@@ -386,13 +388,26 @@ CAROUSEL STYLING
     width: 1rem;
     height:1rem;
     padding: 1rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-left: -1rem;
-   margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1rem;
+    margin-top: 0.5rem;
     box-shadow: 2px 2px;
 
+}
+
+.bubbleleft {
+    border-radius: 50%;
+    border: 2px #F8F5EF solid;
+    width: 1rem;
+    height:1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: -1rem;
+    margin-top: 0.5rem;
 }
 
 .cart {
@@ -407,6 +422,14 @@ CAROUSEL STYLING
     color: green;
 }
 
-.minus:hover {
+.minus{
     color: red;
+}
+
+.buttonbar {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 0.5rem;
+    gap: 3%;
+
 }
