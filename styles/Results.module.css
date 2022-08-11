@@ -171,7 +171,10 @@ CAROUSEL STYLING
       transition: all 0.3s ease-out;
       opacity: var(--active);
   }
-    
+
+  .title {
+    max-height: 20%;
+  }
   .card p {
       transition: all 0.3s ease-out;
       opacity: var(--active);
@@ -186,11 +189,16 @@ CAROUSEL STYLING
 .card_image {
 	border-radius: 1rem;
 	border: 3px solid black;
-	object-fit: fill;
+    width: 100%;
+    height: 100%;
+	object-fit: cover;
 	/* width: 100%;
     height: auto; */
 }
+
 .image_container {
+    width: 100%;
+    height: 80%;
 }
 
 .navleft {
@@ -346,19 +354,22 @@ CAROUSEL STYLING
 }
 
 .lock {
-	background-color: red;
+	/* background-color: red;
 	margin-left: 1rem;
-	color: black;
 	padding: 0.2rem;
-	border-radius: 6px;
+	border-radius: 6px; */
+	color: black;
 }
 
 .heart {
+    /* margin-left: 1rem; */
+    color: black;
+    /* padding: 0.2rem;
+    border-radius: 6px; */
+}
 
-margin-left: 1rem;
-color: black;
-padding: 0.2rem;
-border-radius: 6px;
+.heartred {
+    color: red;
 }
 
 .bubble {
@@ -381,4 +392,14 @@ border-radius: 6px;
     display: flex;
 }
 
+.icon {
+    color: var(--color-secondary-btn);
+}
 
+.plus:hover {
+    color: green;
+}
+
+.minus:hover {
+    color: red;
+}
