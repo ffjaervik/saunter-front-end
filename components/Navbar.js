@@ -36,10 +36,11 @@ const Navbar = () => {
       {error && <div>{error.message}</div>}
       {user && (
         <div>
-          <button className='btn'>
+          <button className={styles.logindisplay}>
             {" "}
-            Welcome, <strong>{userName(user.name)}</strong> <Link href="/api/auth/logout">Logout</Link>{" "}
+            Welcome, <strong>{userName(user.name)}</strong>
           </button>
+          <Link href="/api/auth/logout">Logout</Link>{" "}
         </div>
       )}
       {!user && <Link href="/api/auth/login">Login</Link>}
