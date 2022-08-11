@@ -41,7 +41,7 @@ export default function Results() {
   const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
   const [toggleViewModeSave, setToggleViewModeSave] = useState(true);
   const [active, setActive] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([0]);
 
   //SAVE BUTTON FUNCTIONALITY
   async function patchSaved(input) {
@@ -110,10 +110,12 @@ export default function Results() {
   //CAROUSEL START
   const MAX_VISIBILITY = 3;
 
-  const Card = ({ title, content, image, add, patch, key }) => (
+  const Card = ({ activity, title, content, image, add, patch, key, liked, index }) => (
     <div className={styles.card}>
+	<div className={styles.title}>
       <h2>{title}</h2>
-      <p>{content}</p>
+      {/* <p>{content}</p> */}
+	</div>
 
       <div className={styles.image_container}>
         <img
@@ -123,27 +125,41 @@ export default function Results() {
         />
       </div>
       {/* PATCH REQUEST */}
-      <button
+	  <button
         key={key}
-        onClick={() => setToggleViewModeFav(!toggleViewModeFav)}
-      >
-        {toggleViewModeFav ? (
-          <AiOutlineHeart
-            size={35}
-            onClick={function () {
-              return patchSaved({ patch });
+        onClick={function () {
+            console.log('Patched:', { patch })
+            let updatedSaved = {saved: !liked}
+            const updatedActivity = {...activity, ...updatedSaved}
+            console.log('Updated activity:', updatedActivity)
+            setData([...data.slice(0, index), updatedActivity, ...data.slice(index + 1, data.length)])
+              return patchSaved( patch );
             }}
-            className={styles.heart}
-          />
-        ) : (
-          <AiFillHeart
+      >
+        {liked ? (
+            <AiFillHeart 
+			size={35}
+			className={styles.heartred}
+			/>
+            ) : (
+            <AiOutlineHeart
             size={35}
-            // className={styles.favouritesbuttonred}
-          />
-        )}
-      </button>
+            className={styles.heart}
+            />
+			)
+        }
+      </button> 
       <button onClick={add} className={styles.lock}>
-        Add
+	  {cart.includes(activity.id) ? (
+		<div className={styles.minus}>
+		<AiOutlineMinusCircle size={35}/>
+		</div>
+	  ):(
+		<div className={styles.plus}>
+		<AiOutlinePlusCircle size={35}/>
+		</div>
+	  )
+	  }
       </button>
     </div>
   );
@@ -159,7 +175,7 @@ export default function Results() {
               console.log(active);
             }}
           >
-            <FaChevronCircleLeft />
+            <FaChevronCircleLeft style={{ stroke: "black", strokeWidth: "30"}} className={styles.icon} />
           </button>
         )}
         {Children.map(children, (child, i) => (
@@ -186,7 +202,7 @@ export default function Results() {
               console.log(active);
             }}
           >
-            <FaChevronCircleRight />
+            <FaChevronCircleRight style={{ stroke: "black", strokeWidth: "30"}} className={styles.icon}/>
           </button>
         )}
       </div>
@@ -230,17 +246,26 @@ export default function Results() {
   );
 
   // Add Button functionality
+  
   function addToCart(activity) {
-    setCart([...cart, activity.id]);
-    console.log(`Activity:`, activity);
-    console.log(`Cart:`, cart);
-  }
+	if(cart.includes(activity.id)) {
+		setCart(cart.filter(function(id){return id != activity.id}))
+		console.log('Minus', cart)
+		return
+	} else {
+		setCart([...cart, activity.id]);
+		console.log(`Activity:`, activity);
+		console.log(`Cart:`, cart);
+	}
+	}
   // Sending cart funcitonality
   function sendCart() {
-    router.push({
-      pathname: "/day-plan",
-      query: { cart },
-    });
+	if(cart.length > 1){
+		router.push({
+			pathname: "/day-plan",
+			query: { cart },
+		});
+	} else{alert("You have not added any activities to your day plan.")}
   }
 
   return (
@@ -254,28 +279,25 @@ export default function Results() {
           {data.map((activity, index) => (
             <Card
               key={index}
+			  activity = {activity}
               title={activity.name}
               image={activity.image}
-              //   patch={function (){
-              //     let body = { id: activity.id };
-              //     return patchSaved(body);
-              //   }}
-              //   patch={{ id: activity.id }}
               add={function () {
                 return addToCart(activity);
               }}
-              id={activity.id}
               patch={{ id: activity.id }}
+			  liked = {activity.saved}
+			  index={index}
             ></Card>
           ))}
         </Carousel>
         <div className={styles.cart}>
           {" "}
-          <button className={styles.dayplan_btn} onClick={sendCart}>
+          <button className='btn' onClick={sendCart}>
             See Day Plan
           </button>
           <span className={styles.bubble}>
-            <p>{cart.length}</p>
+            <p>{cart.length - 1}</p>
           </span>
         </div>
       </div>
@@ -296,7 +318,8 @@ export default function Results() {
             bg="#F9983F"
           >
             <FormControl>
-              <FormLabel mt='1rem'>Location</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'
+>Location</FormLabel>
               <Select
                 placeholder="Select location"
                 border="2px solid"
@@ -306,7 +329,7 @@ export default function Results() {
                 <option>London</option>
               </Select>
 
-              <FormLabel mt='1rem'>Budget</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Budget</FormLabel>
               <Select
                 placeholder="Select budget"
                 border="2px solid"
@@ -321,7 +344,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel mt='1rem'>Energy level</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Energy level</FormLabel>
               <Select
                 placeholder="Select energy level"
                 border="2px solid"
@@ -336,7 +359,7 @@ export default function Results() {
                 <option value="3">High</option>
               </Select>
 
-              <FormLabel mt='1rem'>Dog friendly</FormLabel>
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Dog friendly</FormLabel>
               <Select
                 placeholder="Select preference"
                 border="2px solid"
@@ -351,7 +374,7 @@ export default function Results() {
               </Select>
 
               <div className={styles.daybtn}>
-                <button className="secondary-btn" onClick={sendingResults}>
+                <button className="btn" onClick={sendingResults}>
                   Update
                 </button>
               </div>

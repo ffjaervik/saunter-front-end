@@ -16,6 +16,7 @@
     background-color: transparent;
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
   }
   
   .dayplancard {
@@ -27,7 +28,7 @@
     box-shadow: 10px 10px black;
     font-family: 'Quicksand';
     font-weight: bold;
-    margin: 1.5rem 1.5rem;
+    margin: 1.5rem 1.1rem;
     width: 53%;
     height: 10ew;
     float: right;
