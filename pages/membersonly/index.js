@@ -5,12 +5,25 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FiMapPin } from 'react-icons/fi'
 import { IconContext } from 'react-icons'
+import { useRouter } from 'next/router'
 
 const Members = () => {
 	const [savedDayplans, setSavedDayplans] = useState([])
 	const [savedActivities, setSavedActivities] = useState([])
+	const [activityIDs, setActivityIDs] = useState([])
 
-
+	const router = useRouter();
+	
+	function viewDayplan(dayplan){
+		setActivityIDs(dayplan.activities)
+		let query = dayplan.activities
+		console.log('Dayplan:', dayplan.activities)
+		console.log('Query', query)
+		router.push({
+			pathname: "/saved-day-plan",
+			query: { query },
+		})
+	}
 
 	// useEffect(() => {
 	// 	const getData = async () => {
@@ -87,6 +100,8 @@ const Members = () => {
 		)
 	}
 
+
+
 	return (
 		<div className={styles.main}>
 			<div className={styles.dayplan_title}>
@@ -99,7 +114,7 @@ const Members = () => {
 				
 				{savedDayplans.map((dayplan, index) => {
 					return (
-						<div className={styles.dayplan_container} key={index}> 
+						<div className={styles.dayplan_container} key={index} onClick={function(){return viewDayplan(dayplan)}}> 
 						<h2 >{dayplan.name}</h2>
 						</div>
 					)

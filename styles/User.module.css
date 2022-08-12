@@ -38,7 +38,8 @@
 	/* flex-wrap: wrap; */
 	overflow-x: scroll;
 	margin-top: 2rem;
-	width: calc(var(--children-count) * (20vh + 2vw));
+	/* width: calc(var(--children-count) * (20vh + 2vw)); */
+	width: auto;
 	height: 20vh;
 }
 
@@ -58,7 +59,8 @@
 	margin-bottom: 4rem;
 	flex-grow: 1;
 	/* min-width: calc(100% / 4); */
-	min-width: 20vh;
+	/* min-width: 20vh; */
+	min-width: 5vh;
 	min-height: 20vh;
 }
 .dayplan_container {
