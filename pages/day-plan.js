@@ -29,7 +29,7 @@ export default function DayPlan() {
 				}
 			}
 			setDayPlan(filteredActivities)
-			// console.log(`your filtered activities:`, filteredActivities)
+			console.log(`your filtered activities:`, filteredActivities)
 		}
 		getData()
 	}, [])
