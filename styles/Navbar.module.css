@@ -5,7 +5,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #000;
   z-index: 1;
   position: fixed;
   background-color: #F8F5EF;
@@ -23,6 +23,7 @@
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   font-size: 2vmin;
+  font-family: "Quicksand", sans-serif
 }
 
 
@@ -37,6 +38,7 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
+  font-family: "Quicksand", sans-serif
   }
 
 
@@ -65,7 +67,39 @@
 .footer {
   font-size: 0.75rem;
   width: 100%;
+  font-family: "Quicksand", sans-serif
 }
  
+.logindisplay {
+  background-color: #F8F5EF;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-size: 2vmin;
+  font-family: "Quicksand", sans-serif;
+  width: max-content;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 2px solid var(--color-primary);
+  transition: var(--transition);
+  box-shadow: 4px 4px black;
+  font-weight: bold;
+}
 
+.logindisplay:hover {
+  background: var(--color-black);
+  color: var(--color-bg);
+  border-color: transparent;
+}
 
+/* .ppcontainer {
+  border-radius: 50%;
+  background-color: red;
+  height: 50%;
+  width: 50%;
+} */
+
+.pp {
+  object-fit: cover;
+}

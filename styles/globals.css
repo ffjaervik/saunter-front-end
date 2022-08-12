@@ -44,7 +44,7 @@ html {
   display: none;
 }
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif !important;
   background: var(--color-bg) !important;
   color: var(--color-black);
   line-height: 1.7;

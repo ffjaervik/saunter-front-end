@@ -8,6 +8,15 @@ const Navbar = () => {
 	const { user, error, isLoading } = useUser()
 	console.log(user)
 
+  function userName (name){
+    for(let i = 0; i < name.name.length; i++){
+      console.log(name)
+      if(name.name.charAt(i) == ' '){
+        return name.name.slice(0, i)
+      }
+    }
+  }
+
 	return (
     <nav className={styles.navbar}>
       <Link href="/">
@@ -28,13 +37,19 @@ const Navbar = () => {
       {error && <div>{error.message}</div>}
       {user && (
         <div>
-          <button >
+          <button className={styles.logindisplay}>
             {" "}
-            Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>{" "}
+            Welcome, <strong>{userName(user)}</strong>
           </button>
+            {/* <div className={styles.ppcontainer}> */}
+            {/* <img className={styles.pp} src={user.picture} alt='profile picture'/> */}
+            {/* </div> */}
+          <Link href="/api/auth/logout">Logout</Link>{" "}
         </div>
       )}
-      {!user && <Link href="/api/auth/login">Login</Link>}
+      
+      {!user && <button className={styles.logindisplay}><Link href="/api/auth/login">Login</Link></button>}
+       
     </nav>
   );
 }
