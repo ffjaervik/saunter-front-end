@@ -52,7 +52,7 @@ const Members = () => {
 				</div>
 				<h2>{name}</h2>
 				{/* On hover should display description */}
-				<div className={styles.hover}>
+				{/* <div className={styles.hover}>
 					<h5>{type}</h5>
 					<p>{description}</p>
 					<div>
@@ -62,8 +62,8 @@ const Members = () => {
 							</IconContext.Provider>
 						</div>
 					</div>
-					<h2>{name}</h2>
-				</div>
+				</div> */}
+				<h2>{name}</h2>
 			</div>
 		)
 	}
@@ -84,18 +84,18 @@ const Members = () => {
 			</div>
 			<div className={styles.liked_container_main}>
 				{/* Map though liked activities here */}
-				
-					{savedActivities.map((activity, index) => (
-						<LikedCard
-							key={index}
-							name={activity.name}
-							type={activity.type}
-							description={activity.description}
-							image={activity.image}
-						/>
-					))}
-			
-					{/* Mapping ends here */}
+
+				{savedActivities.map((activity, index) => (
+					<LikedCard
+						key={index}
+						name={activity.name}
+						type={activity.type}
+						description={activity.description}
+						image={activity.image}
+					/>
+				))}
+
+				{/* Mapping ends here */}
 			</div>
 		</div>
 	)
