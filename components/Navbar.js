@@ -39,7 +39,7 @@ const Navbar = () => {
         <div>
           <button className={styles.logindisplay}>
             {" "}
-            Welcome, <strong>{userName(user)}</strong>
+            Welcome <strong>{userName(user)}</strong>
           </button>
             {/* <div className={styles.ppcontainer}> */}
             {/* <img className={styles.pp} src={user.picture} alt='profile picture'/> */}
