@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.9.1",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
+    "cypress": "^10.4.0",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.3",
     "jest": "^28.1.3"
