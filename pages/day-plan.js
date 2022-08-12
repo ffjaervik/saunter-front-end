@@ -42,14 +42,16 @@ export default function DayPlan() {
 						<h5>{type}</h5>
 					</div>
 					<p>{description}</p>
-					<p>{map}</p>
 					<div className={styles.iconbar}>
 						<div className={styles.icon}>
 							<IconContext.Provider
 								value={{ color: 'black',
-									size: '2rem', }}
+									size: '1.5rem'  }}
 							>
+								<div className={styles.maplink2}>
 								<FiMapPin />
+								<a className={styles.maplink} href={map} target="_blank" rel="noreferrer">View on Google Maps</a>
+								</div>
 							</IconContext.Provider>
 						</div>
 					</div>
