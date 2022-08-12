@@ -1,5 +1,5 @@
 import styles from '../styles/dayplan.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Link } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Image from 'next/image'
@@ -34,7 +34,7 @@ export default function DayPlan() {
 		getData()
 	}, [])
 
-	const Card = ({ name, type, description, image }) => {
+	const Card = ({ name, type, description, image, map }) => {
 		return (
 			<div className={styles.main_card}>
 				<div className={styles.text_container}>
@@ -46,9 +46,12 @@ export default function DayPlan() {
 						<div className={styles.icon}>
 							<IconContext.Provider
 								value={{ color: 'black',
-									size: '2rem', }}
+									size: '1.5rem'  }}
 							>
+								<div className={styles.maplink2}>
 								<FiMapPin />
+								<a className={styles.maplink} href={map} target="_blank" rel="noreferrer">View on Google Maps</a>
+								</div>
 							</IconContext.Provider>
 						</div>
 					</div>
@@ -73,6 +76,7 @@ export default function DayPlan() {
 						type={activity.type}
 						description={activity.description}
 						image={activity.image}
+						map={activity.map}
 					/>
 				))}
 			</div>
