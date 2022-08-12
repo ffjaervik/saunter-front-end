@@ -48,9 +48,16 @@ const Members = () => {
 		return (
 			<div className={styles.liked_container}>
 				<div className={styles.image_container}>
-					<img src={image} alt={name} />
+					<div>
+						<img src={image} alt={name} />
+					</div>
+					<h1>{name}</h1>
+					<div className={styles.image_overlay}>
+						<h2>{type}</h2>
+						<p>{description}</p>
+					</div>
 				</div>
-				<h2>{name}</h2>
+
 				{/* On hover should display description */}
 				{/* <div className={styles.hover}>
 					<h5>{type}</h5>
@@ -63,7 +70,6 @@ const Members = () => {
 						</div>
 					</div>
 				</div> */}
-				<h2>{name}</h2>
 			</div>
 		)
 	}

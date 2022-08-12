@@ -22,7 +22,7 @@
 	box-shadow: 10px 10px black;
 	font-family: 'Quicksand';
 	font-weight: bold;
-	margin-bottom: 2rem ;
+	margin-bottom: 2rem;
 	width: 53%;
 	height: 10ew;
 	margin-right: 100px;
@@ -32,12 +32,11 @@
 .dayplan_container_main,
 .liked_container_main {
 	display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+	flex-direction: row;
+	justify-content: flex-start;
 	gap: 3%;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    
+	flex-wrap: wrap;
+	margin-top: 2rem;
 }
 .dayplan_container,
 .liked_container {
@@ -49,29 +48,80 @@
 	border: 5px solid black;
 	box-shadow: 10px 10px black;
 	width: 50vh;
-	height:50vh;
-    border: 4px solid black;
-    box-sizing: border-box;
-    margin-bottom: 4rem;
+	height: 50vh;
+	border: 4px solid black;
+	box-sizing: border-box;
+	margin-bottom: 4rem;
 }
 .image_container {
-   
-    border-radius: 2rem;
-
-    box-sizing: border-box;
-    width: 50vh;
-    height:100%;
-    padding: 2rem
-   
-    
-
+	border-radius: 2rem;
+	box-sizing: border-box;
+	width: 50vh;
+	height: 100%;
+	padding: 2rem;
+	z-index: 2;
+	position: relative;
 }
-.image_container img{
+.image_overlay_container {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+	object-fit: fill;
+	/* z-index: 3; */
+	position: absolute;
+	border-radius: 2rem;
+}
 
-    width: 100%;
-    height: 100%;
-    border-radius: 2rem;
-    object-fit: fill;
-  
+.image_container h1 {
+	/* z-index: 4; */
+	color: black;
+}
 
+.image_container img {
+	width: 100%;
+	height: 100%;
+	border-radius: 2rem;
+	object-fit: cover;
+	/* z-index: 2; */
+}
+
+.image_overlay {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+	object-fit: fill;
+	z-index: 3;
+	position: absolute;
+	border-radius: 2rem;
+}
+
+.image_overlay > * {
+	transform: translate(20px);
+	transition: transform 0.3s;
+}
+
+.image_overlay:hover {
+	opacity: 1;
+}
+
+.image_overlay:hover {
+	transform: translate(0);
 }
