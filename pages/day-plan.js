@@ -13,6 +13,21 @@ export default function DayPlan() {
 	const { cart } = router.query
 	console.log(`This is your cart:`, cart)
 
+		const postDayplan = async (input) => {
+			const response = await fetch(
+				`https://saunter-db.herokuapp.com/dayplans`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						"Access-Control-Request-Method": "POST",
+					},
+					body: JSON.stringify(input),
+				}
+			)
+		}
+	
+
 	useEffect(() => {
 		const getData = async () => {
 			const response = await axios.get(
@@ -75,6 +90,17 @@ export default function DayPlan() {
 						image={activity.image}
 					/>
 				))}
+			</div>
+			<div className={styles.button}>
+			<button className='btn' onClick={function () {
+				const dayplanName = prompt("Name your day plan:");
+	
+				const body = {name: dayplanName, activities: cart.toString()}
+				console.log(body)
+              return postDayplan(body);
+            }}>
+			Save Day Plan
+			</button>
 			</div>
 		</div>
 	)

@@ -10,6 +10,8 @@ const Members = () => {
 	const [savedDayplans, setSavedDayplans] = useState([])
 	const [savedActivities, setSavedActivities] = useState([])
 
+
+
 	// useEffect(() => {
 	// 	const getData = async () => {
 	// 		const response = await axios.get(
@@ -35,13 +37,24 @@ const Members = () => {
 	// } , [])
 
 	useEffect(() => {
+		//FETCH ALL SAVED ACTIVITIES FROM DB with axios
 		const getData = async () => {
 			const response = await axios.get('https://saunter-db.herokuapp.com/saved')
 			let data = response.data.data
 			setSavedActivities(data)
 			console.log('savedActivities:', data)
 		}
+		//FETCH ALL SAVED DAYPLANS FROM DB with axios
+		const getDayplans = async () => {
+			const response = await axios.get(
+				'https://saunter-db.herokuapp.com/dayplans'
+			)
+			let data = response.data.data
+			setSavedDayplans(data)
+			console.log('savedDayplans:', data)
+		}
 		getData()
+		getDayplans()
 	}, [])
 
 	const LikedCard = ({ name, type, description, image }) => {
@@ -79,11 +92,20 @@ const Members = () => {
 			<div className={styles.dayplan_title}>
 				<h1>Your saved dayplans:</h1>
 			</div>
-			<div className={styles.dayplan_container_main}>
+			<div className={styles.dayplan_container_main} style={{
+				"--children-count": savedDayplans.length
+			}}>
 				{/* Map though saved dayplan here */}
-				<div className={styles.dayplan_container}>
+				
+				{savedDayplans.map((dayplan, index) => {
+					return (
+						<div className={styles.dayplan_container} key={index}> 
+						<h2 >{dayplan.name}</h2>
+						</div>
+					)
+				})}
 					{/* Mapping ends here */}
-				</div>
+		
 			</div>
 			<div className={styles.liked_title}>
 				<h1>Your liked activities: </h1>

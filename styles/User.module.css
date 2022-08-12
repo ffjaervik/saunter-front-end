@@ -29,15 +29,19 @@
 	border: 4px solid black;
 	background-color: white;
 }
-.dayplan_container_main,
-.liked_container_main {
+.dayplan_container_main {
+	border: 4px solid red;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	gap: 3%;
-	flex-wrap: wrap;
+	gap: 2vw;
+	/* flex-wrap: wrap; */
+	overflow-x: scroll;
 	margin-top: 2rem;
+	width: calc(var(--children-count) * (20vh + 2vw));
+	height: 20vh;
 }
+
 .dayplan_container,
 .liked_container {
 	display: flex;
@@ -47,12 +51,26 @@
 	border-radius: 2rem;
 	border: 5px solid black;
 	box-shadow: 10px 10px black;
-	width: 50vh;
-	height: 50vh;
+	width: 20vh;
+	height: 20vh;
 	border: 4px solid black;
 	box-sizing: border-box;
 	margin-bottom: 4rem;
+	flex-grow: 1;
+	/* min-width: calc(100% / 4); */
+	min-width: 20vh;
+	min-height: 20vh;
 }
+.dayplan_container {
+	color: black;
+	display: flex;
+	align-items: center;
+	font-size: var(--font-size-xl);
+}
+
+/* END OD DAYPLAN SECTION */
+
+/* START WITH LIKED SECTION */
 .image_container {
 	border-radius: 2rem;
 	box-sizing: border-box;
