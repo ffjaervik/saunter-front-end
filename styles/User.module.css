@@ -1,0 +1,147 @@
+.main {
+	color: var(--color-white);
+	/* z-index: 5; */
+	position: relative;
+	/* text-align: center; */
+	/* padding: center; */
+	vertical-align: middle;
+	margin-top: 10vh;
+	/* font-size: 2rem; */
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	margin-left: 5%;
+}
+.dayplan_title,
+.liked_title {
+	background-color: var(--color-bg);
+	color: var(--color-primary);
+	padding: 1rem;
+	border: 4ew solid black;
+	border-radius: 20px;
+	box-shadow: 10px 10px black;
+	font-family: 'Quicksand';
+	font-weight: bold;
+	margin-bottom: 2rem;
+	width: 53%;
+	height: 10ew;
+	margin-right: 100px;
+	border: 4px solid black;
+	background-color: white;
+}
+.dayplan_container_main {
+	border: 4px solid red;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 2vw;
+	/* flex-wrap: wrap; */
+	overflow-x: scroll;
+	margin-top: 2rem;
+	/* width: calc(var(--children-count) * (20vh + 2vw)); */
+	width: auto;
+	height: 20vh;
+}
+
+.dayplan_container,
+.liked_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: white;
+	border-radius: 2rem;
+	border: 5px solid black;
+	box-shadow: 10px 10px black;
+	width: 20vh;
+	height: 20vh;
+	border: 4px solid black;
+	box-sizing: border-box;
+	margin-bottom: 4rem;
+	flex-grow: 1;
+	/* min-width: calc(100% / 4); */
+	/* min-width: 20vh; */
+	min-width: 5vh;
+	min-height: 20vh;
+}
+.dayplan_container {
+	color: black;
+	display: flex;
+	align-items: center;
+	font-size: var(--font-size-xl);
+}
+
+/* END OD DAYPLAN SECTION */
+
+/* START WITH LIKED SECTION */
+.image_container {
+	border-radius: 2rem;
+	box-sizing: border-box;
+	width: 50vh;
+	height: 100%;
+	padding: 2rem;
+	z-index: 2;
+	position: relative;
+}
+.image_overlay_container {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+	object-fit: fill;
+	/* z-index: 3; */
+	position: absolute;
+	border-radius: 2rem;
+}
+
+.image_container h1 {
+	/* z-index: 4; */
+	color: black;
+}
+
+.image_container img {
+	width: 100%;
+	height: 100%;
+	border-radius: 2rem;
+	object-fit: cover;
+	/* z-index: 2; */
+}
+
+.image_overlay {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+	object-fit: fill;
+	z-index: 3;
+	position: absolute;
+	border-radius: 2rem;
+}
+
+.image_overlay > * {
+	transform: translate(20px);
+	transition: transform 0.3s;
+}
+
+.image_overlay:hover {
+	opacity: 1;
+}
+
+.image_overlay:hover {
+	transform: translate(0);
+}
