@@ -24,6 +24,7 @@
   margin: 1.5rem 1.5rem;
   font-size: var(--font-size-l);
   cursor: pointer;
+  box-shadow: 6px 6px black;
 }
 
 
