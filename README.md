@@ -1,56 +1,162 @@
-# Saunter The Indie Solo Travelling app
+# Saunter - The Solo Travelling App
 
-We're Team Saunter, we created Saunter app as our final [School of Code] (https://www.schoolofcode.co.uk/) project on bootcamp 12 (25 April - 16th August 2022).
-<br/>**This is the ReadMe for our Front-end repository, to see our backend ReadMe please click [here]**
+Hello, we're Team Saunter. We created this app as our School of Code final four week project (https://www.schoolofcode.co.uk/) (Bootcamp 12, 25 April - 16th August 2022).
+<br/>
 
 <br/>
 
 # List of contents
 
-1. The Problem
-2. Solution
-3. How our app works
-4. Features
-5. Tech Stack
-6. Getting Started
-7. Running Tests
-8. Meet the team
+1. Meet The Team
+2. The Problem
+3. The Solution
+4. How Our App Works
+5. Features
+6. Tech Stack
+7. Getting Started
+8. Running Tests
 9. Appendix
+
+<br/>
+
+# Meet the team
+
+- Anastasia Starostina
+- Emily Vickery
+- Fabian Deckmann Fjaervik
+- Mogool Maya Abas Bafo
+- Owen Ahmed
+- Sadie Goddard
+<br/>
+<br/>
 
 # The Problem
 
-As a team of experienced solo travellers to aspiring solo travellers, we found that current solo travelling apps tend not to be tailored to solo travellers, from lack of personalisation, to only focusing on mainstream attractions resulting in lack of independent run businesses.
-Other apps utilise wish list systems but don't allow to save intineraries or create personalised day plans for less stress and an overall better experience while travelling.
+As a team with mixed experiences of travelling alone, we found that current travelling apps are often not tailored to solo travellers. These apps often focus on mainstream attractions rather than smaller, independent businesses, and user personalisation is often limited. Other apps utilise wish list systems, but do not allow the user to save iteneraries or create personalised day plans. Creating iteneraries can be stressful for those travelling alone and can impact negatively on their travelling experience.
 
-# Our solution
-We have a curated database of attractions, catered to solo travellers. Allowing users to save their day plans. Streamlined and easy to navigate to minimise the friction of solo travelling. 
 <br/>
-We have implemented a filtration system that allows users to further narrow down their options. Offering higher than average specificity level in the filtration system, such as energy level, dog friendliness and budgets. At the same time remaining quite simple with the range of 3 options (low, medium, high) in filters without being overwhelming for the user.
 
-# How our app works
-All of our attractions are stored within a database. Through the front-end making requests to the database you can use the filtration system to curate a personalised selection of Activities that is presented to the user on a Carousel, having the choice to lock in and like desired activities with our heart and lock button features.
-Once you have selected your favourite activities for your day, you'll click view day plan where you'll be redirected to your own personalised and unique day plan to enjoy without the stress or hassle. 
+# Our Solution
+
+We decided to create a app to enable solo travellers to create saved day plans from a selection of attractions, from larger landmarks to smaller businesses. We endeavoured to make this app as streamlined and easy to navigate as possible for the user to minimise the friction of solo travelling.
+
+We have implemented a filtration system that allows users to narrow down their activity options. These filters include those not commonly seen on other travelling apps such as energy level (low, medium and high) and whether the location is dog friendly, whilst still remaining simple for the user to navigate 
+
+<br/>
+
+# How Our App Works
+
+Our app opens with a boldly styled home screen, with options to log in and to click through to our Get-Started page. From here, the user can filter the kinds of activities they wish to see, and be sent to a new page to view a personalised selection of activities on a carousel, pulled from our database. They have the option to change their filters, favourite activities for later or to add activities to their final day plan. Once all chosen activities have been selected, the user will be redirected to their own personalised and unique day plan, complete with descriptions of each activity and links to view on Google Maps. 
+
+Day plans can be created with or without logging in, but if the user chooses to log in, they are also able to access a user page containing favourited activities and previously saved day plans. 
+<br/>
+<br/>
 
 # Features
 - Login and Authorisation through Auth0
-- personalised name for user page
-- filtration System  
-- personalised interactive carousel
-- plus icon to add desired activities
-- heart icon to favourite activities
-- links to maps for activites
-- option to save your day plan and name it on a pop out screen
+- Filtration System to Personalise Activity Results 
+- Interactive Carousel to View Results
+- Plus Icon to Add Chosen Activities
+- Heart Icon to Favourite Activities
+- Links to Google Maps for Activities
+- Personalised Day Plan with Activity Descriptions and Links to Google Maps
+- Option to Save and Name Day Plan on a Pop Out Screen
+- User Page to View Favourited Activities and Previously Saved Day Plans (When Logged In) 
+- All Activity Options Stored in Database 
+- Saved Day Plans Stored in Database
+- Bold Neobrutalist Inspired Styling Throughout
+<br/>
+<br/>
 
 # Tech Stack
-- front-end: Next.js, CSS, Auth0, Chakra Component Library
-- Back-end: Node.js, PostgreSQL
-- front-end testing: Jest, React Testing Library, Cypress
-- back-end testing: Jest, SuperTest
+- Client: Next.js, CSS, Auth0, Chakra Component Library, React Icons, Babel, ES Lint, Vercel
+- Server: Node.js, PostgreSQL, Axios, Heroku, Postman, Express
+- Client-Side Testing: Jest, React Testing Library, Cypress
+- Server-Side Testing: SuperTest
+<br/>
+<br/>
 
-# Getting started
+# Getting Started
+
+## Front-End
+<br/>
+View our deployed front-end here: https://final-project-front-end-team-saunter.vercel.app/ 
+[enter link description here](https://final-project-front-end-team-saunter.vercel.app/)
+[here.](https://final-project-front-end-team-saunter.vercel.app/)
+
+<br/>
+
+To run the front-end locally follow the steps below:
+<br/>
+<br/>
+
+- Git clone the front-end repository by pasting the following into your terminal:
+<br/>
+<br/>
+```bash
+  git clone https://github.com/SchoolOfCode/final-project_front-end-team-saunter.git
+```
+
+<br/>
+
+- Install all required dependencies by running:
+<br/>
+<br/>
+
+```bash
+  npm i
+```
+
+<br/>
+
+- Start the app using the following:
+<br/>
+<br/>
+
+```bash
+  npm run dev
+```
+
+<br/>
+
+## Back-End
+
+The back-end is deployed on Heroku, however if you would like to run locally you will need to follow the steps below:
+<br/>
+<br/>
+
+- Git clone the back-end repository by pasting the following into your terminal:
+<br/>
+<br/>
+
+```bash
+  git clone https://github.com/SchoolOfCode/final-project_back-end-team-saunter.git
+```
+
+<br/>
+
+- Install all required dependencies by running:
+<br/>
+<br/>
+
+```bash
+  npm i
+```
+
+<br/>
+
+- To run the server locally use the following script within your terminal:
+<br/>
+<br/>
+
+```bash
+  npm run dev
+```
+
+<br/>
+<br/>
 
 # Running Tests
 
-# Meet the team
 
 # Appendix
