@@ -30,12 +30,13 @@ import {
 
 export default function Results() {
   const router = useRouter();
-  const { selectedLocation, selectedBudget, selectedEnergy, selectedDog } =
+  const { selectedLocation, selectedBudget, selectedEnergy, selectedDog, selectedType } =
     router.query;
   const [data, setData] = useState([]);
   const [budget, setBudget] = useState(router.query.selectedBudget);
   const [energy, setEnergy] = useState(router.query.selectedEnergy);
   const [dog, setDog] = useState(router.query.selectedDog);
+  const [type, setType] = useState(router.query.selectedType);
   const [update, setUpdate] = useState(0);
   const [count, setCount] = useState(0);
   const [toggleViewModeFav, setToggleViewModeFav] = useState(true);
@@ -64,6 +65,7 @@ export default function Results() {
       );
       let allActivities = response.data.data;
       console.log("allActivities", allActivities);
+      console.log('query', router.query)
       let filteredActivities = [];
 
       if (router.query.selectedDog === "true") {
@@ -71,8 +73,6 @@ export default function Results() {
       } else if (router.query.selectedDog === "false") {
         router.query.selectedDog = false;
       }
-      console.log(`Router: ${router.query.selectedDog}`);
-      console.log(`RouterTO: ${typeof router.query.selectedDog}`);
 
       for (let i = 0; i < allActivities.length; i++) {
         if (
@@ -81,7 +81,9 @@ export default function Results() {
           (allActivities[i].energy_level == router.query.selectedEnergy ||
             router.query.selectedEnergy == "Any") &&
           (allActivities[i].dog_friendly == router.query.selectedDog ||
-            router.query.selectedDog == "Any")
+            router.query.selectedDog == "Any") &&
+          (allActivities[i].type == router.query.selectedType ||
+              router.query.selectedType == "Any")
         ) {
           filteredActivities.push(allActivities[i]);
         }
@@ -101,6 +103,7 @@ export default function Results() {
     router.query.selectedBudget = budget;
     router.query.selectedEnergy = energy;
     router.query.selectedDog = dog;
+    router.query.selectedType = type;
     console.log(`Updated budget: ${budget}`);
     console.log(`Updated energy: ${energy}`);
     console.log(`Updated dog: ${dog}`);
@@ -376,6 +379,25 @@ export default function Results() {
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </Select>
+        
+              <FormLabel mt='1rem' fontSize='1.3rem' fontWeight= 'semibold'>Type</FormLabel>
+              <Select
+								placeholder='Select preference'
+                border="2px solid"
+                borderColor="black"
+                bg="white"
+								value={type}
+								onChange={(e) => setType(e.target.value)}
+							>
+								<option value='Any'>Any</option>
+								<option value='Activity'>Activity</option>
+								<option value='Art & Culture'>Art & Culture</option>
+								<option value='Food & Drink'>Food & Drink</option>
+								<option value='Hospitality'>Hospitality</option>
+								<option value='Landmarks'>Landmarks</option>
+								<option value='Parks & Gardens'>Parks & Gardens</option>
+							</Select>
+
 
               <div className={styles.daybtn}>
                 <button className="btn" onClick={sendingResults}>
