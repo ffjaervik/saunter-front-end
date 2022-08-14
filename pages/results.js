@@ -110,11 +110,10 @@ export default function Results() {
   //CAROUSEL START
   const MAX_VISIBILITY = 3;
 
-  const Card = ({ activity, title, content, image, add, patch, key, liked, index }) => (
+  const Card = ({ activity, title, image, add, patch, key, liked, index }) => (
     <div className={styles.card}>
 	<div className={styles.title}>
       <h2>{title}</h2>
-      {/* <p>{content}</p> */}
 	</div>
 
       <div className={styles.image_container}>

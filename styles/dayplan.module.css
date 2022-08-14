@@ -1,9 +1,151 @@
-/* .dayplan__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  } */
+
+
+.dayplan {
+  width: 100vw;
+  position: absolute;
+  top: 5vh;
+}
+
+.headingcard {
+  background-color: var(--color-bg);
+    color: var(--color-primary);
+    padding: 1rem;
+    border: 4px solid black;
+    border-radius: 20px;
+    box-shadow: 10px 10px black;
+    font-family: 'Quicksand';
+    font-weight: bold;
+    margin: 1.5rem 2vw;
+    /* width: 53%; */
+    /* height: 10ew; */
+    float: left;
+    /* margin-right: 100px; */
+    border: 4px solid black;
+    background-color: white;
+}
+
+.text {
+  text-align: left;
+  color: black;
+  width: 100%;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.title {
+  font-family: sans-serif;
+  font-size: 1.75vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.all_cards {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* margin-left: 2vw; */
+  /* margin-right: 2vw; */
+  /* margin-bottom: 2%; */
+  width: 90%;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.activity {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  margin-bottom: 3vh;
+}
+
+.card {
+  width: 50vh;
+  height: 50vh;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  color: black;
+  text-align: justify;
+  box-sizing: border-box;
+  border-radius: 1.6rem;
+  border: 5px solid black;
+  box-shadow: 8px 8px black;
+}
+
+.image_container {
+  width: 100%;
+  height: 75%;
+}
+
+.card_image {
+	border-radius: 1rem;
+	border: 3px solid black;
+    width: 100%;
+    height: 100%;
+	object-fit: cover;
+}
+
+.text_container {
+  height: 50vh;
+  width: 50%;
+  margin: 2rem;
+}
+.text_container p {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1rem;
+  text-align: start;
+}
+
+.iconbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.icon {
+  color: black;
+  padding-left: 3px;
+}
+
+.maplink {
+  color: black;
+  font-size: 1.5vw;
+  font-weight: bold;
+  padding-left: 1vw;
+  text-decoration: underline;
+}
+
+.maplink2 {
+  display: flex;
+  align-items: center;
+}
+
+.text_container h5 {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: white;
+  border: 3px solid black;
+  background-color: var(--color-secondary);
+  max-width: fit-content;
+  border-radius: 1rem;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 .button_dayplan {
+  display: flex;
+  justify-content: center;
+  margin: 5vh;
+}
+
+/* .button_dayplan {
   display: flex;
   justify-content: center;
   margin-bottom: 10%;
@@ -12,24 +154,20 @@
 }
   .dayplan {
     color: var(--color-white);
-    /* z-index: 5; */
     position: relative;
-    /* text-align: center; */
-    /* padding: center; */
     vertical-align: middle;
     margin-top: 10vh;
-    /* font-size: 2rem; */
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    margin-left: 5%;
+    width: 100vw;
   }
   
   .dayplancard {
     background-color: var(--color-bg);
     color: var(--color-primary);
     padding: 1rem;
-    border: 4ew solid black;
+    border: 4px solid black;
     border-radius: 20px;
     box-shadow: 10px 10px black;
     font-family: 'Quicksand';
@@ -56,15 +194,18 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 2%;
+    width: 100%;
   }
+
   .main_card {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-around;
     gap: 2.5%;
     padding: 1rem;
+    width: 100%;
   }
-  .img_container {
+
+  .card {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -74,10 +215,22 @@
     border: 5px solid black;
     box-shadow: 10px 10px black;
     box-sizing: border-box;
-    object-fit: cover;
-    width: 40%;
-    height: auto;
+    width: 500px;
+    height: 500px;
   }
+
+  .image_container {
+    width: 100%;
+    height: 75%;
+}
+
+.card_image {
+  border-radius: 1rem;
+  border: 3px solid black;
+    width: 100%;
+    height: 100%;
+  object-fit: cover;
+}
   
   .img_container h2 {
     font-size: 2vw;
@@ -86,10 +239,11 @@
     text-align: center;
   }
   .img_container img {
-    width: 100;
-    height: auto;
+    border: 2px solid black;
     border-radius: 1rem;
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
   .text_container {
     display: flex;
@@ -97,90 +251,6 @@
     padding: 2rem;
     border-radius: 2rem;
   }
-  /*COMMENTED OUT, NOT SURE IF NECESARRY 
-  .type_container {
   
-      background-color: var(--color-secondary);
-      padding: 2rem;
-      border-radius: 2rem;
-      border: 5px solid black;
-      width: 10%;
-  } */
   
-  .text_container h5 {
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: white;
-    border: 3px solid black;
-    background-color: var(--color-secondary);
-    max-width: fit-content;
-    border-radius: 1rem;
-    text-align: center;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-  .text_container p {
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 1rem;
-    text-align: start;
-  }
-  
-  .iconbar {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-top: 1rem;
-  }
-  
-  .icon {
-    color: black;
-    padding-left: 3px;
-  }
-
-  .maplink {
-    color: black;
-    font-size: 1.5vw;
-    font-weight: bold;
-    padding-left: 1vw;
-    text-decoration: underline;
-  }
-
-  .maplink2 {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 25vh;
-      
-  } */
-  /* .h1 {
-      background-color: var(--color-bg);
-      color: var(--color-primary);
-      padding: 0.7rem;
-      border: 4px solid black;
-      border-radius: 20px;
-      box-shadow: 10px 10px black;
-      font-size: 2rem;
-      font-family: "Quicksand";
-      font-weight: bold;
-      display: flex;
-      
-      background-color: white;
-  
-      margin-top: 1%;
-      width: 60vw;
-     
-  
-   
-    } */
-  
+  */

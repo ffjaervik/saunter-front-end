@@ -49,9 +49,21 @@ export default function DayPlan() {
 		getData()
 	}, [])
 
-	const Card = ({ name, type, description, image, map }) => {
+	const Card = ({ title, image, description, map, type }) => {
 		return (
-			<div className={styles.main_card}>
+			<div className={styles.activity}>
+				<div className={styles.card}>
+				  <div className={styles.title}>
+					<h2>{title}</h2>
+				  </div>
+			      <div className={styles.image_container}>
+					<img 
+					  src={image} 
+					  alt={title} 
+					  className={styles.card_image} 
+					  />
+				  </div>
+				</div>
 				<div className={styles.text_container}>
 					<div className={styles.type_container}>
 						<h5>{type}</h5>
@@ -71,23 +83,19 @@ export default function DayPlan() {
 						</div>
 					</div>
 				</div>
-				<div className={styles.img_container}>
-					<img src={image} alt={name} />
-					<h2>{name}</h2>
-				</div>
 			</div>
 		)
 	}
 	return (
 		<div className={styles.dayplan}>
-			<div className={styles.dayplancard}>
+			<div className={styles.headingcard}>
 				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
 			</div>
 			<div className={styles.all_cards}>
 				{dayPlan.map((activity, index) => (
 					<Card
 						key={index}
-						name={activity.name}
+						title={activity.name}
 						type={activity.type}
 						description={activity.description}
 						image={activity.image}
