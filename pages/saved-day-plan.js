@@ -1,5 +1,5 @@
 import styles from '../styles/dayplan.module.css'
-import { useEffect, useState, Link } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Image from 'next/image'
@@ -10,23 +10,8 @@ export default function DayPlan() {
 	const [dayPlan, setDayPlan] = useState([])
 
 	const router = useRouter()
-	const { cart } = router.query
-	console.log(`This is your cart:`, cart)
-
-		const postDayplan = async (input) => {
-			const response = await fetch(
-				`https://saunter-db.herokuapp.com/dayplans`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						"Access-Control-Request-Method": "POST",
-					},
-					body: JSON.stringify(input),
-				}
-			)
-		}
-	
+	const { query } = router.query
+	console.log(`This is the query:`, query)
 
 	useEffect(() => {
 		const getData = async () => {
@@ -35,8 +20,10 @@ export default function DayPlan() {
 			)
 			let allActivities = response.data.data
 			let filteredActivities = []
-			for (let i = 0; i < cart.length; i++) {
-				let activityId = cart[i]
+			const queryIDs = query.split(',')
+			console.log('QueryIDs', queryIDs)
+			for (let i = 1; i < queryIDs.length; i++) {
+				let activityId = queryIDs[i]
 				for (let i = 0; i < allActivities.length; i++) {
 					if (allActivities[i].id == activityId) {
 						filteredActivities.push(allActivities[i])
@@ -49,7 +36,7 @@ export default function DayPlan() {
 		getData()
 	}, [])
 
-	const Card = ({ name, type, description, image, map }) => {
+	const Card = ({ name, type, description, image }) => {
 		return (
 			<div className={styles.main_card}>
 				<div className={styles.text_container}>
@@ -61,12 +48,9 @@ export default function DayPlan() {
 						<div className={styles.icon}>
 							<IconContext.Provider
 								value={{ color: 'black',
-									size: '1.5rem'  }}
+									size: '2rem', }}
 							>
-								<div className={styles.maplink2}>
 								<FiMapPin />
-								<a className={styles.maplink} href={map} target="_blank" rel="noreferrer">View on Google Maps</a>
-								</div>
 							</IconContext.Provider>
 						</div>
 					</div>
@@ -91,7 +75,6 @@ export default function DayPlan() {
 						type={activity.type}
 						description={activity.description}
 						image={activity.image}
-						map={activity.map}
 					/>
 				))}
 			</div>
