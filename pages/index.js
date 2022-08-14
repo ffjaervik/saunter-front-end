@@ -4,7 +4,7 @@ import styles from '../styles/Homepage.module.css'
 import homepageimg from '../public/assets/homepageimg.webp'
 import Link from 'next/link'
 import rectangle from '../public/assets/rectangle.svg'
-import background from '../public/assets/background.png'
+import newbackground from '../public/assets/newbackground.png'
 import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
 			<div>
 				<Image
 					className={styles.landingimage}
-					src={background}
+					src={newbackground}
 					alt='homepage image'
 					layout='fill'
 					objectFit='cover'

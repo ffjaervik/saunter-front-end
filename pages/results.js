@@ -125,6 +125,7 @@ export default function Results() {
         />
       </div>
       {/* PATCH REQUEST */}
+	  <div className={styles.buttonbar}>
 	  <button
         key={key}
         onClick={function () {
@@ -162,6 +163,7 @@ export default function Results() {
 	  }
       </button>
     </div>
+	</div>
   );
 
   const Carousel = ({ children }) => {
@@ -293,6 +295,9 @@ export default function Results() {
         </Carousel>
         <div className={styles.cart}>
           {" "}
+		  <span className={styles.bubbleleft}>
+            
+          </span>
           <button className='btn' onClick={sendCart}>
             See Day Plan
           </button>

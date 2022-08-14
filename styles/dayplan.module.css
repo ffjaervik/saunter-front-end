@@ -125,26 +125,26 @@
   .iconbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 2rem;
-    border: 5px solid black;
-    box-sizing: border-box;
-    width: 40%;
-    height: auto;
-    background-color: var(--color-btn);
+    align-items: flex-start;
     margin-top: 1rem;
-    
   }
   
   .icon {
     color: black;
-    text-align: center;
     padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 1rem;
-  
+  }
+
+  .maplink {
+    color: black;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding-left: 1vw;
+    text-decoration: underline;
+  }
+
+  .maplink2 {
+    display: flex;
+    align-items: center;
   }
   
   /* .container {
