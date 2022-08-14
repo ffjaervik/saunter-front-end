@@ -127,7 +127,7 @@ CAROUSEL STYLING
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    gap: 5%;
     align-items: center;
     overflow: hidden;
     font-family: 'Montserrat', sans-serif;

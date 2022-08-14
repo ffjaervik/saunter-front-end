@@ -95,7 +95,7 @@ export default function DayPlan() {
 					/>
 				))}
 			</div>
-			<div className={styles.button}>
+			<div className={styles.button_dayplan}>
 			<button className='btn' onClick={function () {
 				const dayplanName = prompt("Name your day plan:");
 	
