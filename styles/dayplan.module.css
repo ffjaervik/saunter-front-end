@@ -128,7 +128,7 @@
   align-items: center;
 }
 
-.text_container h5 {
+.text_container h2 {
   font-size: 1.5vw;
   font-weight: bold;
   color: white;
@@ -145,6 +145,13 @@
   display: flex;
   justify-content: center;
   margin: 5vh;
+}
+
+.card_title {
+   font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.75vw;
+    font-weight: bold;
 }
 
 /* .button_dayplan {

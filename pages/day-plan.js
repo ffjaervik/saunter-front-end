@@ -51,40 +51,40 @@ export default function DayPlan() {
 
 	const Card = ({ title, image, description, map, type }) => {
 		return (
-			<div className={styles.activity}>
-				<div className={styles.card}>
-				  <div className={styles.title}>
-					<h2>{title}</h2>
-				  </div>
-			      <div className={styles.image_container}>
-					<img 
-					  src={image} 
-					  alt={title} 
-					  className={styles.card_image} 
-					  />
-				  </div>
-				</div>
-				<div className={styles.text_container}>
-					<div className={styles.type_container}>
-						<h5>{type}</h5>
-					</div>
-					<p>{description}</p>
-					<div className={styles.iconbar}>
-						<div className={styles.icon}>
-							<IconContext.Provider
-								value={{ color: 'black',
-									size: '1.5rem'  }}
-							>
-								<div className={styles.maplink2}>
-								<FiMapPin />
-								<a className={styles.maplink} href={map} target="_blank" rel="noreferrer">View on Google Maps</a>
-								</div>
-							</IconContext.Provider>
-						</div>
-					</div>
-				</div>
-			</div>
-		)
+      <div className={styles.activity}>
+        <div className={styles.card}>
+          <div className={styles.title}>
+            <h2 className={styles.card_title}>{title}</h2>
+          </div>
+          <div className={styles.image_container}>
+            <img src={image} alt={title} className={styles.card_image} />
+          </div>
+        </div>
+        <div className={styles.text_container}>
+          <div className={styles.type_container}>
+            <h2>{type}</h2>
+          </div>
+          <p>{description}</p>
+          <div className={styles.iconbar}>
+            <div className={styles.icon}>
+              <IconContext.Provider value={{ color: "black", size: "1.5rem" }}>
+                <div className={styles.maplink2}>
+                  <FiMapPin />
+                  <a
+                    className={styles.maplink}
+                    href={map}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View on Google Maps
+                  </a>
+                </div>
+              </IconContext.Provider>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 	}
 	return (
 		<div className={styles.dayplan}>
