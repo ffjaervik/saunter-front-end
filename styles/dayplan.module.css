@@ -6,7 +6,7 @@
   top: calc(5vh + 20px);
 }
 
-.headingcard {
+.dayplancard {
   background-color: var(--color-bg);
     color: var(--color-primary);
     padding: 1rem;
@@ -51,6 +51,7 @@
   width: 90%;
   padding-left: 2vw;
   padding-right: 2vw;
+  border: 3px solid red;
 }
 
 .activity {
