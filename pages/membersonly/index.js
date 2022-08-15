@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Head from 'next/head'
+
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import styles from '../../styles/User.module.css'
 import { useEffect, useState } from 'react'
@@ -13,6 +15,7 @@ const Members = () => {
 	const [savedActivities, setSavedActivities] = useState([])
 	const [activityIDs, setActivityIDs] = useState([])
 
+
 	const router = useRouter()
 
 	function viewDayplan(dayplan) {
@@ -25,6 +28,7 @@ const Members = () => {
 			query: { query },
 		})
 	}
+
 
 	// useEffect(() => {
 	// 	const getData = async () => {
@@ -76,7 +80,9 @@ const Members = () => {
 			<div className={styles.liked_container}>
 				<div className={styles.image_container}>
 					<div>
+
 						<img src={image} alt={name} className={styles.image} />
+
 					</div>
 					<h1>{name}</h1>
 					<div className={styles.image_overlay}>
@@ -100,6 +106,7 @@ const Members = () => {
 			</div>
 		)
 	}
+
 
 	return (
 		<div className={styles.main}>
@@ -131,6 +138,7 @@ const Members = () => {
 					)
 				})}
 				{/* Mapping ends here */}
+
 			</div>
 			<div className={styles.liked_title}>
 				<h1>Your liked activities: </h1>

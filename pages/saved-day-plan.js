@@ -1,5 +1,7 @@
 import styles from '../styles/dayplan.module.css'
+
 import Head from 'next/head'
+
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
@@ -47,7 +49,9 @@ export default function DayPlan() {
 					<p>{description}</p>
 					<div className={styles.iconbar}>
 						<div className={styles.icon}>
+
 							<IconContext.Provider value={{ color: 'black', size: '2rem' }}>
+
 								<FiMapPin />
 							</IconContext.Provider>
 						</div>
@@ -62,11 +66,13 @@ export default function DayPlan() {
 	}
 	return (
 		<div className={styles.dayplan}>
+
 			<Head>
 				<title>Saunter | Saved Day Plan</title>
 			</Head>
 			<div className={styles.dayplancard}>
 				<h1 className={styles.text}>Your saved day plan:</h1>
+
 			</div>
 			<div className={styles.all_cards}>
 				{dayPlan.map((activity, index) => (
@@ -80,6 +86,7 @@ export default function DayPlan() {
 				))}
 			</div>
 			<div className={styles.button}>
+
 				<button
 					className='btn'
 					onClick={function () {
@@ -96,3 +103,4 @@ export default function DayPlan() {
 		</div>
 	)
 }
+

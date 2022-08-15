@@ -1,3 +1,4 @@
+
 .main{
     width: 100vw;
     position: relative;
@@ -138,6 +139,7 @@ position: relative;
 	opacity: 0;
 	transition: opacity 0.3s;
 	object-fit: fill;
+
 	position: absolute;
 	border-radius: 2rem;
 }
@@ -145,8 +147,8 @@ position: relative;
     padding: 2rem;
     font-size: var(--font-size-s);
 }
+
 .image_overlay:hover {
 	opacity: 1;
 }
 
- 
