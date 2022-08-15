@@ -1,15 +1,22 @@
-import styles from '../styles/dayplan.module.css';
-import Head from 'next/head';
-import { useEffect, useState, Link } from 'react';
-import { useRouter } from 'next/router';
-import axios from 'axios';
-import Image from 'next/image';
-import { FiMapPin } from 'react-icons/fi';
-import { IconContext } from 'react-icons';
+import styles from '../styles/dayplan.module.css'
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+import Image from 'next/image'
+import { FiMapPin } from 'react-icons/fi'
+import { IconContext } from 'react-icons'
+import { useUser } from '@auth0/nextjs-auth0'
+import Link from 'next/link'
 
 export default function DayPlan() {
-	const [dayPlan, setDayPlan] = useState([])
+	//Auth0 start
+	const { user, error, isLoading } = useUser()
+	console.log(user)
 
+	//Auth0 end
+
+	const [dayPlan, setDayPlan] = useState([])
 	const router = useRouter()
 	const { cart } = router.query
 	console.log(`This is your cart:`, cart)
@@ -89,7 +96,7 @@ export default function DayPlan() {
 				<title>Saunter | Day Plan</title>
 			</Head>
 			<div className={styles.headingcard}>
-				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
+				<h1 className={styles.text}>Your perfect day plan looks like this:</h1>
 			</div>
 			<div className={styles.all_cards}>
 				{dayPlan.map((activity, index) => (
@@ -103,19 +110,23 @@ export default function DayPlan() {
 					/>
 				))}
 			</div>
-			<div className={styles.button_dayplan}>
-				<button
-					className='btn'
-					onClick={function () {
-						const dayplanName = prompt('Name your day plan:')
 
-						const body = { name: dayplanName, activities: cart.toString() }
-						console.log(body)
-						return postDayplan(body)
-					}}
-				>
-					Save Day Plan
-				</button>
+			<div className={styles.button_dayplan}>
+				{user && (
+					<button
+						className='btn'
+						onClick={function () {
+							const dayplanName = prompt('Name your day plan:')
+
+							const body = { name: dayplanName, activities: cart.toString() }
+							console.log(body)
+							return postDayplan(body)
+						}}
+					>
+						Save Day Plan
+					</button>
+				)}
+		
 			</div>
 		</div>
 	)

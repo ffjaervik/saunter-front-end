@@ -1,27 +1,27 @@
-import React from 'react';
-import Head from 'next/head';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
-import styles from '../../styles/User.module.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { FiMapPin } from 'react-icons/fi';
-import { IconContext } from 'react-icons';
-import { useRouter } from 'next/router';
+import React from 'react'
+import Head from 'next/head'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import styles from '../../styles/Test.module.css'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { FiMapPin } from 'react-icons/fi'
+import { IconContext } from 'react-icons'
+import { useRouter } from 'next/router'
 
 const Members = () => {
 	const [savedDayplans, setSavedDayplans] = useState([])
 	const [savedActivities, setSavedActivities] = useState([])
 	const [activityIDs, setActivityIDs] = useState([])
 
-	const router = useRouter();
-	
-	function viewDayplan(dayplan){
+	const router = useRouter()
+
+	function viewDayplan(dayplan) {
 		setActivityIDs(dayplan.activities)
 		let query = dayplan.activities
 		console.log('Dayplan:', dayplan.activities)
 		console.log('Query', query)
 		router.push({
-			pathname: "/saved-day-plan",
+			pathname: '/saved-day-plan',
 			query: { query },
 		})
 	}
@@ -76,7 +76,7 @@ const Members = () => {
 			<div className={styles.liked_container}>
 				<div className={styles.image_container}>
 					<div>
-						<img src={image} alt={name} />
+						<img src={image} alt={name} className={styles.image} />
 					</div>
 					<h1>{name}</h1>
 					<div className={styles.image_overlay}>
@@ -101,8 +101,6 @@ const Members = () => {
 		)
 	}
 
-
-
 	return (
 		<div className={styles.main}>
 			<Head>
@@ -111,20 +109,28 @@ const Members = () => {
 			<div className={styles.dayplan_title}>
 				<h1>Your saved dayplans:</h1>
 			</div>
-			<div className={styles.dayplan_container_main} style={{
-				"--children-count": savedDayplans.length
-			}}>
+			<div
+				className={styles.dayplan_container_main}
+				style={{
+					'--children-count': savedDayplans.length,
+				}}
+			>
 				{/* Map though saved dayplan here */}
-				
+
 				{savedDayplans.map((dayplan, index) => {
 					return (
-						<div className={styles.dayplan_container} key={index} onClick={function(){return viewDayplan(dayplan)}}> 
-						<h2 >{dayplan.name}</h2>
+						<div
+							className={styles.dayplan_container}
+							key={index}
+							onClick={function () {
+								return viewDayplan(dayplan)
+							}}
+						>
+							<h2>{dayplan.name}</h2>
 						</div>
 					)
 				})}
-					{/* Mapping ends here */}
-		
+				{/* Mapping ends here */}
 			</div>
 			<div className={styles.liked_title}>
 				<h1>Your liked activities: </h1>
