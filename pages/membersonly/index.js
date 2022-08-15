@@ -1,11 +1,12 @@
-import React from 'react'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import styles from '../../styles/User.module.css'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { FiMapPin } from 'react-icons/fi'
-import { IconContext } from 'react-icons'
-import { useRouter } from 'next/router'
+import React from 'react';
+import Head from 'next/head';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import styles from '../../styles/User.module.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { FiMapPin } from 'react-icons/fi';
+import { IconContext } from 'react-icons';
+import { useRouter } from 'next/router';
 
 const Members = () => {
 	const [savedDayplans, setSavedDayplans] = useState([])
@@ -104,6 +105,9 @@ const Members = () => {
 
 	return (
 		<div className={styles.main}>
+			<Head>
+				<title>Saunter | Saved & Liked</title>
+			</Head>
 			<div className={styles.dayplan_title}>
 				<h1>Your saved dayplans:</h1>
 			</div>

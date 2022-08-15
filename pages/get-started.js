@@ -1,14 +1,14 @@
-import { useState, useEffect, useCallback } from 'react'
-import axios from 'axios'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/future/image'
-import { AiOutlineQuestionCircle } from 'react-icons/ai'
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/future/image';
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
 
-import page2image from '../public/assets/inputpageimage.avif'
-import page2image2 from '../public/assets/inputimage2.avif'
-import page2image3 from '../public/assets/inputimage3.avif'
+import page2image from '../public/assets/inputpageimage.avif';
+import page2image2 from '../public/assets/inputimage2.avif';
+import page2image3 from '../public/assets/inputimage3.avif';
 
 import {
 	Box,
@@ -16,8 +16,8 @@ import {
 	FormControl,
 	FormLabel,
 	Select,
-} from '@chakra-ui/react'
-import styles from '../styles/Inputpage.module.css'
+} from '@chakra-ui/react';
+import styles from '../styles/Inputpage.module.css';
 
 export default function GetStarted() {
 	const [budget, setBudget] = useState('Any')

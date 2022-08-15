@@ -1,4 +1,5 @@
 import styles from '../styles/dayplan.module.css'
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
@@ -46,10 +47,7 @@ export default function DayPlan() {
 					<p>{description}</p>
 					<div className={styles.iconbar}>
 						<div className={styles.icon}>
-							<IconContext.Provider
-								value={{ color: 'black',
-									size: '2rem', }}
-							>
+							<IconContext.Provider value={{ color: 'black', size: '2rem' }}>
 								<FiMapPin />
 							</IconContext.Provider>
 						</div>
@@ -64,6 +62,9 @@ export default function DayPlan() {
 	}
 	return (
 		<div className={styles.dayplan}>
+			<Head>
+				<title>Saunter | Saved Day Plan</title>
+			</Head>
 			<div className={styles.dayplancard}>
 				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
 			</div>
@@ -79,15 +80,18 @@ export default function DayPlan() {
 				))}
 			</div>
 			<div className={styles.button}>
-			<button className='btn' onClick={function () {
-				const dayplanName = prompt("Name your day plan:");
-	
-				const body = {name: dayplanName, activities: cart.toString()}
-				console.log(body)
-              return postDayplan(body);
-            }}>
-			Save Day Plan
-			</button>
+				<button
+					className='btn'
+					onClick={function () {
+						const dayplanName = prompt('Name your day plan:')
+
+						const body = { name: dayplanName, activities: cart.toString() }
+						console.log(body)
+						return postDayplan(body)
+					}}
+				>
+					Save Day Plan
+				</button>
 			</div>
 		</div>
 	)

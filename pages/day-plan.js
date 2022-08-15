@@ -1,10 +1,11 @@
-import styles from '../styles/dayplan.module.css'
-import { useEffect, useState, Link } from 'react'
-import { useRouter } from 'next/router'
-import axios from 'axios'
-import Image from 'next/image'
-import { FiMapPin } from 'react-icons/fi'
-import { IconContext } from 'react-icons'
+import styles from '../styles/dayplan.module.css';
+import Head from 'next/head';
+import { useEffect, useState, Link } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import Image from 'next/image';
+import { FiMapPin } from 'react-icons/fi';
+import { IconContext } from 'react-icons';
 
 export default function DayPlan() {
 	const [dayPlan, setDayPlan] = useState([])
@@ -13,20 +14,16 @@ export default function DayPlan() {
 	const { cart } = router.query
 	console.log(`This is your cart:`, cart)
 
-		const postDayplan = async (input) => {
-			const response = await fetch(
-				`https://saunter-db.herokuapp.com/dayplans`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						"Access-Control-Request-Method": "POST",
-					},
-					body: JSON.stringify(input),
-				}
-			)
-		}
-	
+	const postDayplan = async (input) => {
+		const response = await fetch(`https://saunter-db.herokuapp.com/dayplans`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Request-Method': 'POST',
+			},
+			body: JSON.stringify(input),
+		})
+	}
 
 	useEffect(() => {
 		const getData = async () => {
@@ -51,43 +48,46 @@ export default function DayPlan() {
 
 	const Card = ({ title, image, description, map, type }) => {
 		return (
-      <div className={styles.activity}>
-        <div className={styles.card}>
-          <div className={styles.title}>
-            <h2 className={styles.card_title}>{title}</h2>
-          </div>
-          <div className={styles.image_container}>
-            <img src={image} alt={title} className={styles.card_image} />
-          </div>
-        </div>
-        <div className={styles.text_container}>
-          <div className={styles.type_container}>
-            <h2>{type}</h2>
-          </div>
-          <p>{description}</p>
-          <div className={styles.iconbar}>
-            <div className={styles.icon}>
-              <IconContext.Provider value={{ color: "black", size: "1.5rem" }}>
-                <div className={styles.maplink2}>
-                  <FiMapPin />
-                  <a
-                    className={styles.maplink}
-                    href={map}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View on Google Maps
-                  </a>
-                </div>
-              </IconContext.Provider>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+			<div className={styles.activity}>
+				<div className={styles.card}>
+					<div className={styles.title}>
+						<h2 className={styles.card_title}>{title}</h2>
+					</div>
+					<div className={styles.image_container}>
+						<img src={image} alt={title} className={styles.card_image} />
+					</div>
+				</div>
+				<div className={styles.text_container}>
+					<div className={styles.type_container}>
+						<h2>{type}</h2>
+					</div>
+					<p>{description}</p>
+					<div className={styles.iconbar}>
+						<div className={styles.icon}>
+							<IconContext.Provider value={{ color: 'black', size: '1.5rem' }}>
+								<div className={styles.maplink2}>
+									<FiMapPin />
+									<a
+										className={styles.maplink}
+										href={map}
+										target='_blank'
+										rel='noreferrer'
+									>
+										View on Google Maps
+									</a>
+								</div>
+							</IconContext.Provider>
+						</div>
+					</div>
+				</div>
+			</div>
+		)
 	}
 	return (
 		<div className={styles.dayplan}>
+			<Head>
+				<title>Saunter | Day Plan</title>
+			</Head>
 			<div className={styles.headingcard}>
 				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
 			</div>
@@ -104,15 +104,18 @@ export default function DayPlan() {
 				))}
 			</div>
 			<div className={styles.button_dayplan}>
-			<button className='btn' onClick={function () {
-				const dayplanName = prompt("Name your day plan:");
-	
-				const body = {name: dayplanName, activities: cart.toString()}
-				console.log(body)
-              return postDayplan(body);
-            }}>
-			Save Day Plan
-			</button>
+				<button
+					className='btn'
+					onClick={function () {
+						const dayplanName = prompt('Name your day plan:')
+
+						const body = { name: dayplanName, activities: cart.toString() }
+						console.log(body)
+						return postDayplan(body)
+					}}
+				>
+					Save Day Plan
+				</button>
 			</div>
 		</div>
 	)
