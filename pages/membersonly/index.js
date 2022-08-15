@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import styles from '../../styles/Test.module.css'
+import styles from '../../styles/User.module.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FiMapPin } from 'react-icons/fi'

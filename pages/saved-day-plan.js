@@ -66,7 +66,7 @@ export default function DayPlan() {
 				<title>Saunter | Saved Day Plan</title>
 			</Head>
 			<div className={styles.dayplancard}>
-				<h1 className={styles.text}>Your perfect dayplan looks like this:</h1>
+				<h1 className={styles.text}>Your saved day plan:</h1>
 			</div>
 			<div className={styles.all_cards}>
 				{dayPlan.map((activity, index) => (
