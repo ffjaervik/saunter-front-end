@@ -37,10 +37,12 @@ const Navbar = () => {
       {error && <div>{error.message}</div>}
       {user && (
         <div>
+          <Link href='membersonly'>
           <button className={styles.logindisplay}>
             {" "}
             Welcome <strong>{userName(user)}</strong>
           </button>
+          </Link>
             {/* <div className={styles.ppcontainer}> */}
             {/* <img className={styles.pp} src={user.picture} alt='profile picture'/> */}
             {/* </div> */}

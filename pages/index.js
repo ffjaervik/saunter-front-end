@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Homepage.module.css'
-import homepageimg from '../public/assets/homepageimg.webp'
-import Link from 'next/link'
-import rectangle from '../public/assets/rectangle.svg'
-import newbackground from '../public/assets/newbackground.png'
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Homepage.module.css';
+import homepageimg from '../public/assets/homepageimg.webp';
+import Link from 'next/link';
+import rectangle from '../public/assets/rectangle.svg';
+import newbackground from '../public/assets/newbackground.png';
 import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home() {

@@ -71,7 +71,8 @@
 }
  
 .logindisplay {
-  background-color: #F8F5EF;
+  /* background-color: #F8F5EF; */
+  background-color: var(--color-secondary-btn);
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   font-size: 2vmin;

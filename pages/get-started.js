@@ -1,14 +1,14 @@
-import { useState, useEffect, useCallback } from 'react'
-import axios from 'axios'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/future/image'
-import { AiOutlineQuestionCircle } from 'react-icons/ai'
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/future/image';
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
 
-import page2image from '../public/assets/inputpageimage.avif'
-import page2image2 from '../public/assets/inputimage2.avif'
-import page2image3 from '../public/assets/inputimage3.avif'
+import page2image from '../public/assets/inputpageimage.avif';
+import page2image2 from '../public/assets/inputimage2.avif';
+import page2image3 from '../public/assets/inputimage3.avif';
 
 import {
 	Box,
@@ -16,13 +16,14 @@ import {
 	FormControl,
 	FormLabel,
 	Select,
-} from '@chakra-ui/react'
-import styles from '../styles/Inputpage.module.css'
+} from '@chakra-ui/react';
+import styles from '../styles/Inputpage.module.css';
 
 export default function GetStarted() {
 	const [budget, setBudget] = useState('Any')
 	const [energy, setEnergy] = useState('Any')
 	const [dog, setDog] = useState('Any')
+	const [type, setType] = useState('Any')
 
 	const router = useRouter()
 
@@ -31,9 +32,10 @@ export default function GetStarted() {
 		let selectedBudget = budget
 		let selectedEnergy = energy
 		let selectedDog = dog
+		let selectedType = type
 		router.push({
 			pathname: `/results`,
-			query: { selectedLocation, selectedBudget, selectedEnergy, selectedDog },
+			query: { selectedLocation, selectedBudget, selectedEnergy, selectedDog, selectedType },
 		})
 	}
 
@@ -143,6 +145,25 @@ export default function GetStarted() {
 								</option>
 								<option value='true'>Yes</option>
 								<option value='false'>No</option>
+							</Select>
+
+							<FormLabel fontSize='1.3rem' pt='1rem' fontWeight= 'semibold'>
+								Would type of activity are you looking for?
+							</FormLabel>
+							<Select
+								placeholder='Select preference'
+								value={type}
+								onChange={(e) => setType(e.target.value)}
+							>
+								<option selected value='Any'>
+									Any
+								</option>
+								<option value='Activity'>Activity</option>
+								<option value='Art & Culture'>Art & Culture</option>
+								<option value='Food & Drink'>Food & Drink</option>
+								<option value='Hospitality'>Hospitality</option>
+								<option value='Landmarks'>Landmarks</option>
+								<option value='Parks & Gardens'>Parks & Gardens</option>
 							</Select>
 
 							<div className={styles.button}>
