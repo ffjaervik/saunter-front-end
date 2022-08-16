@@ -1,4 +1,4 @@
-import styles from '../styles/Dayplan.module.css'
+import styles from '../styles/dayplan.module.css'
 
 import Head from 'next/head'
 
