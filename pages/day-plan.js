@@ -14,7 +14,7 @@ export default function DayPlan() {
 	const { user, error, isLoading } = useUser()
 	console.log(user)
 
-	//Auth0 end
+	//Auth0 end --
 
 	const [dayPlan, setDayPlan] = useState([])
 	const router = useRouter()
