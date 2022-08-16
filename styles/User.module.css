@@ -47,6 +47,7 @@
     align-items: center;
     font-size: var(--font-size-l);
     background-color: white;
+    cursor: pointer;
 }
 
 
@@ -90,7 +91,9 @@ align-items: center;
 margin-left: 2%;
 margin-top: 3vh;
 margin-bottom: 5%;
-/* border: 2px solid red; */
+
+cursor: pointer;
+
 
 
 

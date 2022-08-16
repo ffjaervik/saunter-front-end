@@ -1,4 +1,4 @@
-import styles from '../styles/dayplan.module.css'
+import styles from '../styles/Dayplan.module.css'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
