@@ -1,10 +1,11 @@
-# Saunter - The Solo Travelling App
-
+# Saunter - The Solo Travelling App 🐾
+Click on the image below to view our app's trailer!
+<br/>
 <a href="https://www.youtube.com/watch?v=OjcGonZyPS0" target="_blank">
  <img src="public/assets/saunter-screenshot.png" alt="Watch the Demo" width="840" height="480" border="10" />
 </a>
 </br>
-Hello, we're Team Saunter. We created this app as our School of Code final four week project (https://www.schoolofcode.co.uk/) (Bootcamp 12, 25 April - 16th August 2022).
+Hello, we're Team Saunter. We created this app as our School of Code final four week project(Bootcamp 12, 25 April - 16th August 2022).
 <br/>
 <br/>
 
@@ -24,8 +25,8 @@ Hello, we're Team Saunter. We created this app as our School of Code final four 
 
 # Meet the Team
 - [Anastasia Starostina](https://github.com/anastasia-starostina)
-- [Emily Vickery](https://github.com/ffjaervik)
-- [Fabian Deckmann Fjaervik](https://github.com/Emily9903)
+- [Emily Vickery](https://github.com/Emily9903)
+- [Fabian Deckmann Fjaervik](https://github.com/ffjaervik)
 - [Mogool Maya Abas Bafo](https://github.com/MogoolMayaB)
 - [Owen Ahmed](https://github.com/owenowenson)
 - [Sadie Goddard](https://github.com/Sadie109)
