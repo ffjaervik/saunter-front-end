@@ -1,5 +1,6 @@
 # Saunter - The Solo Travelling App
-
+<img src='public/assets/Saunter Horizontal-1.png' alt="Saunter Logo"/>
+</br>
 Hello, we're Team Saunter. We created this app as our School of Code final four week project (https://www.schoolofcode.co.uk/) (Bootcamp 12, 25 April - 16th August 2022).
 <br/>
 <br/>
