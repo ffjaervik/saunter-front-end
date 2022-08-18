@@ -3,24 +3,28 @@
 Hello, we're Team Saunter. We created this app as our School of Code final four week project (https://www.schoolofcode.co.uk/) (Bootcamp 12, 25 April - 16th August 2022).
 <br/>
 <br/>
-# List of Contents
-1. Meet The Team
-2. The Problem
-3. The Solution
-4. How Our App Works
-5. Features
-6. Tech Stack
-7. Getting Started
-8. Running Tests
-9. Appendix
+
+## List of Contents
+1. [Meet The Team](#meet-the-team)
+2. [The Problem](#the-problem)
+3. [The Solution](#our-solution)
+4. [How Our App Works](#how-our-app-works)
+5. [Features](#features)
+6. [Tech Stack](#tech-stack)
+7. [Getting Started](#getting-started)
+8. [Running Tests](#running-tests)
+9. [What Went Well](#what-went-well)
+10. [Challenges](#challenges)
+11. [Key Takeaways](key-takeaways)
+12. [Appendix](#appendix)
 
 # Meet the Team
-- Anastasia Starostina
-- Emily Vickery
-- Fabian Deckmann Fjaervik
-- Mogool Maya Abas Bafo
-- Owen Ahmed
-- Sadie Goddard
+- [Anastasia Starostina](https://github.com/anastasia-starostina)
+- [Emily Vickery](https://github.com/ffjaervik)
+- [Fabian Deckmann Fjaervik](https://github.com/Emily9903)
+- [Mogool Maya Abas Bafo](https://github.com/MogoolMayaB)
+- [Owen Ahmed](https://github.com/owenowenson)
+- [Sadie Goddard](https://github.com/Sadie109)
 
 # The Problem
 As a team with mixed experiences of travelling alone, we found that current travelling apps are often not tailored to solo travellers. These apps often focus on mainstream attractions rather than smaller, independent businesses, and user personalisation is often limited. Other apps utilise wish list systems, but do not allow the user to save iteneraries or create personalised day plans. Creating iteneraries can be stressful for those travelling alone and can impact negatively on their travelling experience.
@@ -50,11 +54,12 @@ Day plans can be created with or without logging in, but if the user chooses to 
 - Bold Neobrutalist Inspired Styling Throughout
 
 # Tech Stack
-- Client: Next.js, CSS, Auth0, Chakra Component Library, React Icons, Babel, ES Lint, Vercel
+- Client: Next.js, CSS, Chakra UI, React Icons, Vercel
 - Server: Node.js, PostgreSQL, Axios, Heroku, Postman, Express
 - Client-Side Testing: Jest, React Testing Library, Cypress
-- Server-Side Testing: SuperTest
-
+- Server-Side Testing: SuperTest, Mocha
+- Authorisation: Auth0
+- Deployment: Vercel
 # Getting Started
 
 ## Front-End
@@ -110,19 +115,38 @@ To run front-end testing, ensure you have installed dependencies using npm i (se
   npm run test
 ```
 
+# What Went Well
+- During this project we were very proud of how well we worked together as a team. We maintained a positive and supportive atmosphere with clear communication and a great feeling of psychological safety within the group. 
+- Team members were able to try and learn new technologies such as Next.js, and were able to work on multiple areas of the project through regular switching of smaller teams.
+- We utilized our Trello board very effectively throughout the project, enabling clarity for team members around tickets and what our goals were for each sprint.
+
+# Challenges
+
+- One of the main challenges we experienced was around defining our next steps after the initial MVP was complete and we had received user feedback. When working through this we spent a day reviewing and editing our MoSCoW board and redesigning our wireframes, ensuring that all voices and opinions were heard and that no decisions were made without the full agreement of the group.
+- After having difficulties with refactoring and editing several different UI carousels, we decided to create our own from scratch to allow for more freedom and personalisation in our app.
+- We experienced some bugs and issues during both our front-end and back-end deployments, which we were able to resolve through studying the Heroku and Vercel documentation carefully.
+- Finally, we were able to make our app partially responsive for use on smaller devices, however due to time constraints we were not able to complete this.
+
+# Key Takeaways
+- One key takeaway from this project is to allow extra time for unexpected bugs and issues, as these can take longer than expected to resolve.
+- Another takeaway was to spend more time during the planning stage to detail the stretch goals and wireframes before creating the initial MVP.
+- As a team we became more comfortable with asking for help when needed over the course of the four weeks
+- All team members learned and developed many skills during the project, and the risks that were taken by using new technologies such as Next.js and our bold app styling proved to be the right decisions.
+
+
 # Appendix
 Please find resources below for further guidance:
-- Next.js - https://nextjs.org/docs/getting-started
-- Auth0 - https://auth0.com/docs/
-- Chakra Component Library - https://chakra-ui.com/getting-started
-- React Icons - https://react-icons.github.io/react-icons/ 
-- Vercel - https://vercel.com/docs 
-- Node.js - https://nodejs.org/en/docs/
-- PostgreSQL - https://www.postgresql.org/docs/
-- Heroku - https://devcenter.heroku.com/
-- Postman - https://learning.postman.com/docs/getting-started/introduction/
-- Express - https://expressjs.com/en/resources/glossary.html
-- Jest - https://jestjs.io/docs/getting-started
-- React Testing Library - https://testing-library.com/docs/react-testing-library/intro/
-- Cypress - https://docs.cypress.io/guides/overview/why-cypress
-- SuperTest - https://docs.npmjs.com/getting-started
+- [Next.js](https://nextjs.org/docs/getting-started)
+- [Auth0](https://auth0.com/docs/)
+- [Chakra Component Library](https://chakra-ui.com/getting-started)
+- [React Icons](https://react-icons.github.io/react-icons/) 
+- [Vercel](https://vercel.com/docs) 
+- [Node.js](https://nodejs.org/en/docs/)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [Heroku](https://devcenter.heroku.com/)
+- [Postman](https://learning.postman.com/docs/getting-started/introduction/)
+- [Express](https://expressjs.com/en/resources/glossary.html)
+- [Jest](https://jestjs.io/docs/getting-started)
+- [ReactTesting Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
+- [SuperTest](https://docs.npmjs.com/getting-started)
