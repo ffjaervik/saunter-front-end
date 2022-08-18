@@ -1,13 +1,11 @@
-# Saunter - The Solo Travelling App 🐾
+# 🌇 Saunter - The Solo Travelling App 
 Click on the image below to view our app's trailer!
-<br/>
+
 <a href="https://www.youtube.com/watch?v=OjcGonZyPS0" target="_blank">
  <img src="public/assets/saunter-screenshot.png" alt="Watch the Demo" width="840" height="480" border="10" />
 </a>
-</br>
+
 Hello, we're Team Saunter. We created this app as our School of Code final four week project(Bootcamp 12, 25 April - 16th August 2022).
-<br/>
-<br/>
 
 ## List of Contents
 1. [Meet The Team](#meet-the-team)
