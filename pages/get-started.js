@@ -69,7 +69,8 @@ export default function GetStarted() {
 			<div className={styles.form}>
 				<ChakraProvider>
 					<Box
-						width={{ base: '30vw', lg: '100%', md: '80%' }}
+						width={{ base: '50vh', md: '50vh', lg: '68vh' }}
+						mb='10vh'
 						borderColor='black'
 						borderStyle='solid'
 						borderWidth='4px'
