@@ -149,7 +149,7 @@ export default function GetStarted() {
 							</Select>
 
 							<FormLabel fontSize='1.3rem' pt='1rem' fontWeight= 'semibold'>
-								Would type of activity are you looking for?
+								What type of activity are you looking for?
 							</FormLabel>
 							<Select
 								placeholder='Select preference'
