@@ -19,7 +19,7 @@ export default function DayPlan() {
 	useEffect(() => {
 		const getData = async () => {
 			const response = await axios.get(
-				`https://saunter-db.herokuapp.com/all-budgets`
+				`https://forked-saunter.herokuapp.com/all-budgets`
 			)
 			let allActivities = response.data.data
 			let filteredActivities = []

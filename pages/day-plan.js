@@ -23,7 +23,7 @@ export default function DayPlan() {
 
 
 	const postDayplan = async (input) => {
-		const response = await fetch(`https://saunter-db.herokuapp.com/dayplans`, {
+		const response = await fetch(`https://forked-saunter.herokuapp.com/dayplans`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export default function DayPlan() {
 	useEffect(() => {
 		const getData = async () => {
 			const response = await axios.get(
-				`https://saunter-db.herokuapp.com/all-budgets`
+				`https://forked-saunter.herokuapp.com/all-budgets`
 			)
 			let allActivities = response.data.data
 			let filteredActivities = []

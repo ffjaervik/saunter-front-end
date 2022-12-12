@@ -52,7 +52,7 @@ export default function Results() {
 
 	//SAVE BUTTON FUNCTIONALITY
 	async function patchSaved(input) {
-		await fetch(`https://saunter-db.herokuapp.com/all-budgets`, {
+		await fetch(`https://forked-saunter.herokuapp.com/all-budgets`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Results() {
 	useEffect(() => {
 		const getData = async () => {
 			const response = await axios.get(
-				`https://saunter-db.herokuapp.com/all-budgets`
+				`https://forked-saunter.herokuapp.com/all-budgets`
 			)
 			let allActivities = response.data.data
 			console.log('allActivities', allActivities)
